@@ -1,0 +1,49 @@
+@import 'tailwindcss';
+@import '@nuxt/ui';
+
+@font-face {
+  font-family: 'Public Sans';
+  src: url('/fonts/iranyekanwebregular.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Instrument Serif';
+  src: url('/fonts/iranyekanwebregular.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@source "../../../content/**/*";
+
+@theme static {
+  --font-sans: 'Public Sans', sans-serif;
+  --font-serif: 'Instrument Serif', serif;
+}
+
+:root {
+  --ui-container: var(--container-4xl);
+
+  ::selection {
+    color: #282a30;
+    background-color: #c8c8c8;
+  }
+}
+
+.dark {
+  ::selection {
+    color: #ffffff;
+    background-color: #474747;
+  }
+}
+
+.nav-enter-active,
+.nav-leave-active {
+  transition: opacity 0.35s ease;
+}
+
+.nav-enter-from,
+.nav-leave-to {
+  opacity: 0;
+}
