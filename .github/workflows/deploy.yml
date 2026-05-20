@@ -9,29 +9,33 @@ permissions:
   pages: write
   id-token: write
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup node and pnpm
-        uses: pnpm/action-setup@v3
+      - name: Setup Node.js 24
+        uses: actions/setup-node@v4
         with:
-          version: 10
+          node-version: 24
+          cache: 'pnpm'
 
-      - name: Install dependencies
+      - name: Enable corepack and setup pnpm
         run: |
           corepack enable
-          pnpm install
+          corepack prepare pnpm@latest --activate
 
-      - name: Build Nuxt SSG output
-        run: |
-          pnpm run build
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build Nuxt app
+        run: pnpm run build
 
       - name: Upload static output
         uses: actions/upload-pages-artifact@v3
@@ -44,6 +48,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
