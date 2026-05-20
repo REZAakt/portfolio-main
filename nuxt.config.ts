@@ -18,6 +18,10 @@ export default defineNuxtConfig({
   //   pageTransition: { name: 'page', mode: 'out-in' }
   // },
 
+  app: {
+    baseURL: '/'
+  },
+
   css: ['~/assets/css/main.css'],
 
   colorMode: {
