@@ -88,10 +88,11 @@ const startViewTransition = (event: MouseEvent) => {
 <template>
   <ClientOnly>
     <UButton
+      style="font-size: medium; padding: 10px 10px 6px 10px"
       :aria-label="`Switch language to ${nextLocaleLabel}`"
       color="neutral"
       variant="ghost"
-      size="sm"
+      size="md"
       class="rounded-full font-semibold text-xs tracking-wide uppercase"
       @click="startViewTransition"
     >
@@ -103,7 +104,3 @@ const startViewTransition = (event: MouseEvent) => {
     </template>
   </ClientOnly>
 </template>
-
-<style scoped>
-/* اگر خواستی استایل خاص برای زبان‌ها بدهی */
-</style>

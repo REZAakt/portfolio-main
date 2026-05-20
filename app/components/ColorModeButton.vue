@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/max-attributes-per-line -->
 <!-- eslint-disable vue -->
 <script setup lang="ts">
 const colorMode = useColorMode()
@@ -52,8 +53,8 @@ const startViewTransition = (event: MouseEvent) => {
       @click="startViewTransition"
     >
       <!-- استفاده مستقیم از کامپوننت آیکون برای حل مشکل Static Bundle -->
-      <UIcon v-if="nextTheme === 'dark'" name="i-lucide-sun" />
-      <UIcon v-else name="i-lucide-moon" />
+      <UIcon v-if="nextTheme === 'dark'" name="i-lucide-sun" class="size-5" />
+      <UIcon v-else name="i-lucide-moon" class="size-5" />
     </UButton>
 
     <template #fallback>
