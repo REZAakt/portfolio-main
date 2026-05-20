@@ -2,7 +2,7 @@ name: Deploy Nuxt 4 Portfolio to GitHub Pages
 
 on:
   push:
-    branches: ['main']
+    branches: ["main"]
 
 permissions:
   contents: read
@@ -12,23 +12,28 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Node & pnpm
+      - name: Setup node and pnpm
         uses: pnpm/action-setup@v3
         with:
           version: 10
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: |
+          corepack enable
+          pnpm install
 
-      - name: Build project
-        run: pnpm run build
+      - name: Build Nuxt SSG output
+        run: |
+          pnpm run build
 
-      - name: Upload static files
+      - name: Upload static output
         uses: actions/upload-pages-artifact@v3
         with:
           path: .output/public
@@ -39,7 +44,6 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
