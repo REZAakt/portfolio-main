@@ -8,10 +8,11 @@
     <div class="h-24 sm:h-35" />
 
     <AppMode />
-
-    <UContainer class="sm:border-x border-default pt-10">
-      <slot />
-      <AppFooter />
-    </UContainer>
+    <SwipeNavigation :links="navLinks">
+      <UContainer class="sm:border-x border-default pt-10">
+        <slot />
+        <AppFooter />
+      </UContainer>
+    </SwipeNavigation>
   </div>
 </template>
