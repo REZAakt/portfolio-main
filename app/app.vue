@@ -4,6 +4,8 @@ const colorMode = useColorMode()
 
 const color = computed(() => (colorMode.value === 'dark' ? '#020618' : 'white'))
 
+const swipeDirection = useSwipeDirection()
+
 useHead({
   meta: [
     { charset: 'utf-8' },
@@ -47,9 +49,18 @@ const [{ data: navigation }, { data: files }] = await Promise.all([
 <template>
   <UApp>
     <NuxtLoadingIndicator />
+
     <NuxtLayout>
-      <UMain class="relative">
-        <NuxtPage />
+      <UMain class="relative overflow-hidden" :data-direction="swipeDirection || undefined">
+        <NuxtPage
+          :transition="{
+            name: 'page',
+            mode: 'out-in',
+            onAfterLeave: () => {
+              swipeDirection = null
+            }
+          }"
+        />
       </UMain>
     </NuxtLayout>
 

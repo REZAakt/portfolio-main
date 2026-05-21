@@ -5,6 +5,7 @@ const props = defineProps<{
   links: NavigationMenuItem[]
 }>()
 
+const swipeDirection = useSwipeDirection()
 const router = useRouter()
 const route = useRoute()
 const { locale } = useI18n()
@@ -28,7 +29,7 @@ const { lengthX, lengthY } = useSwipe(target, {
   threshold: 80,
   passive: true,
 
-  onSwipeEnd: (_event, dir) => {
+  onSwipeEnd: async (_event, dir) => {
     if (!dir) return
 
     if (Math.abs(lengthY.value) > Math.abs(lengthX.value)) return
@@ -38,6 +39,12 @@ const { lengthX, lengthY } = useSwipe(target, {
     const index = list.indexOf(current)
 
     if (index === -1) return
+
+    if (dir === 'left' || dir === 'right') {
+      swipeDirection.value = dir
+
+      await nextTick() // ⭐ خیلی مهم
+    }
 
     if (dir === 'left') {
       const next = list[index + 1]
