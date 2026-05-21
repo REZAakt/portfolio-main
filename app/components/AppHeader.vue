@@ -29,7 +29,7 @@ function updateIndicator() {
 
     indicatorStyle.value = {
       width: `${activeEl.offsetWidth - 16}px`,
-      transform: `translateX(${activeEl.offsetLeft + 25}px)`,
+      transform: `translateX(${activeEl.offsetLeft + 23}px)`,
       opacity: '1'
     }
   })
@@ -45,7 +45,7 @@ watch(() => route.path, updateIndicator)
     <div ref="navRef" class="relative">
       <!-- indicator -->
       <div
-        class="pointer-events-none absolute bottom-[8px] left-0 z-50 h-[3px] rounded-full bg-white shadow-[0_0_14px_rgba(255,255,255,0.95)] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
+        class="pointer-events-none absolute bottom-[8px] left-0 z-50 h-[3px] rounded-full bg-[var(--ui-text-highlighted)] shadow-[0_0_14px_rgba(255,255,255,0.35)] dark:shadow-[0_0_14px_rgba(255,255,255,0.95)] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
         :style="indicatorStyle"
       />
 
