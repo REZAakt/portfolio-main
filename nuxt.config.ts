@@ -25,7 +25,7 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
 
   colorMode: {
-    preference: 'system', // ← این باعث می‌شود تم اولیه از تنظیمات سیستم کاربر خوانده شود
+    preference: 'dark', // ← این باعث می‌شود تم اولیه از تنظیمات سیستم کاربر خوانده شود
     fallback: 'dark', // ← اگر سیستم کاربر را نشناخت، از light استفاده می‌کند
     classSuffix: '' // ← کلاس‌ها مثلاً "dark" و "light" بدون suffix خواهند بود
   },
