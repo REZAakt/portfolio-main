@@ -41,7 +41,7 @@ watch(() => route.path, updateIndicator)
 </script>
 
 <template>
-  <div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
+  <div class="fixed bottom-4 left-1/2 -translate-x-1/2 z-50">
     <div ref="navRef" class="relative">
       <!-- indicator -->
       <div
