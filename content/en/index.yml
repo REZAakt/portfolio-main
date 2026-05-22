@@ -1,12 +1,12 @@
 seo:
-  title: 'Reza Akbarpour - Software developer'
+  title: 'Reza Akbarpour - UX/UI Designer'
   description: "Welcome to my portfolio! I'm Reza Akbarpour, a UX/UI designer and front-end developer based in Boston. I specialize in creating user-centered digital experiences that are both beautiful and functional."
 title: "Hey, I'm Reza Akbarpour UX/UI Designer"
 description: 'I craft intuitive digital experiences where design meets functionality. Based in Boston, bringing ideas to life through code and creativity.'
 hero:
   links:
-    - label: 'My Telegram'
-      to: https://t.me/REZA_akT
+    - label: 'Use this template'
+      to: https://github.com/nuxt-ui-templates/portfolio
       color: 'neutral'
   images:
     - src: /hero/random-1.avif
@@ -30,7 +30,7 @@ hero:
 about:
   title: 'About Me'
   description: |
-    As a UX/UI designer and front-end developer with 5 years of experience, I leverage my Boston University Interactive Design degree to craft user-centered digital experiences.
+    As a UX/UI designer and front-end developer with 6 years of experience, I leverage my Boston University Interactive Design degree to craft user-centered digital experiences.
     My approach blends creative strategy with technical expertise, transforming concepts into functional, purposeful digital products that seamlessly integrate design and technology.
 experience:
   title: Work Experience

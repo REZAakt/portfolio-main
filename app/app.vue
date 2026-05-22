@@ -22,7 +22,7 @@ useHead(() => ({
 }))
 
 useSeoMeta({
-  titleTemplate: '%s - Nuxt Portfolio Template',
+  titleTemplate: '%s - Portfolio',
   twitterCard: 'summary_large_image'
 })
 
