@@ -18,7 +18,14 @@ useHead(() => ({
     ...(localeHead.value.meta || [])
   ],
 
-  link: [{ rel: 'icon', href: '/favicon.ico' }, ...(localeHead.value.link || [])]
+  link: [
+    { rel: 'icon', href: '/favicon.ico' },
+
+    {
+      rel: 'apple-touch-icon',
+      href: '/apple-touch-icon.png'
+    }
+  ]
 }))
 
 useSeoMeta({
