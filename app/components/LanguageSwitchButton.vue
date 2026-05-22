@@ -26,29 +26,27 @@ const nextLocaleLabel = computed(() => nextLocale.value.toUpperCase())
 
 // Optional: آپدیت dir روی <html> اگر لازم بود
 const updateDocumentDir = (code: string) => {
+  if (import.meta.server) return
+
   // eslint-disable-next-line @stylistic/arrow-parens
   const localeMeta = availableLocales.value.find((l) => l.code === code)
-  if (localeMeta?.dir) {
-    document.documentElement.setAttribute('dir', localeMeta.dir)
-  } else {
-    // fallback: fa -> rtl, en -> ltr
-    document.documentElement.setAttribute('dir', code === 'fa' ? 'rtl' : 'ltr')
-  }
+
+  document.documentElement.setAttribute('dir', localeMeta?.dir || (code === 'fa' ? 'rtl' : 'ltr'))
+
+  document.documentElement.setAttribute('lang', code)
 }
 
+watch(
+  locale,
+  (newLocale) => {
+    updateDocumentDir(newLocale)
+  },
+  { immediate: true }
+)
 const switchLocale = async () => {
-  const target = nextLocale.value as 'fa' | 'en' // صراحتاً تایپ بده
+  const target = nextLocale.value as 'fa' | 'en'
 
-  // 1) ست کردن locale در i18n (همراه با ریدایرکت مناسب)
-  // setLocale خودش ریدایرکت مناسب (بر اساس strategy) را هندل می‌کند
   await setLocale(target)
-
-  // 2) در صورت نیاز route را sync نگه دار (معمولاً لازم نیست اگر setLocaleRoute در nuxt-i18n استفاده شود)
-  // const localizedRoute = useLocaleRoute()
-  // const newRoute = localizedRoute(route.name as string) // اگر نیاز شد
-
-  // 3) بروزرسانی dir صفحه
-  updateDocumentDir(target)
 }
 
 const startViewTransition = (event: MouseEvent) => {
