@@ -1,3 +1,4 @@
+<!-- eslint-disable @stylistic/arrow-parens -->
 <script setup lang="ts">
 import type { NuxtError } from '#app'
 
