@@ -58,18 +58,22 @@ export default defineNuxtConfig({
   // nuxt.config.ts
   i18n: {
     defaultLocale: 'fa',
-    strategy: 'prefix_except_default', // فارسی بدون پیشوند (/)، انگلیسی با پیشوند (/en)
+
+    strategy: 'prefix_except_default',
+
     locales: [
       { code: 'fa', name: 'فارسی', file: 'fa.json', dir: 'rtl' },
       { code: 'en', name: 'English', file: 'en.json', dir: 'ltr' }
     ],
+
     lazy: true,
     langDir: 'locales/',
+
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: 'i18n_redirected',
       redirectOn: 'root',
-      alwaysRedirect: true // این خیلی مهمه: همیشه کاربر رو به زبانی که توی کوکی هست برگردون
+      alwaysRedirect: true
     }
   },
 

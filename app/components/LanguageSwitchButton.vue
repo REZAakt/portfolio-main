@@ -1,20 +1,8 @@
 <script setup lang="ts">
-const { locale, locales, setLocale } = useI18n()
-
-// برای راحتی: لوکال‌ها را تایپ کنیم
-type LocaleObject = {
-  code: string
-  name?: string
-  dir?: 'rtl' | 'ltr'
-}
+const { locale, setLocale } = useI18n()
 
 const currentLocale = computed(() => locale.value)
 
-const availableLocales = computed<LocaleObject[]>(() => {
-  return (locales.value as LocaleObject[]) || []
-})
-
-// چون فقط fa / en داریم، یک toggle ساده می‌سازیم
 const nextLocale = computed<string>(() => {
   if (currentLocale.value === 'fa') return 'en'
   return 'fa'
@@ -24,28 +12,10 @@ const nextLocale = computed<string>(() => {
 const currentLocaleLabel = computed(() => currentLocale.value.toUpperCase())
 const nextLocaleLabel = computed(() => nextLocale.value.toUpperCase())
 
-// Optional: آپدیت dir روی <html> اگر لازم بود
-const updateDocumentDir = (code: string) => {
-  if (import.meta.server) return
-
-  // eslint-disable-next-line @stylistic/arrow-parens
-  const localeMeta = availableLocales.value.find((l) => l.code === code)
-
-  document.documentElement.setAttribute('dir', localeMeta?.dir || (code === 'fa' ? 'rtl' : 'ltr'))
-
-  document.documentElement.setAttribute('lang', code)
-}
-
-watch(
-  locale,
-  (newLocale) => {
-    updateDocumentDir(newLocale)
-  },
-  { immediate: true }
-)
 const switchLocale = async () => {
   const target = nextLocale.value as 'fa' | 'en'
 
+  // nuxt-i18n خودش cookie / redirect / SSR را هندل می‌کند
   await setLocale(target)
 }
 
@@ -58,6 +28,7 @@ const startViewTransition = (event: MouseEvent) => {
 
   const x = event.clientX
   const y = event.clientY
+
   const endRadius = Math.hypot(
     Math.max(x, window.innerWidth - x),
     Math.max(y, window.innerHeight - y)
@@ -69,6 +40,7 @@ const startViewTransition = (event: MouseEvent) => {
 
   transition.ready.then(() => {
     const duration = 600
+
     document.documentElement.animate(
       {
         clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${endRadius}px at ${x}px ${y}px)`]

@@ -6,17 +6,20 @@ const color = computed(() => (colorMode.value === 'dark' ? '#020618' : 'white'))
 
 const swipeDirection = useSwipeDirection()
 
-useHead({
+const localeHead = useLocaleHead()
+
+useHead(() => ({
+  htmlAttrs: localeHead.value.htmlAttrs,
+
   meta: [
     { charset: 'utf-8' },
     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-    { key: 'theme-color', name: 'theme-color', content: color }
+    { key: 'theme-color', name: 'theme-color', content: color },
+    ...(localeHead.value.meta || [])
   ],
-  link: [{ rel: 'icon', href: '/favicon.ico' }],
-  htmlAttrs: {
-    lang: 'en'
-  }
-})
+
+  link: [{ rel: 'icon', href: '/favicon.ico' }, ...(localeHead.value.link || [])]
+}))
 
 useSeoMeta({
   titleTemplate: '%s - Nuxt Portfolio Template',
