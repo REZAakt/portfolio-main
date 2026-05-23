@@ -15,15 +15,15 @@ const { data: page } = await useAsyncData(
   async () => {
     const allPages = await queryCollection('index').all()
 
-    console.table(
-      // eslint-disable-next-line @stylistic/arrow-parens
-      allPages.map((item) => ({
-        title: item.title,
-        path: item.path,
-        id: item.id,
-        stem: item.stem
-      }))
-    )
+    // console.table(
+    //   // eslint-disable-next-line @stylistic/arrow-parens
+    //   allPages.map((item) => ({
+    //     title: item.title,
+    //     path: item.path,
+    //     id: item.id,
+    //     stem: item.stem
+    //   }))
+    // )
 
     // eslint-disable-next-line @stylistic/arrow-parens
     return allPages.find((item) => possiblePaths.value.includes(item.path)) || null

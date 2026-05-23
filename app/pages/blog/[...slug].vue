@@ -12,19 +12,19 @@ const { data: page } = await useAsyncData(
   async () => {
     const allPosts = await queryCollection('blog').all()
 
-    console.table(
-      allPosts.map((post) => ({
-        title: post.title,
-        path: post.path,
-        id: post.id,
-        stem: post.stem
-      }))
-    )
+    // console.table(
+    //   allPosts.map((post) => ({
+    //     title: post.title,
+    //     path: post.path,
+    //     id: post.id,
+    //     stem: post.stem
+    //   }))
+    // )
 
     const matchedPost = allPosts.find((post) => post.path === contentPath.value)
 
     // console.log('matchedPost:', matchedPost)
-    console.groupEnd()
+    // console.groupEnd()
 
     return matchedPost || null
   },

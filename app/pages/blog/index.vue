@@ -23,14 +23,14 @@ const { data: posts } = await useAsyncData(
   async () => {
     const allPosts = await queryCollection('blog').order('date', 'DESC').all()
 
-    console.table(
-      allPosts.map((post) => ({
-        title: post.title,
-        path: post.path,
-        id: post.id,
-        stem: post.stem
-      }))
-    )
+    // console.table(
+    //   allPosts.map((post) => ({
+    //     title: post.title,
+    //     path: post.path,
+    //     id: post.id,
+    //     stem: post.stem
+    //   }))
+    // )
 
     return allPosts.filter((post) => post.path.startsWith(`${contentPath.value}/`))
   },

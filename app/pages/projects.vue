@@ -113,10 +113,13 @@ defineOgImage('Portfolio', {
               />
             </ULink>
           </template>
-          <img
+          <NuxtImg
             :src="project.image"
             :alt="project.title"
+            width="400"
+            height="192"
             class="object-cover w-full h-48 rounded-lg"
+            loading="lazy"
           />
         </UPageCard>
       </Motion>
