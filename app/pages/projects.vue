@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/max-attributes-per-line -->
 <script setup lang="ts">
 const { contentPath } = useContentPath()
 
