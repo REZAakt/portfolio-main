@@ -8,12 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@iconify-json/lucide':
-        specifier: ^1.2.106
-        version: 1.2.106
-      '@iconify-json/simple-icons':
-        specifier: ^1.2.81
-        version: 1.2.81
       '@nuxt/content':
         specifier: ^3.13.0
         version: 3.13.0(better-sqlite3@12.9.0)(magicast@0.5.2)
@@ -48,6 +42,12 @@ importers:
         specifier: ^4.3.0
         version: 4.3.0
     devDependencies:
+      '@iconify-json/lucide':
+        specifier: ^1.2.106
+        version: 1.2.106
+      '@iconify-json/simple-icons':
+        specifier: ^1.2.81
+        version: 1.2.81
       '@nuxt/eslint':
         specifier: ^1.15.2
         version: 1.15.2(@typescript-eslint/utils@8.57.0(eslint@10.3.0(jiti@2.6.1))(typescript@6.0.3))(@vue/compiler-sfc@3.5.33)(eslint@10.3.0(jiti@2.6.1))(magicast@0.5.2)(typescript@6.0.3)(vite@7.3.2(@types/node@25.5.0)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.1)(yaml@2.8.2))

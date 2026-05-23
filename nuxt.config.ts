@@ -57,13 +57,14 @@ export default defineNuxtConfig({
 
   // nuxt.config.ts
   i18n: {
-    defaultLocale: 'fa',
+    baseUrl: 'https://rezaakbarpour.ir',
 
+    defaultLocale: 'fa',
     strategy: 'prefix_except_default',
 
     locales: [
-      { code: 'fa', name: 'فارسی', file: 'fa.json', dir: 'rtl' },
-      { code: 'en', name: 'English', file: 'en.json', dir: 'ltr' }
+      { code: 'fa', language: 'fa-IR', name: 'فارسی', file: 'fa.json', dir: 'rtl' },
+      { code: 'en', language: 'en-US', name: 'English', file: 'en.json', dir: 'ltr' }
     ],
 
     lazy: true,
