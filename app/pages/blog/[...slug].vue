@@ -3,9 +3,9 @@
 const route = useRoute()
 const { contentPath } = useContentPath()
 
-console.group('🔥 BLOG POST DEBUG')
-console.log('route.path:', route.path)
-console.log('contentPath:', contentPath.value)
+// console.group('🔥 BLOG POST DEBUG')
+// console.log('route.path:', route.path)
+// console.log('contentPath:', contentPath.value)
 
 const { data: page } = await useAsyncData(
   () => `blog-post-${contentPath.value}`,
@@ -23,7 +23,7 @@ const { data: page } = await useAsyncData(
 
     const matchedPost = allPosts.find((post) => post.path === contentPath.value)
 
-    console.log('matchedPost:', matchedPost)
+    // console.log('matchedPost:', matchedPost)
     console.groupEnd()
 
     return matchedPost || null
