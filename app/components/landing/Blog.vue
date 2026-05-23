@@ -9,8 +9,12 @@ defineProps<{
 const { locale } = useI18n()
 const { toRoutePath } = useContentPath()
 
+const currentPrefix = computed(() => {
+  return locale.value === 'en' ? '/en' : ''
+})
+
 const blogPathPrefix = computed(() => {
-  return locale.value === 'fa' ? '/fa/blog/' : '/en/blog/'
+  return `${currentPrefix.value}/blog/`
 })
 
 const { data: posts } = await useAsyncData(

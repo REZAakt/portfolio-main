@@ -50,7 +50,10 @@ useSeoMeta({
     locale.value === 'fa'
       ? 'https://rezaakbarpour.ir/og-fa.jpg'
       : 'https://rezaakbarpour.ir/og-en.jpg',
-  twitterImage: 'https://rezaakbarpour.ir/og-fa.jpg',
+  twitterImage: () =>
+    locale.value === 'fa'
+      ? 'https://rezaakbarpour.ir/og-fa.jpg'
+      : 'https://rezaakbarpour.ir/og-en.jpg',
   twitterCard: 'summary_large_image'
 })
 </script>

@@ -78,7 +78,7 @@ export default defineNuxtConfig({
   },
 
   icon: {
-    serverBundle: false, // این خیلی مهمه! به Nuxt بگو اصلاً دنبال سرور برای آیکون نباش
+    serverBundle: 'local',
     clientBundle: {
       scan: true,
       includeCustomCollections: true
