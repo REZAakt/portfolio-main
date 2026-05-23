@@ -1,5 +1,5 @@
 ---
-title: 'From Mockup to Market: My End-to-End Product Design Process'
+title: 'FrYasdlkahsdlklnto Market: My End-to-End Product Design Process'
 description: A detailed breakdown of my iterative design methodology, from
   initial research to final handoff, with practical tips for designers at every
   stage.

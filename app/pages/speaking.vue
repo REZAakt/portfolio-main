@@ -7,46 +7,66 @@ type Event = {
   category: 'Conference' | 'Live talk' | 'Podcast'
 }
 
-const { data: page } = await useAsyncData('speaking', () => {
-  return queryCollection('speaking').first()
-})
+const { contentPath } = useContentPath()
+
+const { data: page } = await useAsyncData(
+  () => `speaking-${contentPath.value}`,
+  () => queryCollection('speaking').path(contentPath.value).first(),
+  {
+    watch: [contentPath]
+  }
+)
+
 if (!page.value) {
   throw createError({
     statusCode: 404,
-    statusMessage: 'Page not found',
+    statusMessage: `Page not found: ${contentPath.value}`,
     fatal: true
   })
 }
 
-const title = page.value?.seo?.title || page.value?.title
-const description = page.value?.seo?.description || page.value?.description
+const title = computed(() => page.value?.seo?.title || page.value?.title)
+const description = computed(() => page.value?.seo?.description || page.value?.description)
 
 useSeoMeta({
-  title,
-  ogTitle: title,
-  description,
-  ogDescription: description
+  title: () => title.value,
+  ogTitle: () => title.value,
+  description: () => description.value,
+  ogDescription: () => description.value
 })
 
-defineOgImage('Portfolio', { title, description })
+defineOgImage('Portfolio', {
+  title: title.value,
+  description: description.value
+})
 
 const { global } = useAppConfig()
 
 const groupedEvents = computed((): Record<Event['category'], Event[]> => {
   const events = page.value?.events || []
+
   const grouped: Record<Event['category'], Event[]> = {
-    'Conference': [],
+    // eslint-disable-next-line @stylistic/quote-props
+    Conference: [],
     'Live talk': [],
-    'Podcast': []
+    // eslint-disable-next-line @stylistic/quote-props
+    Podcast: []
   }
+
   for (const event of events) {
-    if (grouped[event.category]) grouped[event.category].push(event)
+    if (grouped[event.category]) {
+      grouped[event.category].push(event)
+    }
   }
+
   return grouped
 })
 
 function formatDate(dateString: string): string {
-  return new Date(dateString).toLocaleDateString('en-US', { year: 'numeric', month: 'long' })
+  return new Date(dateString).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long'
+  })
 }
 </script>
 
@@ -62,11 +82,7 @@ function formatDate(dateString: string): string {
       }"
     >
       <template #links>
-        <UButton
-          v-if="page.links"
-          :to="`mailto:${global.email}`"
-          v-bind="page.links[0]"
-        />
+        <UButton v-if="page.links" :to="`mailto:${global.email}`" v-bind="page.links[0]" />
       </template>
     </UPageHero>
     <UPageSection
@@ -80,9 +96,7 @@ function formatDate(dateString: string): string {
         class="grid grid-cols-1 lg:grid-cols-3 lg:gap-8 mb-16 last:mb-0"
       >
         <div class="lg:col-span-1 mb-4 lg:mb-0">
-          <h2
-            class="lg:sticky lg:top-16 text-xl font-semibold tracking-tight text-highlighted"
-          >
+          <h2 class="lg:sticky lg:top-16 text-xl font-semibold tracking-tight text-highlighted">
             {{ category.replace(/([A-Z])/g, ' $1').replace(/^./, (str) => str.toUpperCase()) }}s
           </h2>
         </div>
@@ -93,17 +107,10 @@ function formatDate(dateString: string): string {
             :key="`${category}-${index}`"
             class="group relative pl-6 border-l border-default"
           >
-            <NuxtLink
-              v-if="event.url"
-              :to="event.url"
-              class="absolute inset-0"
-            />
+            <NuxtLink v-if="event.url" :to="event.url" class="absolute inset-0" />
             <div class="mb-1 text-sm font-medium text-muted">
               <span>{{ event.location }}</span>
-              <span
-                v-if="event.location && event.date"
-                class="mx-1"
-              >·</span>
+              <span v-if="event.location && event.date" class="mx-1">·</span>
               <span v-if="event.date">{{ formatDate(event.date) }}</span>
             </div>
 

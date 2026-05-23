@@ -1,3 +1,4 @@
+<!-- eslint-disable @stylistic/arrow-parens -->
 <script setup lang="ts">
 import type { IndexCollectionItem } from '@nuxt/content'
 
@@ -5,11 +6,31 @@ defineProps<{
   page: IndexCollectionItem
 }>()
 
-const { data: posts } = await useAsyncData('index-blogs', () =>
-  queryCollection('blog').order('date', 'DESC').limit(3).all()
+const { locale } = useI18n()
+const { toRoutePath } = useContentPath()
+
+const blogPathPrefix = computed(() => {
+  return locale.value === 'fa' ? '/fa/blog/' : '/en/blog/'
+})
+
+const { data: posts } = await useAsyncData(
+  () => `index-blogs-${locale.value}`,
+  async () => {
+    const allPosts = await queryCollection('blog').order('date', 'DESC').all()
+
+    return allPosts.filter((post) => post.path.startsWith(blogPathPrefix.value)).slice(0, 3)
+  },
+  {
+    watch: [locale]
+  }
 )
+
 if (!posts.value) {
-  throw createError({ statusCode: 404, statusMessage: 'blogs posts not found', fatal: true })
+  throw createError({
+    statusCode: 404,
+    statusMessage: 'blogs posts not found',
+    fatal: true
+  })
 }
 </script>
 
@@ -23,17 +44,14 @@ if (!posts.value) {
       description: 'text-left mt-2 text-sm sm:text-md lg:text-sm text-muted'
     }"
   >
-    <UBlogPosts
-      orientation="vertical"
-      class="gap-4 lg:gap-y-4"
-    >
+    <UBlogPosts orientation="vertical" class="gap-4 lg:gap-y-4">
       <UBlogPost
         v-for="(post, index) in posts"
-        :key="index"
+        :key="post.path || index"
         orientation="horizontal"
         variant="naked"
         v-bind="post"
-        :to="post.path"
+        :to="toRoutePath(post.path)"
         :ui="{
           root: 'group relative lg:items-start lg:flex ring-0 hover:ring-0',
           body: 'px-0!',
@@ -41,12 +59,7 @@ if (!posts.value) {
         }"
       >
         <template #footer>
-          <UButton
-            size="xs"
-            variant="link"
-            class="px-0 gap-0"
-            label="Read Article"
-          >
+          <UButton size="xs" variant="link" class="px-0 gap-0" label="Read Article">
             <template #trailing>
               <UIcon
                 name="i-lucide-arrow-right"

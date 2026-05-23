@@ -1,32 +1,57 @@
 <script setup lang="ts">
-const { data: page } = await useAsyncData('projects-page', () => {
-  return queryCollection('pages').path('/projects').first()
+const { contentPath } = useContentPath()
+
+const pagePath = computed(() => contentPath.value)
+
+const projectsStemPrefix = computed(() => {
+  return contentPath.value.startsWith('/en') ? 'en/projects/' : 'fa/projects/'
 })
+
+const { data: page } = await useAsyncData(
+  () => `projects-page-${pagePath.value}`,
+  () => queryCollection('pages').path(pagePath.value).first(),
+  {
+    watch: [pagePath]
+  }
+)
+
 if (!page.value) {
   throw createError({
     statusCode: 404,
-    statusMessage: 'Page not found',
+    statusMessage: `Page not found: ${pagePath.value}`,
     fatal: true
   })
 }
 
-const { data: projects } = await useAsyncData('projects', () => {
-  return queryCollection('projects').all()
-})
+const { data: projects } = await useAsyncData(
+  () => `projects-${projectsStemPrefix.value}`,
+  async () => {
+    const allProjects = await queryCollection('projects').order('date', 'DESC').all()
+
+    // eslint-disable-next-line @stylistic/arrow-parens
+    return allProjects.filter((project) => project.stem.startsWith(projectsStemPrefix.value))
+  },
+  {
+    watch: [projectsStemPrefix]
+  }
+)
 
 const { global } = useAppConfig()
 
-const title = page.value?.seo?.title || page.value?.title
-const description = page.value?.seo?.description || page.value?.description
+const title = computed(() => page.value?.seo?.title || page.value?.title)
+const description = computed(() => page.value?.seo?.description || page.value?.description)
 
 useSeoMeta({
-  title,
-  ogTitle: title,
-  description,
-  ogDescription: description
+  title: () => title.value,
+  ogTitle: () => title.value,
+  description: () => description.value,
+  ogDescription: () => description.value
 })
 
-defineOgImage('Portfolio', { title, description })
+defineOgImage('Portfolio', {
+  title: title.value,
+  description: description.value
+})
 </script>
 
 <template>
@@ -42,19 +67,9 @@ defineOgImage('Portfolio', { title, description })
       }"
     >
       <template #links>
-        <div
-          v-if="page.links"
-          class="flex items-center gap-2"
-        >
-          <UButton
-            :label="page.links[0]?.label"
-            :to="global.meetingLink"
-            v-bind="page.links[0]"
-          />
-          <UButton
-            :to="`mailto:${global.email}`"
-            v-bind="page.links[1]"
-          />
+        <div v-if="page.links" class="flex items-center gap-2">
+          <UButton :label="page.links[0]?.label" :to="global.meetingLink" v-bind="page.links[0]" />
+          <UButton :to="`mailto:${global.email}`" v-bind="page.links[1]" />
         </div>
       </template>
     </UPageHero>
@@ -89,10 +104,7 @@ defineOgImage('Portfolio', { title, description })
             </span>
           </template>
           <template #footer>
-            <ULink
-              :to="project.url"
-              class="text-sm text-primary flex items-center"
-            >
+            <ULink :to="project.url" class="text-sm text-primary flex items-center">
               View Project
               <UIcon
                 name="i-lucide-arrow-right"
@@ -104,7 +116,7 @@ defineOgImage('Portfolio', { title, description })
             :src="project.image"
             :alt="project.title"
             class="object-cover w-full h-48 rounded-lg"
-          >
+          />
         </UPageCard>
       </Motion>
     </UPageSection>

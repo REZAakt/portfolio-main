@@ -1,28 +1,38 @@
 <script setup lang="ts">
-const { data: page } = await useAsyncData('about', () => {
-  return queryCollection('about').first()
-})
+const { contentPath } = useContentPath()
+
+const { data: page } = await useAsyncData(
+  () => `about-${contentPath.value}`,
+  () => queryCollection('about').path(contentPath.value).first(),
+  {
+    watch: [contentPath]
+  }
+)
+
 if (!page.value) {
   throw createError({
     statusCode: 404,
-    statusMessage: 'Page not found',
+    statusMessage: `Page not found: ${contentPath.value}`,
     fatal: true
   })
 }
 
 const { global } = useAppConfig()
 
-const title = page.value?.seo?.title || page.value?.title
-const description = page.value?.seo?.description || page.value?.description
+const title = computed(() => page.value?.seo?.title || page.value?.title)
+const description = computed(() => page.value?.seo?.description || page.value?.description)
 
 useSeoMeta({
-  title,
-  ogTitle: title,
-  description,
-  ogDescription: description
+  title: () => title.value,
+  ogTitle: () => title.value,
+  description: () => description.value,
+  ogDescription: () => description.value
 })
 
-defineOgImage('Portfolio', { title, description })
+defineOgImage('Portfolio', {
+  title: title.value,
+  description: description.value
+})
 </script>
 
 <template>
@@ -50,17 +60,9 @@ defineOgImage('Portfolio', { title, description })
         container: 'pt-0!'
       }"
     >
-      <MDC
-        :value="page.content"
-        unwrap="p"
-      />
+      <MDC :value="page.content" unwrap="p" />
       <div class="flex flex-row justify-center items-center py-10 -space-x-8">
-        <PolaroidItem
-          v-for="(image, index) in page.images"
-          :key="index"
-          :image="image"
-          :index
-        />
+        <PolaroidItem v-for="(image, index) in page.images" :key="index" :image="image" :index />
       </div>
     </UPageSection>
   </UPage>
