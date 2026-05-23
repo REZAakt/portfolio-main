@@ -46,7 +46,12 @@ useSeoMeta({
   ogTitle: () => page.value?.seo?.title || page.value?.title,
   description: () => page.value?.seo?.description || page.value?.description,
   ogDescription: () => page.value?.seo?.description || page.value?.description,
-  ogImage: 'https://ui.nuxt.com/assets/templates/nuxt/portfolio-light.png'
+  ogImage: () =>
+    locale.value === 'fa'
+      ? 'https://rezaakbarpour.ir/og-fa.jpg'
+      : 'https://rezaakbarpour.ir/og-en.jpg',
+  twitterImage: 'https://rezaakbarpour.ir/og-fa.jpg',
+  twitterCard: 'summary_large_image'
 })
 </script>
 
