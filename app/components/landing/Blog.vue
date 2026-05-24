@@ -10,7 +10,7 @@ const { locale } = useI18n()
 const { toRoutePath } = useContentPath()
 
 const currentPrefix = computed(() => {
-  return locale.value === 'en' ? '/en' : ''
+  return locale.value === 'en' ? '/en' : '/fa'
 })
 
 const blogPathPrefix = computed(() => {

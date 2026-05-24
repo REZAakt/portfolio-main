@@ -1,26 +1,26 @@
 <script setup lang="ts">
-const { locale, setLocale } = useI18n()
+const { locale } = useI18n()
+const switchLocalePath = useSwitchLocalePath()
 
 const currentLocale = computed(() => locale.value)
 
-const nextLocale = computed<string>(() => {
+const nextLocale = computed<'fa' | 'en'>(() => {
   if (currentLocale.value === 'fa') return 'en'
   return 'fa'
 })
 
-// برای نمایش کوتاه روی دکمه (FA / EN)
 const currentLocaleLabel = computed(() => currentLocale.value.toUpperCase())
 const nextLocaleLabel = computed(() => nextLocale.value.toUpperCase())
 
 const switchLocale = async () => {
-  const target = nextLocale.value as 'fa' | 'en'
+  const targetPath = switchLocalePath(nextLocale.value)
 
-  // nuxt-i18n خودش cookie / redirect / SSR را هندل می‌کند
-  await setLocale(target)
+  if (targetPath) {
+    await navigateTo(targetPath)
+  }
 }
 
 const startViewTransition = (event: MouseEvent) => {
-  // برای هماهنگی با ColorModeButton، همین pattern را حفظ می‌کنیم
   if (!document.startViewTransition) {
     switchLocale()
     return

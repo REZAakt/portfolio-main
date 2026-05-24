@@ -1,7 +1,7 @@
 <!-- eslint-disable @stylistic/arrow-parens -->
 <script setup lang="ts">
 const route = useRoute()
-const { contentPath } = useContentPath()
+const { contentPath, toRoutePath } = useContentPath()
 
 // console.group('🔥 BLOG POST DEBUG')
 // console.log('route.path:', route.path)
@@ -51,6 +51,17 @@ const { data: surround } = await useAsyncData(
     watch: [contentPath]
   }
 )
+
+const localizedSurround = computed(() => {
+  return surround.value?.map((item) => {
+    if (!item) return item
+
+    return {
+      ...item,
+      path: item.path ? toRoutePath(item.path) : item.path
+    }
+  })
+})
 
 const title = page.value?.seo?.title || page.value?.title
 const description = page.value?.seo?.description || page.value?.description
@@ -150,7 +161,7 @@ const formatDate = (dateString: string) => {
             />
           </div>
 
-          <UContentSurround :surround="surround" />
+          <UContentSurround :surround="localizedSurround" />
         </UPageBody>
       </UPage>
     </UContainer>

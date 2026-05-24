@@ -10,14 +10,15 @@ const router = useRouter()
 const route = useRoute()
 const { locale } = useI18n()
 
-// eslint-disable-next-line @stylistic/arrow-parens
-const pages = computed(() => props.links.map((link) => link.to).filter(Boolean) as string[])
+const pages = computed(() => props.links.map(link => link.to).filter(Boolean) as string[])
 
 function normalize(path: string) {
   const prefix = `/${locale.value}`
+
   if (path.startsWith(prefix)) {
     return path.replace(prefix, '') || '/'
   }
+
   return path
 }
 
@@ -34,7 +35,7 @@ const { lengthX, lengthY } = useSwipe(target, {
 
     if (Math.abs(lengthY.value) > Math.abs(lengthX.value)) return
 
-    const list = pages.value
+    const list = pages.value.map(normalize)
     const current = normalize(route.path)
     const index = list.indexOf(current)
 
@@ -43,7 +44,7 @@ const { lengthX, lengthY } = useSwipe(target, {
     if (dir === 'left' || dir === 'right') {
       swipeDirection.value = dir
 
-      await nextTick() // ⭐ خیلی مهم
+      await nextTick()
     }
 
     if (dir === 'left') {
@@ -60,7 +61,6 @@ const { lengthX, lengthY } = useSwipe(target, {
 </script>
 
 <template>
-  <!-- ✅ بدون fixed -->
   <div ref="target" class="relative">
     <slot />
   </div>

@@ -7,6 +7,7 @@ const color = computed(() => (colorMode.value === 'dark' ? '#020618' : 'white'))
 const swipeDirection = useSwipeDirection()
 
 const localeHead = useLocaleHead()
+const navLinks = useNavLinks()
 
 useHead(() => ({
   htmlAttrs: localeHead.value.htmlAttrs,

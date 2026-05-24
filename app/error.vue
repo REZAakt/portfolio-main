@@ -9,11 +9,14 @@ defineProps({
   }
 })
 
-useHead({
-  htmlAttrs: {
-    lang: 'en'
-  }
-})
+const localeHead = useLocaleHead()
+const navLinks = useNavLinks()
+
+useHead(() => ({
+  htmlAttrs: localeHead.value.htmlAttrs,
+  meta: localeHead.value.meta || [],
+  link: localeHead.value.link || []
+}))
 
 useSeoMeta({
   title: 'Page not found',

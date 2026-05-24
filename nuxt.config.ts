@@ -11,12 +11,8 @@ export default defineNuxtConfig({
   ],
 
   devtools: {
-    enabled: true
+    enabled: process.env.NODE_ENV !== 'production'
   },
-
-  // app: {
-  //   pageTransition: { name: 'page', mode: 'out-in' }
-  // },
 
   app: {
     baseURL: '/'
@@ -25,9 +21,9 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
 
   colorMode: {
-    preference: 'dark', // ← این باعث می‌شود تم اولیه از تنظیمات سیستم کاربر خوانده شود
-    fallback: 'dark', // ← اگر سیستم کاربر را نشناخت، از light استفاده می‌کند
-    classSuffix: '' // ← کلاس‌ها مثلاً "dark" و "light" بدون suffix خواهند بود
+    preference: 'dark',
+    fallback: 'dark',
+    classSuffix: ''
   },
 
   content: {
@@ -55,7 +51,6 @@ export default defineNuxtConfig({
     }
   },
 
-  // nuxt.config.ts
   i18n: {
     baseUrl: 'https://rezaakbarpour.ir',
 

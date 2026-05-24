@@ -1,23 +1,46 @@
 import type { NavigationMenuItem } from '@nuxt/ui'
 
-export const navLinks: NavigationMenuItem[] = [{
-  label: 'Home',
-  icon: 'i-lucide-home',
-  to: '/'
-}, {
-  label: 'Projects',
-  icon: 'i-lucide-folder',
-  to: '/projects'
-}, {
-  label: 'Blog',
-  icon: 'i-lucide-file-text',
-  to: '/blog'
-}, {
-  label: 'Speaking',
-  icon: 'i-lucide-mic',
-  to: '/speaking'
-}, {
-  label: 'About',
-  icon: 'i-lucide-user',
-  to: '/about'
-}]
+export const useNavLinks = () => {
+  const { locale } = useI18n()
+  const localePath = useLocalePath()
+
+  return computed<NavigationMenuItem[]>(() => {
+    const labels = locale.value === 'fa'
+      ? {
+          home: 'خانه',
+          projects: 'پروژه ها',
+          blog: 'بلاگ',
+          speaking: 'سخنرانی',
+          about: 'درباره'
+        }
+      : {
+          home: 'Home',
+          projects: 'Projects',
+          blog: 'Blog',
+          speaking: 'Speaking',
+          about: 'About'
+        }
+
+    return [{
+      label: labels.home,
+      icon: 'i-lucide-home',
+      to: localePath('/')
+    }, {
+      label: labels.projects,
+      icon: 'i-lucide-folder',
+      to: localePath('/projects')
+    }, {
+      label: labels.blog,
+      icon: 'i-lucide-file-text',
+      to: localePath('/blog')
+    }, {
+      label: labels.speaking,
+      icon: 'i-lucide-mic',
+      to: localePath('/speaking')
+    }, {
+      label: labels.about,
+      icon: 'i-lucide-user',
+      to: localePath('/about')
+    }]
+  })
+}
