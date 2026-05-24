@@ -5,9 +5,15 @@ const props = defineProps<{
   links: NavigationMenuItem[]
 }>()
 
+const { locale } = useI18n()
 const route = useRoute()
 
 const navRef = useTemplateRef('navRef')
+
+const displayLinks = computed(() => {
+  if (locale.value === 'fa') return [...props.links].reverse()
+  return props.links
+})
 
 const indicatorStyle = ref({
   width: '0px',
@@ -37,7 +43,7 @@ function updateIndicator() {
 
 onMounted(updateIndicator)
 
-watch(() => route.path, updateIndicator)
+watch([() => route.path, locale], updateIndicator)
 </script>
 
 <template>
@@ -53,7 +59,7 @@ watch(() => route.path, updateIndicator)
       />
 
       <UNavigationMenu
-        :items="props.links"
+        :items="displayLinks"
         variant="link"
         style="padding: 5px 15px"
         color="neutral"

@@ -41,6 +41,8 @@ const { lengthX, lengthY } = useSwipe(target, {
 
     if (index === -1) return
 
+    const isRtl = locale.value === 'fa'
+
     if (dir === 'left' || dir === 'right') {
       swipeDirection.value = dir
 
@@ -48,13 +50,13 @@ const { lengthX, lengthY } = useSwipe(target, {
     }
 
     if (dir === 'left') {
-      const next = list[index + 1]
-      if (next) router.push(localePath(next))
+      const target = isRtl ? list[index - 1] : list[index + 1]
+      if (target) router.push(localePath(target))
     }
 
     if (dir === 'right') {
-      const prev = list[index - 1]
-      if (prev) router.push(localePath(prev))
+      const target = isRtl ? list[index + 1] : list[index - 1]
+      if (target) router.push(localePath(target))
     }
   }
 })
