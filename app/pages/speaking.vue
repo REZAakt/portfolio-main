@@ -82,7 +82,11 @@ function formatDate(dateString: string): string {
       }"
     >
       <template #links>
-        <UButton v-if="page.links" :to="`mailto:${global.email}`" v-bind="page.links[0]" />
+        <UButton
+          v-if="page.links"
+          :to="`mailto:${global.email}`"
+          v-bind="page.links[0]"
+        />
       </template>
     </UPageHero>
     <UPageSection
@@ -107,10 +111,17 @@ function formatDate(dateString: string): string {
             :key="`${category}-${index}`"
             class="group relative pl-6 border-l border-default"
           >
-            <NuxtLink v-if="event.url" :to="event.url" class="absolute inset-0" />
+            <NuxtLink
+              v-if="event.url"
+              :to="event.url"
+              class="absolute inset-0"
+            />
             <div class="mb-1 text-sm font-medium text-muted">
               <span>{{ event.location }}</span>
-              <span v-if="event.location && event.date" class="mx-1">·</span>
+              <span
+                v-if="event.location && event.date"
+                class="mx-1"
+              >·</span>
               <span v-if="event.date">{{ formatDate(event.date) }}</span>
             </div>
 

@@ -62,7 +62,10 @@ const [{ data: navigation }, { data: files }] = await Promise.all([
     <NuxtLoadingIndicator />
 
     <NuxtLayout>
-      <UMain class="relative overflow-hidden" :data-direction="swipeDirection || undefined">
+      <UMain
+        class="relative overflow-hidden"
+        :data-direction="swipeDirection || undefined"
+      >
         <NuxtPage
           :transition="{
             name: 'page',

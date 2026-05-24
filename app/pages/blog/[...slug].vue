@@ -108,7 +108,10 @@ const formatDate = (dateString: string) => {
   <UMain class="mt-20 px-2">
     <UContainer class="relative min-h-screen">
       <UPage v-if="page">
-        <ULink :to="backLink" class="text-sm flex items-center gap-1">
+        <ULink
+          :to="backLink"
+          class="text-sm flex items-center gap-1"
+        >
           <UIcon name="i-lucide-chevron-left" />
           Blog
         </ULink>
@@ -149,7 +152,10 @@ const formatDate = (dateString: string) => {
         </div>
 
         <UPageBody class="max-w-3xl mx-auto">
-          <ContentRenderer v-if="page.body" :value="page" />
+          <ContentRenderer
+            v-if="page.body"
+            :value="page"
+          />
 
           <div class="flex items-center justify-end gap-2 text-sm text-muted">
             <UButton

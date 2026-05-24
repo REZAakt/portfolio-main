@@ -42,7 +42,10 @@ watch(() => route.path, updateIndicator)
 
 <template>
   <div class="fixed bottom-4 left-1/2 -translate-x-1/2 z-50">
-    <div ref="navRef" class="relative">
+    <div
+      ref="navRef"
+      class="relative"
+    >
       <!-- indicator -->
       <div
         class="pointer-events-none absolute bottom-[8px] left-0 z-50 h-[3px] rounded-full bg-[var(--ui-text-highlighted)] shadow-[0_0_14px_rgba(255,255,255,0.35)] dark:shadow-[0_0_14px_rgba(255,255,255,0.95)] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"

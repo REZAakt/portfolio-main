@@ -68,9 +68,19 @@ defineOgImage('Portfolio', {
       }"
     >
       <template #links>
-        <div v-if="page.links" class="flex items-center gap-2">
-          <UButton :label="page.links[0]?.label" :to="global.meetingLink" v-bind="page.links[0]" />
-          <UButton :to="`mailto:${global.email}`" v-bind="page.links[1]" />
+        <div
+          v-if="page.links"
+          class="flex items-center gap-2"
+        >
+          <UButton
+            :label="page.links[0]?.label"
+            :to="global.meetingLink"
+            v-bind="page.links[0]"
+          />
+          <UButton
+            :to="`mailto:${global.email}`"
+            v-bind="page.links[1]"
+          />
         </div>
       </template>
     </UPageHero>
@@ -105,7 +115,10 @@ defineOgImage('Portfolio', {
             </span>
           </template>
           <template #footer>
-            <ULink :to="project.url" class="text-sm text-primary flex items-center">
+            <ULink
+              :to="project.url"
+              class="text-sm text-primary flex items-center"
+            >
               View Project
               <UIcon
                 name="i-lucide-arrow-right"

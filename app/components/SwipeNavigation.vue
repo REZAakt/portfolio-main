@@ -61,7 +61,10 @@ const { lengthX, lengthY } = useSwipe(target, {
 </script>
 
 <template>
-  <div ref="target" class="relative">
+  <div
+    ref="target"
+    class="relative"
+  >
     <slot />
   </div>
 </template>
