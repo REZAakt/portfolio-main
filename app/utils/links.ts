@@ -12,14 +12,14 @@ export const useNavLinks = () => {
             home: 'خانه',
             projects: 'پروژه ها',
             blog: 'بلاگ',
-            speaking: 'سخنرانی',
+            contact: 'تماس',
             about: 'درباره'
           }
         : {
             home: 'Home',
             projects: 'Projects',
             blog: 'Blog',
-            speaking: 'Speaking',
+            contact: 'Contact',
             about: 'About'
           }
 
@@ -40,9 +40,9 @@ export const useNavLinks = () => {
         to: localePath('/blog')
       },
       {
-        label: labels.speaking,
-        icon: 'i-lucide-mic',
-        to: localePath('/speaking')
+        label: labels.contact,
+        icon: 'i-lucide-mail',
+        to: localePath('/contact')
       },
       {
         label: labels.about,

@@ -117,17 +117,13 @@ const pageSchema = z.object({
   links: z.array(createButtonSchema())
 })
 
-const speakingSchema = z.object({
-  links: z.array(createButtonSchema()),
-  events: z.array(
-    z.object({
-      category: z.enum(['Live talk', 'Podcast', 'Conference']),
-      title: z.string(),
-      date: z.date(),
-      location: z.string(),
-      url: z.string().optional()
-    })
-  )
+const contactSchema = z.object({
+  seo: createSeoSchema(),
+  title: z.string(),
+  description: z.string(),
+  email: z.string().email(),
+  location: z.string().optional(),
+  links: z.array(createButtonSchema())
 })
 
 const aboutSchema = z.object({
@@ -166,10 +162,10 @@ export default defineContentConfig({
       schema: pageSchema
     }),
 
-    speaking: defineCollection({
+    contact: defineCollection({
       type: 'page',
-      source: [{ include: 'fa/speaking.yml' }, { include: 'en/speaking.yml' }],
-      schema: speakingSchema
+      source: [{ include: 'fa/contact.yml' }, { include: 'en/contact.yml' }],
+      schema: contactSchema
     }),
 
     about: defineCollection({
