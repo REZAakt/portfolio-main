@@ -1,20 +1,36 @@
 export const useContentPath = () => {
   const route = useRoute()
 
-  const contentPath = computed(() => {
-    if (route.path.startsWith('/en')) {
-      return route.path
+  const normalizeContentPath = (path: string) => {
+    if (path === '/') {
+      return path
     }
 
-    if (route.path === '/') {
+    return path.replace(/\/$/, '')
+  }
+
+  const contentPath = computed(() => {
+    const path = normalizeContentPath(route.path)
+
+    if (path.startsWith('/en')) {
+      return path
+    }
+
+    if (path === '/') {
       return '/fa'
     }
 
-    return `/fa${route.path}`
+    return `/fa${path}`
   })
 
   const toRoutePath = (path: string) => {
-    return path.replace(/^\/fa/, '')
+    const routePath = path.replace(/^\/fa/, '') || '/'
+
+    if (routePath === '/') {
+      return routePath
+    }
+
+    return `${routePath}/`
   }
 
   return {

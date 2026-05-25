@@ -56,6 +56,7 @@ export default defineNuxtConfig({
 
     defaultLocale: 'fa',
     strategy: 'prefix_except_default',
+    trailingSlash: true,
 
     locales: [
       { code: 'fa', language: 'fa-IR', name: 'فارسی', file: 'fa.json', dir: 'rtl' },
