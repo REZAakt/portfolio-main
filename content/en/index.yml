@@ -1,12 +1,15 @@
 seo:
-  title: 'Reza Akbarpour - UX/UI Designer'
-  description: "Welcome to my portfolio! I'm Reza Akbarpour, a UX/UI designer and front-end developer based in Boston. I specialize in creating user-centered digital experiences that are both beautiful and functional."
-title: "Hey, I'm Reza Akbarpour UX/UI Designer"
-description: 'I craft intuitive digital experiences where design meets functionality. Based in Boston, bringing ideas to life through code and creativity.'
+  title: 'Reza Akbarpour | Software Developer & Digital Experience Designer'
+  description: 'Personal portfolio of Reza Akbarpour; a software developer and web developer focused on building software, web applications, enterprise systems, management dashboards, and user interfaces.'
+title: "Hey, I'm Reza Akbarpour Software & Digital Experience Developer"
+description: 'I design and develop software, web applications, and digital experiences — from technical structure to user interface design, with a focus on simplicity and smooth user experiences.'
 hero:
   links:
-    - label: 'My Telegram'
-      to: https://t.me/REZA_akT
+    - label: 'Download Resume'
+      to: '/reza-akbarpour-resume-en.pdf'
+      target: '_blank'
+      external: true
+      download: 'reza-akbarpour-resume-en.pdf'
       color: 'neutral'
   images:
     - src: /hero/random-1.avif

@@ -1,12 +1,15 @@
 seo:
-  title: 'رضا اکبرپور - Software developer'
-  description: "Welcome to my portfolio! I'm Reza Akbarpour, a UX/UI designer and front-end developer based in Boston. I specialize in creating user-centered digital experiences that are both beautiful and functional."
-title: 'سلام بچه ها عمو رضا اینجاست UX/UI Designer'
-description: 'I craft intuitive digital experiences where design meets functionality. Based in Boston, bringing ideas to life through code and creativity.'
+  title: 'رضا اکبرپور | توسعه‌دهنده نرم‌افزار و طراح تجربه‌های دیجیتال'
+  description: 'وب‌سایت شخصی رضا اکبرپور؛ توسعه‌دهنده نرم‌افزار و برنامه‌نویس وب با تمرکز روی ساخت نرم‌افزار، وب‌اپلیکیشن، سیستم‌های سازمانی، داشبوردهای مدیریتی و رابط‌های کاربری.'
+title: 'سلام، رضا اکبرپور هستم توسعه‌دهنده نرم‌افزار و تجربه‌های دیجیتال'
+description: 'من توسعه‌دهنده نرم‌افزار، وب‌اپلیکیشن و طراح تجربه‌های دیجیتال هستم؛ از ساختار فنی تا طراحی رابط کاربری، با تمرکز روی سادگی و تجربه‌ای روان برای کاربر.'
 hero:
   links:
-    - label: 'My Telegram'
-      to: https://t.me/REZA_akT
+    - label: 'دریافت رزومه'
+      to: '/reza-akbarpour-resume-fa.pdf'
+      target: '_blank'
+      external: true
+      download: 'reza-akbarpour-resume-fa.pdf'
       color: 'neutral'
   images:
     - src: /hero/random-1.avif
