@@ -16,7 +16,7 @@ defineProps<{
     }"
   >
     <template #description>
-      <div class="flex flex-col gap-2">
+      <div class="flex flex-col gap-2" style="margin-top: 25px">
         <Motion
           v-for="(experience, index) in page.experience.items"
           :key="index"
@@ -30,11 +30,7 @@ defineProps<{
             {{ experience.date }}
           </p>
           <USeparator />
-          <ULink
-            class="flex items-center gap-1"
-            :to="experience.company.url"
-            target="_blank"
-          >
+          <ULink class="flex items-center gap-1" :to="experience.company.url" target="_blank">
             <span class="text-sm">
               {{ experience.position }}
             </span>
@@ -52,6 +48,4 @@ defineProps<{
   </UPageSection>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -5,6 +5,10 @@ const props = defineProps<{
   page: IndexCollectionItem
 }>()
 
+const { locale } = useI18n()
+
+const direction = computed(() => (locale.value === 'fa' ? 'rtl' : 'ltr'))
+
 const items = computed(() => {
   return props.page.faq?.categories.map((faq) => {
     return {
@@ -17,7 +21,7 @@ const items = computed(() => {
 
 const ui = {
   root: 'flex items-center gap-4 w-full',
-  list: 'relative flex bg-transparent dark:bg-transparent gap-2 px-0 justify-start',
+  list: 'relative flex bg-transparent dark:bg-transparent gap-2 px-0 justify-start rtl:flex-row-reverse',
   indicator: 'absolute top-[4px] duration-200 ease-out focus:outline-none rounded-lg bg-elevated/60',
   trigger: 'px-3 py-2 rounded-lg hover:bg-muted/50 data-[state=active]:text-highlighted data-[state=inactive]:text-muted text-start',
   label: 'truncate'
@@ -26,6 +30,7 @@ const ui = {
 
 <template>
   <UPageSection
+    :dir="direction"
     :title="page.faq.title"
     :description="page.faq.description"
     :ui="{
@@ -46,20 +51,12 @@ const ui = {
           :unmount-on-hide="false"
           :ui="{
             item: 'border-none',
-            trigger: 'mb-2 border-0 group px-4 transform-gpu rounded-lg bg-elevated/60 will-change-transform hover:bg-muted/50 text-base text-start',
-            label: 'text-start',
-            body: 'text-start',
-            trailingIcon: 'group-data-[state=closed]:rotate-0 group-data-[state=open]:rotate-135 text-base text-muted'
+            trigger: 'mb-2 border-0 group px-4 transform-gpu rounded-lg bg-elevated/60 will-change-transform hover:bg-muted/50 text-base text-start rtl:flex-row-reverse',
+            label: 'text-start rtl:ms-auto',
+            body: 'px-4 text-start',
+            trailingIcon: 'group-data-[state=closed]:rotate-0 group-data-[state=open]:rotate-135 text-base text-muted rtl:ms-0 rtl:me-0'
           }"
-        >
-          <template #body="{ item: _item }">
-            <MDC
-              :value="_item.content"
-              unwrap="p"
-              class="px-4 text-start"
-            />
-          </template>
-        </UAccordion>
+        />
       </template>
     </UTabs>
   </UPageSection>

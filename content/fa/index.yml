@@ -31,34 +31,69 @@ hero:
     - src: /hero/random-9.avif
       alt: Random Image 9
 about:
-  title: 'About Me'
+  title: 'درباره من'
   description: |
-    As a UX/UI designer and front-end developer with 5 years of experience, I leverage my Boston University Interactive Design degree to craft user-centered digital experiences.
-    My approach blends creative strategy with technical expertise, transforming concepts into functional, purposeful digital products that seamlessly integrate design and technology.
+    من رضا اکبرپورم؛ توسعه‌دهنده نرم‌افزار و وب‌اپلیکیشن با تجربه در ساخت بک‌اند با ASP.NET، وب‌اپلیکیشن‌های SPA، سیستم‌های مدیریتی و ERP، داشبوردهای سازمانی، فروشگاه‌ها، سامانه‌های آموزشی، سیستم‌های ثبت سفارش، ابزارهای صنعتی، تسترها و سیستم‌های کنترل کیفیت.
+
+    مسیر من از دات‌نت و نرم‌افزارهای دسکتاپ شروع شد و بعد به ساخت وب‌اپلیکیشن با Blazor و Nuxt رسید. طراحی هم از کودکی بخشی از دنیای من بوده؛ از نقاشی و طراحی صنعتی تا طراحی رابط کاربری. برای همین در پروژه‌ها، UX را فقط یک بخش ظاهری نمی‌بینم؛ برایم مهمه کاربر موقع استفاده از نرم‌افزار حس خوبی داشته باشه و بدون پیچیدگی، به چیزی که نیاز داره برسه.
 experience:
-  title: Work Experience
+  title: 'مهارت‌ها و تکنولوژی‌ها'
   items:
-    - position: 'Brand Designer at'
-      date: '2023 - Present'
+    - position: 'وب مدرن'
+      date: '2025 - اکنون'
       company:
-        name: Nuxt
+        name: 'Nuxt'
         logo: 'i-simple-icons-nuxtdotjs'
         url: 'https://nuxt.com'
         color: '#00DC82'
-    - position: 'Assets Designer at'
-      date: '2022 - 2023'
+
+    - position: 'وب‌اپلیکیشن'
+      date: '2022 - اکنون'
       company:
-        name: Raycast
-        logo: 'i-simple-icons-raycast'
-        url: 'https://raycast.com'
-        color: '#FF6363'
-    - position: 'Senior UX/UI Designer at'
-      date: '2020 - 2021'
+        name: 'Blazor'
+        logo: 'i-simple-icons-blazor'
+        url: 'https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor'
+        color: '#512BD4'
+
+    - position: 'ویندوز11'
+      date: '2021 - اکنون'
       company:
-        name: Linear
-        logo: 'i-simple-icons-linear'
-        url: 'https://linear.app'
-        color: '#5E6AD2'
+        name: 'WinUI'
+        logo: 'i-simple-icons-windows'
+        url: 'https://learn.microsoft.com/windows/apps/winui/'
+        color: '#0078D4'
+
+    - position: 'صنعتی'
+      date: '2022 - 2024'
+      company:
+        name: 'Modbus / QF'
+        logo: 'i-lucide-cpu'
+        url: 'https://www.modbus.org/modbus-specifications'
+        color: '#F59E0B'
+
+    - position: 'دسکتاپ'
+      date: '2020 - اکنون'
+      company:
+        name: 'WPF'
+        logo: 'i-simple-icons-windows'
+        url: 'https://learn.microsoft.com/dotnet/desktop/wpf/'
+        color: '#0078D4'
+
+    - position: 'بک‌اند'
+      date: '2020 - اکنون'
+      company:
+        name: 'ASP.NET'
+        logo: 'i-simple-icons-dotnet'
+        url: 'https://dotnet.microsoft.com/apps/aspnet'
+        color: '#512BD4'
+
+    - position: 'طراحی'
+      date: 'از کودکی'
+      company:
+        name: 'Design'
+        logo: 'i-lucide-pen-tool'
+        url: '#'
+        color: '#EC4899'
 testimonials:
   - quote: "رضا ججونن's approach to UX design completely transformed our product. She has a rare ability to balance beautiful aesthetics with functional simplicity. The redesign not only looked better, but it reduced our customer support tickets by 40% and increased conversion rates across all key metrics."
     author:
