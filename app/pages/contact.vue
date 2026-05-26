@@ -39,8 +39,8 @@ defineOgImage('Portfolio', {
       :title="page.title"
       :description="page.description"
       :ui="{
-        title: 'mx-0! text-left',
-        description: 'mx-0! text-left',
+        title: 'mx-0! text-start',
+        description: 'mx-0! text-start',
         links: 'justify-start'
       }"
     >

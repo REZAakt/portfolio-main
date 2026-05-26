@@ -11,6 +11,7 @@ defineProps({
 
 const localeHead = useLocaleHead()
 const navLinks = useNavLinks()
+const { toRouteContentItem } = useContentPath()
 
 useHead(() => ({
   htmlAttrs: localeHead.value.htmlAttrs,
@@ -30,7 +31,7 @@ const [{ data: navigation }, { data: files }] = await Promise.all([
       return Promise.all([queryCollectionNavigation('blog')])
     },
     {
-      transform: (data) => data.flat()
+      transform: (data) => data.flat().map(toRouteContentItem)
     }
   ),
   useLazyAsyncData(
@@ -40,7 +41,7 @@ const [{ data: navigation }, { data: files }] = await Promise.all([
     },
     {
       server: false,
-      transform: (data) => data.flat()
+      transform: (data) => data.flat().map(toRouteContentItem)
     }
   )
 ])

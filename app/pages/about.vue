@@ -43,8 +43,8 @@ defineOgImage('Portfolio', {
       orientation="horizontal"
       :ui="{
         container: 'lg:flex sm:flex-row items-center',
-        title: 'mx-0! text-left',
-        description: 'mx-0! text-left',
+        title: 'mx-0! text-start',
+        description: 'mx-0! text-start',
         links: 'justify-start'
       }"
     >
@@ -64,7 +64,7 @@ defineOgImage('Portfolio', {
         :value="page.content"
         unwrap="p"
       />
-      <div class="flex flex-row justify-center items-center py-10 -space-x-8">
+      <div class="flex flex-row justify-center items-center py-10 -space-x-8 rtl:space-x-reverse">
         <PolaroidItem
           v-for="(image, index) in page.images"
           :key="index"

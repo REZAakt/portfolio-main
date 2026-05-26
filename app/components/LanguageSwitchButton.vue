@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const { locale } = useI18n()
-const switchLocalePath = useSwitchLocalePath()
+const route = useRoute()
 
 const currentLocale = computed(() => locale.value)
 
@@ -12,12 +12,44 @@ const nextLocale = computed<'fa' | 'en'>(() => {
 const currentLocaleLabel = computed(() => currentLocale.value.toUpperCase())
 const nextLocaleLabel = computed(() => nextLocale.value.toUpperCase())
 
-const switchLocale = async () => {
-  const targetPath = switchLocalePath(nextLocale.value)
-
-  if (targetPath) {
-    await navigateTo(targetPath)
+const withTrailingSlash = (path: string) => {
+  if (path === '/' || path.endsWith('/')) {
+    return path
   }
+
+  return `${path}/`
+}
+
+const getQueryString = () => {
+  const params = new URLSearchParams()
+
+  for (const [key, value] of Object.entries(route.query)) {
+    if (Array.isArray(value)) {
+      value.forEach((item) => {
+        if (item != null) params.append(key, item)
+      })
+    } else if (value != null) {
+      params.set(key, value)
+    }
+  }
+
+  return params.toString()
+}
+
+const getSwitchPath = () => {
+  const path = withTrailingSlash(route.path.replace(/^\/fa(?=\/|$)/, '') || '/')
+  const query = getQueryString()
+  const suffix = `${query ? `?${query}` : ''}${route.hash}`
+
+  if (nextLocale.value === 'en') {
+    return `${path === '/' ? '/en/' : `/en${path}`}${suffix}`
+  }
+
+  return `${withTrailingSlash(path.replace(/^\/en(?=\/|$)/, '') || '/')}${suffix}`
+}
+
+const switchLocale = async () => {
+  await navigateTo(getSwitchPath())
 }
 
 const startViewTransition = (event: MouseEvent) => {

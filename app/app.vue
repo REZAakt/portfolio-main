@@ -6,11 +6,18 @@ const color = computed(() => (colorMode.value === 'dark' ? '#020618' : 'white'))
 
 const swipeDirection = useSwipeDirection()
 
+const { locale } = useI18n()
 const localeHead = useLocaleHead()
 const navLinks = useNavLinks()
+const { toRouteContentItem } = useContentPath()
+
+const textDirection = computed(() => (locale.value === 'fa' ? 'rtl' : 'ltr'))
 
 useHead(() => ({
-  htmlAttrs: localeHead.value.htmlAttrs,
+  htmlAttrs: {
+    ...localeHead.value.htmlAttrs,
+    dir: textDirection.value
+  },
 
   meta: [
     { charset: 'utf-8' },
@@ -41,7 +48,7 @@ const [{ data: navigation }, { data: files }] = await Promise.all([
       return Promise.all([queryCollectionNavigation('blog')])
     },
     {
-      transform: (data) => data.flat()
+      transform: (data) => data.flat().map(toRouteContentItem)
     }
   ),
   useLazyAsyncData(
@@ -51,7 +58,7 @@ const [{ data: navigation }, { data: files }] = await Promise.all([
     },
     {
       server: false,
-      transform: (data) => data.flat()
+      transform: (data) => data.flat().map(toRouteContentItem)
     }
   )
 ])

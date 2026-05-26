@@ -24,7 +24,7 @@ export const useContentPath = () => {
   })
 
   const toRoutePath = (path: string) => {
-    const routePath = path.replace(/^\/fa/, '') || '/'
+    const routePath = path.replace(/^\/fa(?=\/|$)/, '') || '/'
 
     if (routePath === '/') {
       return routePath
@@ -33,8 +33,35 @@ export const useContentPath = () => {
     return `${routePath}/`
   }
 
+  function toRouteContentItem<T>(item: T): T {
+    if (!item || typeof item !== 'object') {
+      return item
+    }
+
+    if (Array.isArray(item)) {
+      return item.map(toRouteContentItem) as T
+    }
+
+    const normalized = { ...item } as Record<string, unknown>
+
+    if (typeof normalized.path === 'string') {
+      normalized.path = toRoutePath(normalized.path)
+    }
+
+    if (typeof normalized.to === 'string') {
+      normalized.to = toRoutePath(normalized.to)
+    }
+
+    if (Array.isArray(normalized.children)) {
+      normalized.children = normalized.children.map(toRouteContentItem)
+    }
+
+    return normalized as T
+  }
+
   return {
     contentPath,
-    toRoutePath
+    toRoutePath,
+    toRouteContentItem
   }
 }

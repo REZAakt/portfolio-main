@@ -9,25 +9,7 @@ const { contentPath, toRoutePath } = useContentPath()
 
 const { data: page } = await useAsyncData(
   () => `blog-post-${contentPath.value}`,
-  async () => {
-    const allPosts = await queryCollection('blog').all()
-
-    // console.table(
-    //   allPosts.map((post) => ({
-    //     title: post.title,
-    //     path: post.path,
-    //     id: post.id,
-    //     stem: post.stem
-    //   }))
-    // )
-
-    const matchedPost = allPosts.find((post) => post.path === contentPath.value)
-
-    // console.log('matchedPost:', matchedPost)
-    // console.groupEnd()
-
-    return matchedPost || null
-  },
+  () => queryCollection('blog').path(contentPath.value).first(),
   {
     watch: [contentPath]
   }
@@ -112,7 +94,10 @@ const formatDate = (dateString: string) => {
           :to="backLink"
           class="text-sm flex items-center gap-1"
         >
-          <UIcon name="i-lucide-chevron-left" />
+          <UIcon
+            name="i-lucide-chevron-left"
+            class="rtl:rotate-180"
+          />
           Blog
         </ULink>
 
