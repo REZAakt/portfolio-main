@@ -5,7 +5,7 @@ title: "Hey, I'm Reza Akbarpour Software & Digital Experience Developer"
 description: 'I design and develop software, web applications, and digital experiences — from technical structure to user interface design, with a focus on simplicity and smooth user experiences.'
 hero:
   links:
-    - label: 'Download Resume'
+    - label: 'Resume'
       to: '/reza-akbarpour-resume-en.pdf'
       target: '_blank'
       external: true
