@@ -53,7 +53,7 @@ const ui = {
             item: 'border-none',
             trigger: 'mb-2 border-0 group px-4 transform-gpu rounded-lg bg-elevated/60 will-change-transform hover:bg-muted/50 text-base text-start rtl:flex-row-reverse',
             label: 'text-start rtl:ms-auto',
-            body: 'px-4 text-start',
+            body: 'px-4 text-start rtl:text-right rtl:[direction:rtl] rtl:[unicode-bidi:plaintext]',
             trailingIcon: 'group-data-[state=closed]:rotate-0 group-data-[state=open]:rotate-135 text-base text-muted rtl:ms-0 rtl:me-0'
           }"
         />

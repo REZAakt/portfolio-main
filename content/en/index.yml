@@ -1,8 +1,8 @@
 seo:
   title: 'Reza Akbarpour | Software Developer & Digital Experience Designer'
-  description: 'Personal portfolio of Reza Akbarpour; a software developer and web developer focused on building software, web applications, enterprise systems, management dashboards, and user interfaces.'
-title: "Hey, I'm Reza Akbarpour Software & Digital Experience Developer"
-description: 'I design and develop software, web applications, and digital experiences — from technical structure to user interface design, with a focus on simplicity and smooth user experiences.'
+  description: 'Reza Akbarpour’s personal website — a software and web developer focused on custom software, web apps, enterprise systems, management dashboards, industrial tools, and clean user interfaces.'
+title: 'Hey, I’m Reza Akbarpour, I build software and digital experiences'
+description: 'I design and develop software, web apps, and digital experiences — from the technical structure behind the scenes to clean interfaces people can actually enjoy using.'
 hero:
   links:
     - label: 'Resume'
@@ -33,48 +33,83 @@ hero:
 about:
   title: 'About Me'
   description: |
-    As a UX/UI designer and front-end developer with 6 years of experience, I leverage my Boston University Interactive Design degree to craft user-centered digital experiences.
-    My approach blends creative strategy with technical expertise, transforming concepts into functional, purposeful digital products that seamlessly integrate design and technology.
+    I’m Reza Akbarpour, a software and web application developer with experience in building ASP.NET backends, SPA web apps, management systems and ERPs, enterprise dashboards, online stores, learning platforms, order management systems, industrial tools, testers, and quality control systems.
+
+    My path started with .NET and desktop software, then moved into web applications with Blazor and Nuxt. Design has also been part of my world since childhood — from drawing and industrial design to user interface design. That’s why I don’t see UX as just the “visual layer” of a project. I care about how the software feels, how simple it is to use, and whether the user can get where they need to go without fighting the interface.
 experience:
-  title: Work Experience
+  title: 'Skills & Technologies'
   items:
-    - position: 'Brand Designer at'
-      date: '2023 - Present'
+    - position: 'Modern Web'
+      date: '2025 - Present'
       company:
-        name: Nuxt
+        name: 'Nuxt'
         logo: 'i-simple-icons-nuxtdotjs'
         url: 'https://nuxt.com'
         color: '#00DC82'
-    - position: 'Assets Designer at'
-      date: '2022 - 2023'
+
+    - position: 'Web Applications'
+      date: '2022 - Present'
       company:
-        name: Raycast
-        logo: 'i-simple-icons-raycast'
-        url: 'https://raycast.com'
-        color: '#FF6363'
-    - position: 'Senior UX/UI Designer at'
-      date: '2020 - 2021'
+        name: 'Blazor'
+        logo: 'i-simple-icons-blazor'
+        url: 'https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor'
+        color: '#512BD4'
+
+    - position: 'Windows 11 Apps'
+      date: '2021 - Present'
       company:
-        name: Linear
-        logo: 'i-simple-icons-linear'
-        url: 'https://linear.app'
-        color: '#5E6AD2'
+        name: 'WinUI'
+        logo: 'i-simple-icons-windows'
+        url: 'https://learn.microsoft.com/windows/apps/winui/'
+        color: '#0078D4'
+
+    - position: 'Industrial Software'
+      date: '2022 - 2024'
+      company:
+        name: 'Modbus / QF'
+        logo: 'i-lucide-cpu'
+        url: 'https://www.modbus.org/modbus-specifications'
+        color: '#F59E0B'
+
+    - position: 'Desktop Apps'
+      date: '2020 - Present'
+      company:
+        name: 'WPF'
+        logo: 'i-simple-icons-windows'
+        url: 'https://learn.microsoft.com/dotnet/desktop/wpf/'
+        color: '#0078D4'
+
+    - position: 'Backend'
+      date: '2020 - Present'
+      company:
+        name: 'ASP.NET'
+        logo: 'i-simple-icons-dotnet'
+        url: 'https://dotnet.microsoft.com/apps/aspnet'
+        color: '#512BD4'
+
+    - position: 'Design'
+      date: 'Since childhood'
+      company:
+        name: 'Design'
+        logo: 'i-lucide-pen-tool'
+        url: '#'
+        color: '#EC4899'
 testimonials:
-  - quote: "Reza's approach to UX design completely transformed our product. She has a rare ability to balance beautiful aesthetics with functional simplicity. The redesign not only looked better, but it reduced our customer support tickets by 40% and increased conversion rates across all key metrics."
+  - quote: "Reza's approach to UX design completely transformed our product. He has a rare ability to balance clean visuals with practical simplicity. The redesign didn’t just look better — it made the product easier to use and reduced friction across the whole experience."
     author:
       name: 'Sarah Chen'
       description: 'Product Director at Bloom Finance'
       avatar:
         src: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=40&h=40&q=80'
         srcset: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=80&h=80&q=80 2x'
-  - quote: "Working with Reza was the best decision we made for our startup. She didn't just deliver designs—she challenged our assumptions, conducted thorough user research, and created an experience that truly resonated with our audience. Her technical knowledge of front-end development meant the handoff to our engineering team was seamless."
+  - quote: 'Working with Reza was one of the best decisions we made for our product. He didn’t just build screens — he challenged our assumptions, understood the product deeply, and created an experience that made sense for both users and the business.'
     author:
       name: 'Michael Rodriguez'
       description: 'Co-founder of Wavelength Music'
       avatar:
         src: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=40&h=40&q=80'
         srcset: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=80&h=80&q=80 2x'
-  - quote: "Reza stands out in her ability to translate complex sustainability data into intuitive interfaces. Her work on EcoTrack wasn't just visually stunning—it fundamentally changed how our users interact with environmental information. She approaches each problem with both creativity and analytical rigor, which is exactly what we needed."
+  - quote: 'Reza is great at turning complex workflows into clear, usable software. He brings both technical thinking and a strong design sense to the table, which is exactly what custom software projects need.'
     author:
       name: 'Dr. Aisha Johnson'
       description: 'Chief Innovation Officer at GreenTech Solutions'
@@ -85,39 +120,51 @@ blog:
   title: 'Latest Articles'
   description: 'Some of my recent thoughts'
 faq:
-  title: Frequently Asked Questions
-  description: Answers to common questions about my process and services.
+  title: 'Frequently Asked Questions'
+  description: 'A few common questions about the kind of projects I work on, how collaboration usually starts, and the way I think about software.'
   categories:
-    - title: Services & Process
+    - title: 'Collaboration & Projects'
       questions:
-        - label: What services do you offer?
+        - label: 'What kind of projects do you work on?'
           content: |
-            I specialize in UX/UI design and front-end development. This includes user research, wireframing, interactive prototyping, creating intuitive user interfaces, building responsive websites and web applications (especially with Vue.js/Nuxt.js), and developing design systems. My goal is to create seamless digital experiences from concept to deployment.
-        - label: What is your design process like?
+            I mostly work on custom, process-driven projects — things like company websites, online stores, management dashboards, ERPs, web apps, industrial tools, quality control systems, office automation, order management platforms, messaging systems, AI chat interfaces, and Telegram bots.
+
+        - label: 'Do you only work on frontend, or backend too?'
           content: |
-            My process is collaborative and iterative, typically involving stages like Discovery & Research, Ideation & Prototyping, User Testing, Visual Design, and close collaboration with development teams during implementation. I tailor the process based on project needs, always focusing on user-centered solutions.
-        - label: Do you work with startups?
+            My main focus and interest is frontend and user experience, but I started with .NET and ASP.NET and I have solid experience with backend development, API design, and software architecture too. So I don’t look at a project only from the visual side — I can understand how the different parts of the system should connect and work together.
+
+        - label: 'Do you work with startups?'
           content: |
-            Absolutely! I enjoy working with startups to help shape their product vision and create user-friendly interfaces from the ground up. I can adapt my process to fit the fast-paced startup environment.
-    - title: Pricing & Timelines
+            Yes. I enjoy working with startups, especially when the idea is still taking shape and needs to become a real, usable product quickly — but in a way that can still grow later.
+
+    - title: 'Process & Timeline'
       questions:
-        - label: How much does a project typically cost?
+        - label: 'What do you need to start a project?'
           content: |
-            Project costs vary based on scope, complexity, features, and timeline. For comprehensive UX/UI design and front-end development projects, my engagements typically start around $5,000, with average projects ranging between $8,000 and $25,000. For consulting or specific design tasks, my day rate is $700.
-        - label: What are your payment terms?
+            The best starting point is usually a short meeting — in person, online, or even by phone. After that, requirements, project notes, similar examples, needed features, and priorities help make the direction much clearer.
+
+        - label: 'How long does a project take?'
           content: |
-            I generally require a 40% deposit to schedule the project and begin work, with the remaining 60% due upon successful project completion and delivery. I accept payments via bank transfer and Stripe.
-        - label: How long does a typical project take?
+            It depends completely on the size and complexity of the project. Some projects can be done in a few weeks, but bigger systems like ERPs, enterprise dashboards, or process-driven software usually take a few months.
+
+        - label: 'How do you define the cost and payment terms?'
           content: |
-            Timelines depend heavily on the project's scope and complexity. Smaller projects might take 3-4 weeks, while larger, more involved projects can range from 2 to 4 months. I always provide a detailed timeline estimate after the initial discovery phase.
-        - label: Do you offer retainers or ongoing support?
+            The cost depends on the scope, features, timeline, and complexity of the project. Usually, part of the amount is paid upfront so the timeline, mutual commitment, and official start of the project are clear. The payment details are defined in the contract.
+
+        - label: 'Do you provide support after delivery?'
           content: |
-            Yes, for clients needing ongoing design support, feature development, or maintenance, I offer monthly retainer options tailored to specific needs. Let's discuss if this is something you're interested in.
-    - title: About Me
+            Yes. Project support is based on what we define in the contract — from fixing possible issues to making improvements or adding new features. The duration and type of support can be agreed on depending on the project.
+
+    - title: 'About Me'
       questions:
-        - label: What do you enjoy most about your work?
+        - label: 'What makes your work different?'
           content: |
-            I love the challenge of solving complex problems through design and technology. It's incredibly rewarding to see people interact with something I've created and find it genuinely useful and easy to navigate. Bridging the gap between user needs and technical possibilities is what truly excites me.
-        - label: What are your hobbies outside of work?
+            The mix of technical experience and design thinking. On one side, I’ve worked with .NET, ASP.NET, Blazor, Nuxt, desktop software, and industrial projects. On the other side, design has been part of my life since childhood. That combination helps me care about both the structure behind the software and the experience people get from using it.
+
+        - label: 'What do you enjoy most about your work?'
           content: |
-            When I'm not designing or coding, I enjoy exploring Boston's neighborhoods, trying out new coffee shops, and hiking in the nearby reservations. I'm also passionate about photography and occasionally contribute to open-source projects.
+            What I enjoy most is turning an idea into a real product — especially when the idea is a bit ambitious and needs to be thought through properly from both the technical side and the user experience side.
+
+        - label: 'Where can I see your resume and portfolio?'
+          content: |
+            You can see my work on the Projects page. And if you’re short on time, I’ve added a resume button at the top of the homepage so you can download the PDF version directly.
