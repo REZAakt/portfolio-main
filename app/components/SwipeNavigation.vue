@@ -10,7 +10,8 @@ const router = useRouter()
 const route = useRoute()
 const { locale } = useI18n()
 
-const pages = computed(() => props.links.map(link => link.to).filter(Boolean) as string[])
+// eslint-disable-next-line @stylistic/arrow-parens
+const pages = computed(() => props.links.map((link) => link.to).filter(Boolean) as string[])
 
 function normalize(path: string) {
   const prefix = `/${locale.value}`
@@ -65,6 +66,8 @@ const { lengthX, lengthY } = useSwipe(target, {
 
     if (!targetPath) return
 
+    if (dir !== 'left' && dir !== 'right') return
+
     swipeDirection.value = dir
 
     await nextTick()
@@ -74,10 +77,7 @@ const { lengthX, lengthY } = useSwipe(target, {
 </script>
 
 <template>
-  <div
-    ref="target"
-    class="relative"
-  >
+  <div ref="target" class="relative">
     <slot />
   </div>
 </template>
