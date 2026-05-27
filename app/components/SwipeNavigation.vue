@@ -14,12 +14,23 @@ const pages = computed(() => props.links.map(link => link.to).filter(Boolean) as
 
 function normalize(path: string) {
   const prefix = `/${locale.value}`
+  let normalized = path.split(/[?#]/)[0] || '/'
 
-  if (path.startsWith(prefix)) {
-    return path.replace(prefix, '') || '/'
+  if (normalized === prefix) {
+    normalized = '/'
+  } else if (normalized.startsWith(`${prefix}/`)) {
+    normalized = normalized.slice(prefix.length) || '/'
   }
 
-  return path
+  if (normalized.length > 1) {
+    normalized = normalized.replace(/\/+$/, '')
+  }
+
+  if (normalized.startsWith('/blog/')) {
+    return '/blog'
+  }
+
+  return normalized
 }
 
 const target = ref<HTMLElement | null>(null)
@@ -43,21 +54,21 @@ const { lengthX, lengthY } = useSwipe(target, {
 
     const isRtl = locale.value === 'fa'
 
-    if (dir === 'left' || dir === 'right') {
-      swipeDirection.value = dir
-
-      await nextTick()
-    }
-
+    let targetPath: string | undefined
     if (dir === 'left') {
-      const target = isRtl ? list[index - 1] : list[index + 1]
-      if (target) router.push(localePath(target))
+      targetPath = isRtl ? list[index - 1] : list[index + 1]
     }
 
     if (dir === 'right') {
-      const target = isRtl ? list[index + 1] : list[index - 1]
-      if (target) router.push(localePath(target))
+      targetPath = isRtl ? list[index + 1] : list[index - 1]
     }
+
+    if (!targetPath) return
+
+    swipeDirection.value = dir
+
+    await nextTick()
+    await router.push(localePath(targetPath))
   }
 })
 </script>
