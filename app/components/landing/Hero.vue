@@ -146,23 +146,30 @@ defineProps<{
             delay: 0.5 + index * 0.1
           }"
         >
-          <UButton
-            size="md"
-            color="neutral"
-            variant="ghost"
-            :icon="link.image ? undefined : link.icon"
-            :to="link.to"
-            :target="link.target"
-            :aria-label="link['aria-label']"
+          <UTooltip
+            :text="link.tooltipKey ? t(link.tooltipKey) : link['aria-label']"
+            :delay-duration="100"
+            arrow
+            :content="{ side: 'top', sideOffset: 8 }"
           >
-            <template v-if="link.image" #leading>
-              <img
-                :src="link.image"
-                :alt="link['aria-label']"
-                class="size-5 object-contain dark:invert"
-              >
-            </template>
-          </UButton>
+            <UButton
+              size="md"
+              color="neutral"
+              variant="ghost"
+              :icon="link.image ? undefined : link.icon"
+              :to="link.to"
+              :target="link.target"
+              :aria-label="link['aria-label']"
+            >
+              <template v-if="link.image" #leading>
+                <img
+                  :src="link.image"
+                  :alt="link['aria-label']"
+                  class="size-5 object-contain dark:invert"
+                >
+              </template>
+            </UButton>
+          </UTooltip>
         </Motion>
       </div>
     </template>

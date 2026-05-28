@@ -4,5 +4,11 @@
   "availability": {
     "available": "آماده همکاری در پروژه‌های جدید",
     "unavailable": "در حال حاضر در دسترس نیستم"
+  },
+  "social": {
+    "telegram": "تلگرام",
+    "bale": "بله",
+    "gmail": "ایمیل",
+    "github": "گیت‌هاب"
   }
 }

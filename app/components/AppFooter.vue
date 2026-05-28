@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const { footer } = useAppConfig()
+const { t } = useI18n()
 </script>
 
 <template>
@@ -10,25 +11,32 @@ const { footer } = useAppConfig()
 
     <template #right>
       <template v-if="footer?.links">
-        <UButton
+        <UTooltip
           v-for="(link, index) of footer?.links"
           :key="index"
-          size="xs"
-          color="neutral"
-          variant="ghost"
-          :icon="link.image ? undefined : link.icon"
-          :to="link.to"
-          :target="link.target"
-          :aria-label="link['aria-label']"
+          :text="link.tooltipKey ? t(link.tooltipKey) : link['aria-label']"
+          :delay-duration="100"
+          arrow
+          :content="{ side: 'top', sideOffset: 8 }"
         >
-          <template v-if="link.image" #leading>
-            <img
-              :src="link.image"
-              :alt="link['aria-label']"
-              class="size-4 object-contain dark:invert"
-            >
-          </template>
-        </UButton>
+          <UButton
+            size="xs"
+            color="neutral"
+            variant="ghost"
+            :icon="link.image ? undefined : link.icon"
+            :to="link.to"
+            :target="link.target"
+            :aria-label="link['aria-label']"
+          >
+            <template v-if="link.image" #leading>
+              <img
+                :src="link.image"
+                :alt="link['aria-label']"
+                class="size-4 object-contain dark:invert"
+              >
+            </template>
+          </UButton>
+        </UTooltip>
       </template>
     </template>
   </UFooter>

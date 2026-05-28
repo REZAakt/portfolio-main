@@ -31,25 +31,29 @@ export default defineAppConfig({
         icon: 'i-simple-icons-telegram',
         to: 'https://t.me/REZA_akT',
         target: '_blank',
-        'aria-label': 'Me on Telegram'
-      },
-      {
-        icon: 'i-simple-icons-gmail',
-        to: 'mailto:rreza.aak@gmail.com',
-        target: '_blank',
-        'aria-label': 'Me on Gmail'
-      },
-      {
-        icon: 'i-simple-icons-github',
-        to: 'https://github.com/REZAakt',
-        target: '_blank',
-        'aria-label': 'Me on GitHub'
+        'aria-label': 'Me on Telegram',
+        tooltipKey: 'social.telegram'
       },
       {
         image: '/Icons/bale.png',
         to: 'https://web.bale.ai/chat?uid=44933076',
         target: '_blank',
-        'aria-label': 'Me on Bale'
+        'aria-label': 'Me on Bale',
+        tooltipKey: 'social.bale'
+      },
+      {
+        icon: 'i-simple-icons-gmail',
+        to: 'mailto:rreza.aak@gmail.com',
+        target: '_blank',
+        'aria-label': 'Me on Gmail',
+        tooltipKey: 'social.gmail'
+      },
+      {
+        icon: 'i-simple-icons-github',
+        to: 'https://github.com/REZAakt',
+        target: '_blank',
+        'aria-label': 'Me on GitHub',
+        tooltipKey: 'social.github'
       }
     ]
   }

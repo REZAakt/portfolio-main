@@ -4,5 +4,11 @@
   "availability": {
     "available": "Available for new projects",
     "unavailable": "Not available at the moment"
+  },
+  "social": {
+    "telegram": "Telegram",
+    "bale": "Bale",
+    "gmail": "Email",
+    "github": "GitHub"
   }
 }

@@ -4,6 +4,7 @@ type AppConfigLink = {
   'to'?: string
   'target'?: '_blank' | '_self'
   'aria-label'?: string
+  'tooltipKey'?: string
 }
 
 declare module 'nuxt/schema' {
