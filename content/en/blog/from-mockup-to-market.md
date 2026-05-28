@@ -9,7 +9,7 @@ minRead: 8
 author:
   name: Reza Akbarpour
   avatar:
-    src: /images/me.jpg
+    src: /images/me.png
     alt: Reza Akbarpour
 ---
 

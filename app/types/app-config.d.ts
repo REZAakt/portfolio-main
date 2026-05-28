@@ -1,5 +1,6 @@
 type AppConfigLink = {
   'icon'?: string
+  'image'?: string
   'to'?: string
   'target'?: '_blank' | '_self'
   'aria-label'?: string

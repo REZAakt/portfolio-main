@@ -3,11 +3,11 @@ export default defineAppConfig({
   global: {
     picture: {
       dark: '/images/me.jpg',
-      light: '/images/me.jpg',
+      light: '/images/me.png',
       alt: 'My profile picture'
     },
     meetingLink: 'https://cal.com/',
-    email: 'rreza.com',
+    email: 'rreza.aak@gmail.com',
     available: false
   },
   ui: {
@@ -28,22 +28,28 @@ export default defineAppConfig({
     colorMode: false,
     links: [
       {
-        icon: 'i-simple-icons-discord',
-        to: 'https://go.nuxt.com/discord',
+        icon: 'i-simple-icons-telegram',
+        to: 'https://t.me/REZA_akT',
         target: '_blank',
-        'aria-label': 'Nuxt on Discord'
+        'aria-label': 'Me on Telegram'
       },
       {
-        icon: 'i-simple-icons-x',
-        to: 'https://go.nuxt.com/x',
+        icon: 'i-simple-icons-gmail',
+        to: 'mailto:rreza.aak@gmail.com',
         target: '_blank',
-        'aria-label': 'Nuxt on X'
+        'aria-label': 'Me on Gmail'
       },
       {
         icon: 'i-simple-icons-github',
-        to: 'https://github.com/nuxt/ui',
+        to: 'https://github.com/REZAakt',
         target: '_blank',
-        'aria-label': 'Nuxt UI on GitHub'
+        'aria-label': 'Me on GitHub'
+      },
+      {
+        image: '/Icons/bale.png',
+        to: 'https://web.bale.ai/chat?uid=44933076',
+        target: '_blank',
+        'aria-label': 'Me on Bale'
       }
     ]
   }

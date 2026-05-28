@@ -4,14 +4,14 @@
 @font-face {
   font-family: 'Public Sans';
   src: url('/fonts/iranyekanwebregular.woff') format('woff');
-  font-weight: 500;
+  font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Instrument Serif';
   src: url('/fonts/iranyekanwebregular.woff') format('woff');
-  font-weight: 500;
+  font-weight: 300;
   font-style: normal;
   font-display: swap;
 }

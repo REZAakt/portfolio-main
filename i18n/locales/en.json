@@ -1,4 +1,8 @@
 {
   "hello": "Hello",
-  "welcome": "Welcome to my website"
+  "welcome": "Welcome to my website",
+  "availability": {
+    "available": "Available for new projects",
+    "unavailable": "Not available at the moment"
+  }
 }

@@ -123,7 +123,7 @@ faq:
   title: 'Frequently Asked Questions'
   description: 'A few common questions about the kind of projects I work on, how collaboration usually starts, and the way I think about software.'
   categories:
-    - title: 'Collaboration & Projects'
+    - title: 'Projects'
       questions:
         - label: 'What kind of projects do you work on?'
           content: |
@@ -137,12 +137,8 @@ faq:
           content: |
             Yes. I enjoy working with startups, especially when the idea is still taking shape and needs to become a real, usable product quickly — but in a way that can still grow later.
 
-    - title: 'Process & Timeline'
+    - title: 'Process'
       questions:
-        - label: 'What do you need to start a project?'
-          content: |
-            The best starting point is usually a short meeting — in person, online, or even by phone. After that, requirements, project notes, similar examples, needed features, and priorities help make the direction much clearer.
-
         - label: 'How long does a project take?'
           content: |
             It depends completely on the size and complexity of the project. Some projects can be done in a few weeks, but bigger systems like ERPs, enterprise dashboards, or process-driven software usually take a few months.
