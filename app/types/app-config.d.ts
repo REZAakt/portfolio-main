@@ -21,7 +21,7 @@ declare module 'nuxt/schema' {
     }
 
     footer: {
-      credits: string
+      creditsKey: string
       colorMode: boolean
       links: AppConfigLink[]
     }

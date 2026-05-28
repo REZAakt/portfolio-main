@@ -166,7 +166,7 @@ defineProps<{
                   :src="link.image"
                   :alt="link['aria-label']"
                   class="size-5 object-contain dark:invert"
-                >
+                />
               </template>
             </UButton>
           </UTooltip>

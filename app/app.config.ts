@@ -24,7 +24,7 @@ export default defineAppConfig({
     }
   },
   footer: {
-    credits: `Built with Nuxt UI • © ${new Date().getFullYear()}`,
+    creditsKey: 'footer.credits',
     colorMode: false,
     links: [
       {
@@ -43,7 +43,7 @@ export default defineAppConfig({
       },
       {
         icon: 'i-simple-icons-gmail',
-        to: 'mailto:rreza.aak@gmail.com',
+        to: 'https://mail.google.com/mail/?view=cm&fs=1&to=rreza.aak@gmail.com',
         target: '_blank',
         'aria-label': 'Me on Gmail',
         tooltipKey: 'social.gmail'

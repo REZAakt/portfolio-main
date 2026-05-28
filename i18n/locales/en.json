@@ -10,5 +10,8 @@
     "bale": "Bale",
     "gmail": "Email",
     "github": "GitHub"
+  },
+  "footer": {
+    "credits": "Developed by Reza Akbarpour • © {year}"
   }
 }
