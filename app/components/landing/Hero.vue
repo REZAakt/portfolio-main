@@ -183,9 +183,67 @@ const items = [
       </div>
     </template>
 
-    <UCarousel v-slot="{ item }" loop auto-scroll dots :items="items" :ui="{ item: 'basis-1/3' }">
-      <img :src="item" width="234" height="234" class="rounded-lg" loading="lazy" />
-    </UCarousel>
+    <div
+      class="relative w-full h-[400px] bg-muted overflow-hidden"
+      style="background-color: transparent"
+    >
+      <UMarquee
+        reverse
+        orientation="vertical"
+        :overlay="false"
+        :ui="{
+          root: '[--duration:40s] absolute w-[460px] -left-[100px] -top-[300px] h-[940px] transform-3d rotate-x-65 rotate-y-0 rotate-z-30'
+        }"
+      >
+        <img
+          v-for="i in 4"
+          :key="i"
+          :src="`/blocks/image${i}.png`"
+          width="460"
+          height="258"
+          :alt="`Nuxt UI Screenshot ${i}`"
+          loading="lazy"
+          class="aspect-video border border-default rounded-lg bg-white"
+        />
+      </UMarquee>
+      <UMarquee
+        orientation="vertical"
+        :overlay="false"
+        :ui="{
+          root: '[--duration:40s] absolute w-[460px] -top-[400px] left-[480px] h-[1160px] transform-3d rotate-x-65 rotate-y-0 rotate-z-30'
+        }"
+      >
+        <img
+          v-for="i in [5, 6, 7, 8]"
+          :key="i"
+          :src="`/blocks/image${i}.png`"
+          width="460"
+          height="258"
+          :alt="`Nuxt UI Screenshot ${i}`"
+          loading="lazy"
+          class="aspect-video border border-default rounded-lg bg-white"
+        />
+      </UMarquee>
+      <UMarquee
+        reverse
+        orientation="vertical"
+        :overlay="false"
+        :ui="{
+          root: 'hidden md:flex [--duration:40s] absolute w-[460px] -top-[300px] left-[1020px] h-[1060px] transform-3d rotate-x-65 rotate-y-0 rotate-z-30'
+        }"
+      >
+        <img
+          v-for="i in [9, 10, 11, 12]"
+          :key="i"
+          :src="`/blocks/image${i}.png`"
+          width="460"
+          height="258"
+          :alt="`Nuxt UI Screenshot ${i}`"
+          loading="lazy"
+          class="aspect-video border border-default rounded-lg bg-white"
+        />
+      </UMarquee>
+    </div>
     <!-- <UMarquee pause-on-hover class="py-2 -mx-8 sm:-mx-12 lg:-mx-16 [--duration:40s]">
       <Motion
         v-for="(img, index) in page.hero.images"
