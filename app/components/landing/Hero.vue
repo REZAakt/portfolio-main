@@ -7,6 +7,15 @@ const { t } = useI18n()
 defineProps<{
   page: IndexCollectionItem
 }>()
+
+const items = [
+  'https://picsum.photos/468/468?random=1',
+  'https://picsum.photos/468/468?random=2',
+  'https://picsum.photos/468/468?random=3',
+  'https://picsum.photos/468/468?random=4',
+  'https://picsum.photos/468/468?random=5',
+  'https://picsum.photos/468/468?random=6'
+]
 </script>
 
 <template>
@@ -174,7 +183,10 @@ defineProps<{
       </div>
     </template>
 
-    <UMarquee pause-on-hover class="py-2 -mx-8 sm:-mx-12 lg:-mx-16 [--duration:40s]">
+    <UCarousel v-slot="{ item }" loop auto-scroll dots :items="items" :ui="{ item: 'basis-1/3' }">
+      <img :src="item" width="234" height="234" class="rounded-lg" loading="lazy" />
+    </UCarousel>
+    <!-- <UMarquee pause-on-hover class="py-2 -mx-8 sm:-mx-12 lg:-mx-16 [--duration:40s]">
       <Motion
         v-for="(img, index) in page.hero.images"
         :key="index"
@@ -201,6 +213,6 @@ defineProps<{
           v-bind="img"
         />
       </Motion>
-    </UMarquee>
+    </UMarquee> -->
   </UPageHero>
 </template>
