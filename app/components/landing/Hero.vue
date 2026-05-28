@@ -203,7 +203,7 @@ defineProps<{
         orientation="vertical"
         :overlay="false"
         :ui="{
-          root: '[--duration:42s] absolute w-[220px] left-[120px] -top-[340px] h-[1180px] transform-3d rotate-x-55 rotate-y-0 rotate-z-30'
+          root: '[--duration:42s] absolute w-[220px] left-[120px] -top-[330px] h-[1180px] transform-3d rotate-x-55 rotate-y-0 rotate-z-30'
         }"
       >
         <img
@@ -224,7 +224,7 @@ defineProps<{
         orientation="vertical"
         :overlay="false"
         :ui="{
-          root: '[--duration:42s] absolute w-[220px] left-[430px] -top-[260px] h-[1080px] transform-3d rotate-x-55 rotate-y-0 rotate-z-30'
+          root: '[--duration:42s] absolute w-[220px] left-[410px] -top-[270px] h-[1080px] transform-3d rotate-x-55 rotate-y-0 rotate-z-30'
         }"
       >
         <img
