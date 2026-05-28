@@ -63,6 +63,7 @@ useSeoMeta({
     <LandingHero :page="page" />
 
     <UPageSection
+      class="relative z-10 -mt-24 sm:-mt-28 lg:-mt-36"
       :ui="{
         container: 'pt-0! lg:grid lg:grid-cols-2 lg:gap-8'
       }"

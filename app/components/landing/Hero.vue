@@ -7,15 +7,6 @@ const { t } = useI18n()
 defineProps<{
   page: IndexCollectionItem
 }>()
-
-const items = [
-  'https://picsum.photos/468/468?random=1',
-  'https://picsum.photos/468/468?random=2',
-  'https://picsum.photos/468/468?random=3',
-  'https://picsum.photos/468/468?random=4',
-  'https://picsum.photos/468/468?random=5',
-  'https://picsum.photos/468/468?random=6'
-]
 </script>
 
 <template>
@@ -184,61 +175,85 @@ const items = [
     </template>
 
     <div
-      class="relative w-full h-[400px] bg-muted overflow-hidden"
-      style="background-color: transparent"
+      class="hero-showcase-mask pointer-events-none relative z-0 -mt-20 sm:-mt-28 md:-mt-32 w-full h-[500px] md:h-[560px] overflow-hidden"
     >
+      <!-- ستون 1 -->
       <UMarquee
         reverse
         orientation="vertical"
         :overlay="false"
         :ui="{
-          root: '[--duration:40s] absolute w-[460px] -left-[100px] -top-[300px] h-[940px] transform-3d rotate-x-65 rotate-y-0 rotate-z-30'
+          root: '[--duration:42s] absolute w-[220px] -left-[190px] -top-[260px] h-[1050px] transform-3d rotate-x-55 rotate-y-0 rotate-z-30'
         }"
       >
         <img
-          v-for="i in 4"
+          v-for="i in [1, 2, 3, 4]"
           :key="i"
           :src="`/blocks/image${i}.png`"
-          width="460"
-          height="258"
-          :alt="`Nuxt UI Screenshot ${i}`"
+          width="220"
+          height="124"
+          :alt="`Project screenshot ${i}`"
           loading="lazy"
           class="aspect-video border border-default rounded-lg bg-white"
         />
       </UMarquee>
+
+      <!-- ستون 2 -->
       <UMarquee
         orientation="vertical"
         :overlay="false"
         :ui="{
-          root: '[--duration:40s] absolute w-[460px] -top-[400px] left-[480px] h-[1160px] transform-3d rotate-x-65 rotate-y-0 rotate-z-30'
+          root: '[--duration:42s] absolute w-[220px] left-[120px] -top-[340px] h-[1180px] transform-3d rotate-x-55 rotate-y-0 rotate-z-30'
         }"
       >
         <img
           v-for="i in [5, 6, 7, 8]"
           :key="i"
           :src="`/blocks/image${i}.png`"
-          width="460"
-          height="258"
-          :alt="`Nuxt UI Screenshot ${i}`"
+          width="220"
+          height="124"
+          :alt="`Project screenshot ${i}`"
           loading="lazy"
           class="aspect-video border border-default rounded-lg bg-white"
         />
       </UMarquee>
+
+      <!-- ستون 3 -->
       <UMarquee
         reverse
         orientation="vertical"
         :overlay="false"
         :ui="{
-          root: 'hidden md:flex [--duration:40s] absolute w-[460px] -top-[300px] left-[1020px] h-[1060px] transform-3d rotate-x-65 rotate-y-0 rotate-z-30'
+          root: '[--duration:42s] absolute w-[220px] left-[430px] -top-[260px] h-[1080px] transform-3d rotate-x-55 rotate-y-0 rotate-z-30'
         }"
       >
         <img
           v-for="i in [9, 10, 11, 12]"
           :key="i"
           :src="`/blocks/image${i}.png`"
-          width="460"
-          height="258"
-          :alt="`Nuxt UI Screenshot ${i}`"
+          width="220"
+          height="124"
+          :alt="`Project screenshot ${i}`"
+          loading="lazy"
+          class="aspect-video border border-default rounded-lg bg-white"
+        />
+      </UMarquee>
+
+      <!-- ستون 4 -->
+      <UMarquee
+        orientation="vertical"
+        :overlay="false"
+        :ui="{
+          root: '[--duration:42s] absolute w-[220px] left-[740px] -top-[340px] h-[1180px] transform-3d rotate-x-55 rotate-y-0 rotate-z-30'
+        }"
+      >
+        <img
+          v-for="i in [1, 5, 9, 12]"
+          :key="i"
+          :src="`/blocks/image${i}.png`"
+          width="220"
+          height="124"
+          :alt="`Project screenshot ${i}`"
           loading="lazy"
           class="aspect-video border border-default rounded-lg bg-white"
         />
@@ -274,3 +289,35 @@ const items = [
     </UMarquee> -->
   </UPageHero>
 </template>
+
+<style scoped>
+.hero-showcase-mask {
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgb(0 0 0 / 8%) 8%,
+    rgb(0 0 0 / 35%) 18%,
+    rgb(0 0 0 / 75%) 30%,
+    #000 42%,
+    #000 62%,
+    rgb(0 0 0 / 75%) 74%,
+    rgb(0 0 0 / 35%) 86%,
+    rgb(0 0 0 / 8%) 95%,
+    transparent 100%
+  );
+
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgb(0 0 0 / 8%) 8%,
+    rgb(0 0 0 / 35%) 18%,
+    rgb(0 0 0 / 75%) 30%,
+    #000 42%,
+    #000 62%,
+    rgb(0 0 0 / 75%) 74%,
+    rgb(0 0 0 / 35%) 86%,
+    rgb(0 0 0 / 8%) 95%,
+    transparent 100%
+  );
+}
+</style>
