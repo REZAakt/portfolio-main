@@ -175,7 +175,7 @@ defineProps<{
     </template>
 
     <div
-      class="hero-showcase-mask pointer-events-none relative z-0 -mt-20 sm:-mt-28 md:-mt-32 w-full h-[500px] md:h-[560px] overflow-hidden"
+      class="hero-showcase-mask pointer-events-none relative z-0 -mt-20 sm:-mt-28 md:-mt-32 w-full h-[250px] md:h-[400px] overflow-hidden"
     >
       <!-- ستون 1 -->
       <UMarquee
@@ -189,7 +189,7 @@ defineProps<{
         <img
           v-for="i in [1, 2, 3, 4]"
           :key="i"
-          :src="`/blocks/image${i}.png`"
+          :src="`/images/${i}.png`"
           width="220"
           height="124"
           :alt="`Project screenshot ${i}`"
@@ -209,7 +209,7 @@ defineProps<{
         <img
           v-for="i in [5, 6, 7, 8]"
           :key="i"
-          :src="`/blocks/image${i}.png`"
+          :src="`/images/${i}.png`"
           width="220"
           height="124"
           :alt="`Project screenshot ${i}`"
@@ -230,7 +230,7 @@ defineProps<{
         <img
           v-for="i in [9, 10, 11, 12]"
           :key="i"
-          :src="`/blocks/image${i}.png`"
+          :src="`/images/${i}.png`"
           width="220"
           height="124"
           :alt="`Project screenshot ${i}`"
@@ -250,7 +250,7 @@ defineProps<{
         <img
           v-for="i in [1, 5, 9, 12]"
           :key="i"
-          :src="`/blocks/image${i}.png`"
+          :src="`/images/${i}.png`"
           width="220"
           height="124"
           :alt="`Project screenshot ${i}`"
