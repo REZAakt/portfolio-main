@@ -187,14 +187,14 @@ defineProps<{
         }"
       >
         <img
-          v-for="i in [1, 2, 3, 4]"
-          :key="i"
-          :src="`/images/${i}.png`"
+          v-for="image in page.hero.images.slice(0, 4)"
+          :key="image.src"
+          :src="image.src"
           width="220"
           height="124"
-          :alt="`Project screenshot ${i}`"
+          :alt="image.alt"
           loading="lazy"
-          class="aspect-video border border-default rounded-lg bg-white"
+          class="aspect-video border border-default rounded-lg bg-white object-cover"
         />
       </UMarquee>
 
@@ -207,14 +207,14 @@ defineProps<{
         }"
       >
         <img
-          v-for="i in [5, 6, 7, 8]"
-          :key="i"
-          :src="`/images/${i}.png`"
+          v-for="image in page.hero.images.slice(4, 8)"
+          :key="image.src"
+          :src="image.src"
           width="220"
           height="124"
-          :alt="`Project screenshot ${i}`"
+          :alt="image.alt"
           loading="lazy"
-          class="aspect-video border border-default rounded-lg bg-white"
+          class="aspect-video border border-default rounded-lg bg-white object-cover"
         />
       </UMarquee>
 
@@ -228,14 +228,14 @@ defineProps<{
         }"
       >
         <img
-          v-for="i in [9, 10, 11, 12]"
-          :key="i"
-          :src="`/images/${i}.png`"
+          v-for="image in page.hero.images.slice(8, 12)"
+          :key="image.src"
+          :src="image.src"
           width="220"
           height="124"
-          :alt="`Project screenshot ${i}`"
+          :alt="image.alt"
           loading="lazy"
-          class="aspect-video border border-default rounded-lg bg-white"
+          class="aspect-video border border-default rounded-lg bg-white object-cover"
         />
       </UMarquee>
 
@@ -248,14 +248,14 @@ defineProps<{
         }"
       >
         <img
-          v-for="i in [1, 5, 9, 12]"
-          :key="i"
-          :src="`/images/${i}.png`"
+          v-for="image in page.hero.images.slice(12, 16)"
+          :key="image.src"
+          :src="image.src"
           width="220"
           height="124"
-          :alt="`Project screenshot ${i}`"
+          :alt="image.alt"
           loading="lazy"
-          class="aspect-video border border-default rounded-lg bg-white"
+          class="aspect-video border border-default rounded-lg bg-white object-cover"
         />
       </UMarquee>
     </div>
