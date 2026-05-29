@@ -13,37 +13,37 @@ hero:
       color: 'neutral'
   images:
     - src: /hero/1.avif
-      alt: Project screenshot 1
+      alt: Software project screenshot
     - src: /hero/2.avif
-      alt: Project screenshot 2
+      alt: Software project screenshot
     - src: /hero/3.avif
-      alt: Project screenshot 3
+      alt: Software project screenshot
     - src: /hero/4.avif
-      alt: Project screenshot 4
+      alt: Software project screenshot
     - src: /hero/5.avif
-      alt: Project screenshot 5
+      alt: Software project screenshot
     - src: /hero/6.avif
-      alt: Project screenshot 6
+      alt: Software project screenshot
     - src: /hero/7.avif
-      alt: Project screenshot 7
+      alt: Software project screenshot
     - src: /hero/8.avif
-      alt: Project screenshot 8
+      alt: Software project screenshot
     - src: /hero/9.avif
-      alt: Project screenshot 9
+      alt: Software project screenshot
     - src: /hero/10.avif
-      alt: Project screenshot 10
+      alt: Software project screenshot
     - src: /hero/11.avif
-      alt: Project screenshot 11
+      alt: Software project screenshot
     - src: /hero/12.avif
-      alt: Project screenshot 12
+      alt: Software project screenshot
     - src: /hero/13.avif
-      alt: Project screenshot 13
+      aalt: Software project screenshot
     - src: /hero/14.avif
-      alt: Project screenshot 14
+      alt: Software project screenshot
     - src: /hero/15.avif
-      alt: Project screenshot 15
+      alt: Software project screenshot
     - src: /hero/16.avif
-      alt: Project screenshot 16
+      alt: Software project screenshot
 about:
   title: 'About Me'
   description: |
