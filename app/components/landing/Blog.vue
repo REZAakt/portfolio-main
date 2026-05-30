@@ -6,26 +6,21 @@ defineProps<{
   page: IndexCollectionItem
 }>()
 
-const { locale } = useI18n()
-const { toRoutePath } = useContentPath()
-
-const currentPrefix = computed(() => {
-  return locale.value === 'en' ? '/en' : '/fa'
-})
+const { contentLocale, contentLocalePrefix, toRoutePath } = useContentPath()
 
 const blogPathPrefix = computed(() => {
-  return `${currentPrefix.value}/blog/`
+  return `${contentLocalePrefix.value}/blog/`
 })
 
 const { data: posts } = await useAsyncData(
-  () => `index-blogs-${locale.value}`,
+  () => `index-blogs-${contentLocale.value}`,
   async () => {
     const allPosts = await queryCollection('blog').order('date', 'DESC').all()
 
     return allPosts.filter((post) => post.path.startsWith(blogPathPrefix.value)).slice(0, 3)
   },
   {
-    watch: [locale]
+    watch: [blogPathPrefix]
   }
 )
 

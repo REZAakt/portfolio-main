@@ -1,9 +1,9 @@
 <script setup lang="ts">
 const route = useRoute()
-const { locale } = useI18n()
+const { contentLocale } = useContentPath()
 
 const possiblePaths = computed(() => {
-  if (locale.value === 'en') {
+  if (contentLocale.value === 'en') {
     return ['/en', '/en/index']
   }
 
@@ -11,7 +11,7 @@ const possiblePaths = computed(() => {
 })
 
 const { data: page } = await useAsyncData(
-  () => `index-${route.path}-${locale.value}`,
+  () => `index-${route.path}-${contentLocale.value}`,
   async () => {
     const allPages = await queryCollection('index').all()
 
@@ -29,7 +29,7 @@ const { data: page } = await useAsyncData(
     return allPages.find((item) => possiblePaths.value.includes(item.path)) || null
   },
   {
-    watch: [() => route.path, locale]
+    watch: [() => route.path, contentLocale]
   }
 )
 
@@ -47,11 +47,11 @@ useSeoMeta({
   description: () => page.value?.seo?.description || page.value?.description,
   ogDescription: () => page.value?.seo?.description || page.value?.description,
   ogImage: () =>
-    locale.value === 'fa'
+    contentLocale.value === 'fa'
       ? 'https://rezaakbarpour.ir/og-fa.jpg'
       : 'https://rezaakbarpour.ir/og-en.jpg',
   twitterImage: () =>
-    locale.value === 'fa'
+    contentLocale.value === 'fa'
       ? 'https://rezaakbarpour.ir/og-fa.jpg'
       : 'https://rezaakbarpour.ir/og-en.jpg',
   twitterCard: 'summary_large_image'

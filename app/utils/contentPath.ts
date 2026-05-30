@@ -9,10 +9,18 @@ export const useContentPath = () => {
     return path.replace(/\/$/, '')
   }
 
+  const contentLocale = computed(() => {
+    const path = normalizeContentPath(route.path)
+
+    return path.startsWith('/en') ? 'en' : 'fa'
+  })
+
+  const contentLocalePrefix = computed(() => `/${contentLocale.value}`)
+
   const contentPath = computed(() => {
     const path = normalizeContentPath(route.path)
 
-    if (path.startsWith('/en')) {
+    if (contentLocale.value === 'en') {
       return path
     }
 
@@ -60,6 +68,8 @@ export const useContentPath = () => {
   }
 
   return {
+    contentLocale,
+    contentLocalePrefix,
     contentPath,
     toRoutePath,
     toRouteContentItem

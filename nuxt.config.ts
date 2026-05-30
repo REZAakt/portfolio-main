@@ -41,19 +41,11 @@ export default defineNuxtConfig({
         '/',
         '/about/',
         '/blog/',
-        '/blog/from-mockup-to-market/',
-        '/blog/how-i-built-my-own-design-system-from-scratch/',
-        '/blog/psychology-of-color-in-ui-design/',
-        '/blog/slow-design-in-fast-paced-digital-world/',
         '/contact/',
         '/projects/',
         '/en/',
         '/en/about/',
         '/en/blog/',
-        '/en/blog/from-mockup-to-market/',
-        '/en/blog/how-i-built-my-own-design-system-from-scratch/',
-        '/en/blog/psychology-of-color-in-ui-design/',
-        '/en/blog/slow-design-in-fast-paced-digital-world/',
         '/en/contact/',
         '/en/projects/'
       ],
@@ -85,12 +77,7 @@ export default defineNuxtConfig({
     lazy: true,
     langDir: 'locales/',
 
-    detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: 'i18n_redirected',
-      redirectOn: 'root',
-      alwaysRedirect: false
-    }
+    detectBrowserLanguage: false
   },
 
   icon: {
