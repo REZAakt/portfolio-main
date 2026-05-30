@@ -32,7 +32,13 @@ jobs:
         run: pnpm install
 
       - name: Build
-        run: pnpm build
+        run: pnpm build:github
+
+      - name: Check generated files
+        run: |
+          ls -la .output/public
+          ls -la .output/public/en
+          test -f .output/public/en/index.html
 
       - uses: actions/upload-pages-artifact@v3
         with:
