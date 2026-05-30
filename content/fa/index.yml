@@ -37,7 +37,7 @@ hero:
     - src: /hero/12.avif
       alt: Software project screenshot
     - src: /hero/13.avif
-      aalt: Software project screenshot
+      alt: Software project screenshot
     - src: /hero/14.avif
       alt: Software project screenshot
     - src: /hero/15.avif

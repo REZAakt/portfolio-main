@@ -22,7 +22,8 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
   site: {
     url: 'https://rezaakbarpour.ir',
-    name: 'Reza Akbarpour'
+    name: 'Reza Akbarpour',
+    trailingSlash: true
   },
 
   colorMode: {
