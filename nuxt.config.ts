@@ -7,7 +7,8 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     'nuxt-og-image',
     'motion-v/nuxt',
-    '@nuxtjs/i18n'
+    '@nuxtjs/i18n',
+    '@nuxtjs/sitemap'
   ],
 
   devtools: {
@@ -19,6 +20,10 @@ export default defineNuxtConfig({
   },
 
   css: ['~/assets/css/main.css'],
+  site: {
+    url: 'https://rezaakbarpour.ir',
+    name: 'Reza Akbarpour'
+  },
 
   colorMode: {
     preference: 'system',
@@ -47,7 +52,8 @@ export default defineNuxtConfig({
         '/en/about/',
         '/en/blog/',
         '/en/contact/',
-        '/en/projects/'
+        '/en/projects/',
+        '/sitemap.xml'
       ],
       crawlLinks: true
     }
@@ -90,5 +96,9 @@ export default defineNuxtConfig({
 
   ogImage: {
     zeroRuntime: true
+  },
+  sitemap: {
+    sitemaps: false
   }
+
 })
