@@ -2,32 +2,11 @@
 const route = useRoute()
 const { contentLocale } = useContentPath()
 
-const possiblePaths = computed(() => {
-  if (contentLocale.value === 'en') {
-    return ['/en', '/en/index']
-  }
-
-  return ['/', '/fa', '/fa/index']
-})
+const pagePath = computed(() => (contentLocale.value === 'en' ? '/en' : '/fa'))
 
 const { data: page } = await useAsyncData(
   () => `index-${route.path}-${contentLocale.value}`,
-  async () => {
-    const allPages = await queryCollection('index').all()
-
-    // console.table(
-    //   // eslint-disable-next-line @stylistic/arrow-parens
-    //   allPages.map((item) => ({
-    //     title: item.title,
-    //     path: item.path,
-    //     id: item.id,
-    //     stem: item.stem
-    //   }))
-    // )
-
-    // eslint-disable-next-line @stylistic/arrow-parens
-    return allPages.find((item) => possiblePaths.value.includes(item.path)) || null
-  },
+  () => queryCollection('index').path(pagePath.value).first(),
   {
     watch: [() => route.path, contentLocale]
   }
