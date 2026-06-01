@@ -38,12 +38,20 @@ const target = ref<HTMLElement | null>(null)
 
 const localePath = useLocalePath()
 
+function shouldIgnoreSwipe(event: TouchEvent) {
+  return event
+    .composedPath()
+    .some((target) => target instanceof HTMLElement && target.dataset.swipeNavigationIgnore !== undefined)
+}
+
 const { lengthX, lengthY } = useSwipe(target, {
   threshold: 80,
   passive: true,
 
-  onSwipeEnd: async (_event, dir) => {
+  onSwipeEnd: async (event, dir) => {
     if (!dir) return
+
+    if (shouldIgnoreSwipe(event)) return
 
     if (Math.abs(lengthY.value) > Math.abs(lengthX.value)) return
 

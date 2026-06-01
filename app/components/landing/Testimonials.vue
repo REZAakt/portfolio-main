@@ -13,6 +13,7 @@ const contentDirection = computed(() => (locale.value === 'fa' ? 'rtl' : 'ltr'))
 <template>
   <UPageSection
     dir="ltr"
+    data-swipe-navigation-ignore
     :ui="{
       container: 'px-0 pt-0!'
     }"
