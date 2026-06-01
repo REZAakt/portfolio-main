@@ -1,12 +1,129 @@
 seo:
   title: 'Contact Reza Akbarpour'
-  description: 'Get in touch with Reza Akbarpour for software development, web applications, dashboards, and digital product work.'
-title: 'Contact'
-description: 'Have a project, collaboration, or technical problem in mind? Send me a message and I will get back to you.'
-email: 'ui-pro@nuxt.com'
+  description: 'Get in touch with Reza Akbarpour for Nuxt, Blazor, ASP.NET, dashboards, ERP, automation, industrial software, and custom web application work.'
+
+title: "Let's talk about the software you want to build"
+description: 'I work on custom software, web applications, management dashboards, ERP-style systems, industrial tools, automation workflows, and clean user interfaces backed by solid architecture.'
+
+primaryAction: 'Send Email'
+
+email: 'rreza.aak@gmail.com'
+emailSubject: 'Project inquiry'
+emailBody: |
+  Hi Reza,
+
+  I want to talk about a project.
+
+  Project type:
+  Timeline:
+  Budget range:
+  Short description:
+
 location: 'Iran'
-links:
-  - label: 'Send Email'
+responseTime: 'Usually within 24 hours'
+
+availability:
+  label: 'Current status'
+  title: 'Available for selected projects'
+  badge: 'Open'
+  description: 'I am open to meaningful software projects, custom web applications, dashboards, automation tools, and technical collaborations.'
+  unavailableTitle: 'Currently not taking new projects'
+  unavailableBadge: 'Closed'
+  unavailableDescription: 'I am not taking new projects right now. You can still send a message, and I will respond when my schedule opens.'
+
+quickInfo:
+  - label: 'Location'
+    value: 'Iran'
+  - label: 'Response time'
+    value: 'Within 24 hours'
+  - label: 'Work mode'
+    value: 'Remote / Hybrid'
+  - label: 'Focus'
+    value: 'Nuxt, Blazor, ASP.NET, dashboards, ERP, automation'
+
+contactTitle: 'Contact options'
+contactDescription: 'Choose the easiest way to reach me.'
+
+contactCards:
+  - title: 'Email'
+    description: 'Best for project requests, scope details, collaboration, and serious technical discussions.'
     icon: 'i-lucide-mail'
-    color: 'neutral'
-    size: 'md'
+    label: 'Send email'
+    buttonIcon: 'i-lucide-send'
+    to: 'email'
+
+  - title: 'Phone'
+    description: 'Use this when a direct call makes more sense than a written message.'
+    icon: 'i-lucide-phone'
+    label: 'Call'
+    buttonIcon: 'i-lucide-phone-call'
+    to: 'phone'
+
+  - title: 'Telegram'
+    description: 'A good option for quick conversation, first coordination, and follow-up messages.'
+    icon: 'i-simple-icons-telegram'
+    label: 'Message on Telegram'
+    buttonIcon: 'i-lucide-arrow-up-right'
+    to: 'telegram'
+    target: '_blank'
+
+  - title: 'GitHub'
+    description: 'See code, experiments, and open-source activity.'
+    icon: 'i-simple-icons-github'
+    label: 'Open GitHub'
+    buttonIcon: 'i-lucide-arrow-up-right'
+    to: 'https://github.com/REZAakt'
+    target: '_blank'
+
+workTitle: 'What you can contact me about'
+workDescription: 'My strongest fit is custom, practical, process-oriented software that needs both technical structure and a clean user experience.'
+
+workTypes:
+  - title: 'Custom web applications'
+    description: 'Nuxt and Blazor apps, portals, admin panels, business tools, and user-facing product interfaces.'
+    icon: 'i-lucide-panels-top-left'
+
+  - title: 'Dashboards, ERP, and management systems'
+    description: 'Internal systems, reporting dashboards, order management, office automation, and process-driven software.'
+    icon: 'i-lucide-monitor-cog'
+
+  - title: '.NET backend and architecture'
+    description: 'ASP.NET APIs, data models, business logic, integrations, and maintainable application structure.'
+    icon: 'i-simple-icons-dotnet'
+
+  - title: 'Desktop and industrial software'
+    description: 'WPF, WinUI, Modbus-based tools, testers, quality control systems, and software around hardware workflows.'
+    icon: 'i-lucide-cpu'
+
+processTitle: 'How we can start'
+processDescription: 'A clear first message is enough to understand whether the project is a good fit.'
+
+process:
+  - title: 'Send the context'
+    description: 'Tell me what you want to build, improve, automate, or redesign, and what problem it should solve.'
+
+  - title: 'I review the scope'
+    description: 'I check the workflow, technical risks, UI complexity, possible stack, and the practical first step.'
+
+  - title: 'We define the next move'
+    description: 'If it makes sense, we define scope, timeline, collaboration method, and a realistic path forward.'
+
+faqTitle: 'Quick answers'
+faqDescription: 'A few common questions before reaching out.'
+
+faqs:
+  - label: 'Do you work remotely?'
+    content: 'Yes. I can work remotely and, depending on the project, hybrid collaboration is also possible.'
+
+  - label: 'What kind of projects are a good fit?'
+    content: 'Custom web applications, dashboards, ERP-style systems, automation tools, industrial software, quality control systems, and products with real workflows.'
+
+  - label: 'Do you only work on frontend?'
+    content: 'Frontend and UX are my main focus, but I also have solid experience with ASP.NET, .NET, API design, desktop software, and application architecture.'
+
+cta:
+  title: 'Need a little guidance for your project?'
+  description: 'If you are planning to build a website, web app, dashboard, or custom software, send me a quick message. I will review what you need and help you find a better path to get started.'
+  primaryAction: 'Get free initial guidance'
+  to: 'https://t.me/REZA_akT'
+  target: '_blank'

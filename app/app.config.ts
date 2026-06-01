@@ -8,6 +8,8 @@ export default defineAppConfig({
     },
     meetingLink: 'https://cal.com/',
     email: 'rreza.aak@gmail.com',
+    phone: '+989114461400',
+    telegram: 'https://t.me/REZA_akT',
     available: false
   },
   ui: {

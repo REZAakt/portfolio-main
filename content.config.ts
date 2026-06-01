@@ -121,9 +121,75 @@ const contactSchema = z.object({
   seo: createSeoSchema(),
   title: z.string(),
   description: z.string(),
+  primaryAction: z.string(),
+  secondaryAction: z.string().optional(),
+  resumeUrl: z.string().optional(),
   email: z.string().email(),
+  emailSubject: z.string().optional(),
+  emailBody: z.string().optional(),
   location: z.string().optional(),
-  links: z.array(createButtonSchema())
+  responseTime: z.string().optional(),
+  availability: z.object({
+    label: z.string().optional(),
+    title: z.string(),
+    badge: z.string(),
+    description: z.string(),
+    unavailableTitle: z.string().optional(),
+    unavailableBadge: z.string().optional(),
+    unavailableDescription: z.string().optional()
+  }),
+  quickInfo: z.array(
+    z.object({
+      label: z.string(),
+      value: z.string()
+    })
+  ),
+  contactTitle: z.string(),
+  contactDescription: z.string(),
+  contactCards: z.array(
+    z.object({
+      title: z.string(),
+      description: z.string(),
+      icon: z.string(),
+      label: z.string(),
+      buttonIcon: z.string(),
+      to: z.string(),
+      target: z.enum(['_blank', '_self']).optional()
+    })
+  ),
+  workTitle: z.string(),
+  workDescription: z.string(),
+  workTypes: z.array(
+    z.object({
+      title: z.string(),
+      description: z.string(),
+      icon: z.string()
+    })
+  ),
+  processTitle: z.string(),
+  processDescription: z.string(),
+  process: z.array(
+    z.object({
+      title: z.string(),
+      description: z.string()
+    })
+  ),
+  faqTitle: z.string(),
+  faqDescription: z.string(),
+  faqs: z.array(
+    z.object({
+      label: z.string(),
+      content: z.string()
+    })
+  ),
+  cta: z.object({
+    title: z.string(),
+    description: z.string(),
+    primaryAction: z.string(),
+    to: z.string().optional(),
+    target: z.enum(['_blank', '_self']).optional()
+  }),
+  links: z.array(createButtonSchema()).optional()
 })
 
 const aboutSchema = z.object({
