@@ -41,7 +41,7 @@ const localePath = useLocalePath()
 function shouldIgnoreSwipe(event: TouchEvent) {
   return event
     .composedPath()
-    .some((target) => target instanceof HTMLElement && target.dataset.swipeNavigationIgnore !== undefined)
+    .some(target => target instanceof HTMLElement && target.dataset.swipeNavigationIgnore !== undefined)
 }
 
 const { lengthX, lengthY } = useSwipe(target, {
@@ -85,7 +85,10 @@ const { lengthX, lengthY } = useSwipe(target, {
 </script>
 
 <template>
-  <div ref="target" class="relative">
+  <div
+    ref="target"
+    class="relative"
+  >
     <slot />
   </div>
 </template>
