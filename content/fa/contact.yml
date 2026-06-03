@@ -67,6 +67,22 @@ contactCards:
     to: 'telegram'
     target: '_blank'
 
+  - title: 'LinkedIn'
+    description: 'برای ارتباط حرفه‌ای، همکاری و پیگیری تجربه‌های کاری من مناسب است.'
+    icon: 'i-simple-icons-linkedin'
+    label: 'مشاهده LinkedIn'
+    buttonIcon: 'i-lucide-arrow-up-right'
+    to: 'linkedin'
+    target: '_blank'
+
+  - title: 'Instagram'
+    description: 'برای دنبال کردن آپدیت‌های سبک‌تر و ارتباط مستقیم از اینستاگرام استفاده کنید.'
+    icon: 'i-simple-icons-instagram'
+    label: 'مشاهده Instagram'
+    buttonIcon: 'i-lucide-arrow-up-right'
+    to: 'instagram'
+    target: '_blank'
+
   - title: 'گیت‌هاب'
     description: 'کدها، تجربه‌ها و فعالیت‌های متن‌باز من را ببینید.'
     icon: 'i-simple-icons-github'

@@ -67,6 +67,22 @@ contactCards:
     to: 'telegram'
     target: '_blank'
 
+  - title: 'LinkedIn'
+    description: 'Connect for professional updates, collaboration, and work-related conversations.'
+    icon: 'i-simple-icons-linkedin'
+    label: 'Open LinkedIn'
+    buttonIcon: 'i-lucide-arrow-up-right'
+    to: 'linkedin'
+    target: '_blank'
+
+  - title: 'Instagram'
+    description: 'Follow my Instagram profile for lighter updates and direct messages.'
+    icon: 'i-simple-icons-instagram'
+    label: 'Open Instagram'
+    buttonIcon: 'i-lucide-arrow-up-right'
+    to: 'instagram'
+    target: '_blank'
+
   - title: 'GitHub'
     description: 'See code, experiments, and open-source activity.'
     icon: 'i-simple-icons-github'

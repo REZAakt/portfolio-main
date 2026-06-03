@@ -10,6 +10,8 @@ export default defineAppConfig({
     email: 'rreza.aak@gmail.com',
     phone: '+989114461400',
     telegram: 'https://t.me/REZA_akT',
+    linkedin: 'https://www.linkedin.com/in/reza-akbarpour-64ab3b217/',
+    instagram: 'https://www.instagram.com/reza.akbarpourr/',
     available: false
   },
   ui: {
@@ -45,10 +47,16 @@ export default defineAppConfig({
       },
       {
         icon: 'i-simple-icons-gmail',
-        to: 'https://mail.google.com/mail/?view=cm&fs=1&to=rreza.aak@gmail.com',
-        target: '_blank',
+        to: 'mailto:rreza.aak@gmail.com',
         'aria-label': 'Me on Gmail',
         tooltipKey: 'social.gmail'
+      },
+      {
+        icon: 'i-simple-icons-linkedin',
+        to: 'https://www.linkedin.com/in/reza-akbarpour-64ab3b217/',
+        target: '_blank',
+        'aria-label': 'Me on LinkedIn',
+        tooltipKey: 'social.linkedin'
       },
       {
         icon: 'i-simple-icons-github',

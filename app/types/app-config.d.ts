@@ -17,6 +17,10 @@ declare module 'nuxt/schema' {
       }
       meetingLink: string
       email: string
+      phone?: string
+      telegram?: string
+      linkedin?: string
+      instagram?: string
       available: boolean
     }
 

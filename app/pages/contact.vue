@@ -4,6 +4,8 @@ const appConfig = useAppConfig()
 const globalConfig = appConfig.global as typeof appConfig.global & {
   phone?: string
   telegram?: string
+  linkedin?: string
+  instagram?: string
 }
 
 const { data: page } = await useAsyncData(
@@ -71,6 +73,14 @@ function resolveContactLink(to: string) {
 
   if (to === 'telegram') {
     return globalConfig.telegram
+  }
+
+  if (to === 'linkedin') {
+    return globalConfig.linkedin
+  }
+
+  if (to === 'instagram') {
+    return globalConfig.instagram
   }
 
   return to
