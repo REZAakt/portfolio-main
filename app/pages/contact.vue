@@ -183,9 +183,12 @@ defineOgImage('Portfolio', {
         <UCard
           v-for="item in contactCards"
           :key="item.title"
-          class="transition hover:-translate-y-1 hover:shadow-lg"
+          class="h-full transition hover:-translate-y-1 hover:shadow-lg"
+          :ui="{
+            body: 'h-full'
+          }"
         >
-          <div class="space-y-4">
+          <div class="flex h-full flex-col gap-4">
             <div
               class="flex size-11 items-center justify-center rounded-xl bg-primary/10 text-primary"
             >
@@ -195,7 +198,7 @@ defineOgImage('Portfolio', {
               />
             </div>
 
-            <div>
+            <div class="flex-1">
               <h2 class="text-lg font-semibold text-highlighted">
                 {{ item.title }}
               </h2>
@@ -211,6 +214,7 @@ defineOgImage('Portfolio', {
               :target="item.target"
               color="neutral"
               variant="subtle"
+              class="mt-auto"
               block
             />
           </div>
