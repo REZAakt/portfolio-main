@@ -1,27 +1,25 @@
 title: About Me
-description: Learn more about my journey as a Boston-based UX/UI Designer & Front-End Developer, my design philosophy, and my passion for crafting intuitive digital experiences.
+description: Reza Akbarpour is a software, web application, and digital experience developer focused on custom products, dashboards, ERP-style systems, automation, and clean user interfaces.
 content: |
-  Hi, I'm **Reza Akbarpour**, a UX/UI Designer and Front-End Developer based right here in Boston. For the past six years, I've been immersed in the world of digital product creation, focusing on building experiences that are not just functional, but genuinely intuitive and engaging for users.
+  I’m **Reza Akbarpour**, a software and web application developer focused on building custom, practical, and maintainable digital products. My work covers **ASP.NET** backends, **Nuxt** and **Blazor** web applications, management dashboards, ERP-style systems, office automation, order management platforms, online stores, industrial tools, testers, and quality control systems.
 
-  My path started at **Boston University**, where I earned a degree in Interactive Design. It was there I discovered my dual passion for the visual language of design and the logical puzzle of code. Since then, I've honed my skills in both areas, believing that the best digital products are born from a deep understanding of both aesthetics and implementation.
+  My path started with .NET and desktop software, from **WPF** and **WinUI** to projects connected with hardware, Modbus, and industrial workflows. Over time, my focus moved deeper into web applications, admin panels, APIs, software architecture, and user experience. That mix helps me look at a project from more than one angle: the software needs to be built properly, but it also needs to feel clear and usable for the people working with it.
 
-  ### My Design Philosophy
+  ### How I Think About Design And Development
 
-  My design philosophy is rooted in **empathy** and **problem-solving**. I believe great design starts with understanding the 'why' – the user's needs, motivations, and pain points. I use research, iterative prototyping (often with tools like Figma), and user testing to ensure the solutions I build are truly effective.
+  Design, for me, is not just about making screens look better. Drawing, visual thinking, and later industrial design have been part of my world since childhood, and that way of thinking naturally shaped how I build software. When I work on a product, I care about the technical structure, the user flow, the simplicity of each decision, the speed of everyday tasks, and the overall feeling of using the system.
 
-  I strive to create interfaces that feel effortless, where functionality and beauty work hand-in-hand. Whether I'm crafting pixel-perfect UIs or writing clean Vue.js/Nuxt.js code, my focus is always on creating value for the end-user.
+  In custom software, the challenge is usually not just building a few pages. The real workflow has to be understood, data needs to move correctly, different parts of the system need to work together, and the interface should help users do their work without fighting the software.
 
-  ### What Drives Me
+  ### The Work I Care About Most
 
-  What keeps me excited about this work is the constant learning and the challenge of translating complex ideas into simple, elegant solutions. There's nothing more rewarding than seeing a design come to life and knowing it's making someone's digital interaction easier or more enjoyable.
+  I’m most interested in projects that solve a real operational problem: custom web applications, management dashboards, ERP-style tools, automation systems, quality control software, industrial software, internal panels, online stores, learning platforms, messaging systems, AI chat interfaces, and Telegram bots.
 
-  ### Beyond the Screen
+  What I enjoy most is turning an idea or a complex process into a product that is usable, scalable, and reliable. That is especially interesting when the project needs both solid technical thinking and a simple, thoughtful user experience.
 
-  When I'm not designing or coding, you might find me exploring Boston's latest coffee shops, hiking nearby trails, or occasionally contributing to open-source projects.
+  ### Collaboration
 
-  Thanks for stopping by. Feel free to browse my [projects](/projects) or [get in touch](/#contact) if you'd like to collaborate!
+  If you are planning to build a website, web application, dashboard, management system, or custom software, you can reach me through the [contact page](/en/contact). To see examples of my work, the [projects page](/en/projects) is the best place to start.
 images:
-  - src: https://images.unsplash.com/photo-1744877478622-a78c7a3336f6?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
-    alt: My coffee workspace
-  - src: https://images.unsplash.com/photo-1744429523595-2c06b8611242?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
-    alt: My trip to Tokyo
+  - src: /hero/15.avif
+  - src: /hero/12.avif
