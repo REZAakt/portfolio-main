@@ -101,9 +101,33 @@ const projectSchema = z.object({
   title: z.string().nonempty(),
   description: z.string().nonempty(),
   image: z.string().nonempty().editor({ input: 'media' }),
-  url: z.string().nonempty(),
+  url: z.string().optional(),
   tags: z.array(z.string()),
-  date: z.date()
+  date: z.date(),
+  client: z.string().optional(),
+  role: z.string().optional(),
+  year: z.string().optional(),
+  duration: z.string().optional(),
+  platform: z.string().optional(),
+  details: z
+    .array(
+      z.object({
+        label: z.string(),
+        value: z.string()
+      })
+    )
+    .optional(),
+  media: z
+    .array(
+      z.object({
+        type: z.enum(['image', 'video']).default('image'),
+        src: z.string().editor({ input: 'media' }),
+        alt: z.string().optional(),
+        poster: z.string().optional().editor({ input: 'media' }),
+        caption: z.string().optional()
+      })
+    )
+    .optional()
 })
 
 const blogSchema = z.object({
@@ -206,8 +230,8 @@ export default defineContentConfig({
     }),
 
     projects: defineCollection({
-      type: 'data',
-      source: [{ include: 'fa/projects/*.yml' }, { include: 'en/projects/*.yml' }],
+      type: 'page',
+      source: [{ include: 'fa/projects/*.md' }, { include: 'en/projects/*.md' }],
       schema: projectSchema
     }),
 

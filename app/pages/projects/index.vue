@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/max-attributes-per-line -->
 <script setup lang="ts">
-const { contentPath } = useContentPath()
+const { contentPath, toRoutePath } = useContentPath()
 
 const pagePath = computed(() => contentPath.value)
 
@@ -38,6 +38,10 @@ const { data: projects } = await useAsyncData(
 )
 
 const { global } = useAppConfig()
+
+const isEnglish = computed(() => contentPath.value.startsWith('/en'))
+
+const projectLinkLabel = computed(() => (isEnglish.value ? 'View Project' : 'مشاهده پروژه'))
 
 const title = computed(() => page.value?.seo?.title || page.value?.title)
 const description = computed(() => page.value?.seo?.description || page.value?.description)
@@ -100,7 +104,7 @@ defineOgImage('Portfolio', {
         <UPageCard
           :title="project.title"
           :description="project.description"
-          :to="project.url"
+          :to="toRoutePath(project.path)"
           orientation="horizontal"
           variant="naked"
           :reverse="index % 2 === 1"
@@ -116,10 +120,10 @@ defineOgImage('Portfolio', {
           </template>
           <template #footer>
             <ULink
-              :to="project.url"
+              :to="toRoutePath(project.path)"
               class="text-sm text-primary flex items-center"
             >
-              View Project
+              {{ projectLinkLabel }}
               <UIcon
                 name="i-lucide-arrow-right"
                 class="size-4 text-primary transition-all opacity-0 ltr:group-hover:translate-x-1 rtl:group-hover:-translate-x-1 rtl:rotate-180 group-hover:opacity-100"

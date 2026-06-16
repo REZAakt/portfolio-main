@@ -31,6 +31,10 @@ function normalize(path: string) {
     return '/blog'
   }
 
+  if (normalized.startsWith('/projects/')) {
+    return '/projects'
+  }
+
   return normalized
 }
 
