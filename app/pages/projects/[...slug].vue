@@ -3,14 +3,17 @@
 const route = useRoute()
 const { contentPath, toRoutePath } = useContentPath()
 
+const projectLocalePrefix = computed(() =>
+  route.path.startsWith('/en') ? 'en/projects/' : 'fa/projects/'
+)
+
 const projectStem = computed(() => {
   const slug = route.params.slug
   const slugPath = (Array.isArray(slug) ? slug : [slug])
     .filter(Boolean)
     .join('/')
-  const localePrefix = route.path.startsWith('/en') ? 'en' : 'fa'
 
-  return `${localePrefix}/projects/${slugPath}`
+  return `${projectLocalePrefix.value}${slugPath}`
 })
 
 const { data: project } = await useAsyncData(
@@ -33,19 +36,28 @@ if (!project.value) {
   })
 }
 
-const { data: surround } = await useAsyncData(
-  () => `${contentPath.value}-project-surround`,
-  () =>
-    queryCollectionItemSurroundings('projects', contentPath.value, {
-      fields: ['description']
-    }),
+const { data: localeProjects } = await useAsyncData(
+  () => `project-surround-${projectLocalePrefix.value}`,
+  async () => {
+    const projects = await queryCollection('projects').order('date', 'DESC').all()
+
+    return projects.filter(item => item.stem.startsWith(projectLocalePrefix.value))
+  },
   {
-    watch: [contentPath]
+    watch: [projectLocalePrefix]
   }
 )
 
-const localizedSurround = computed(() =>
-  surround.value?.map((item) => {
+const localizedSurround = computed(() => {
+  const projects = localeProjects.value || []
+  const currentIndex = projects.findIndex(item => item.stem === project.value?.stem)
+
+  if (currentIndex === -1) return []
+
+  return [
+    currentIndex > 0 ? projects[currentIndex - 1] : null,
+    currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null
+  ].map((item) => {
     if (!item) return item
 
     return {
@@ -53,7 +65,7 @@ const localizedSurround = computed(() =>
       path: item.path ? toRoutePath(item.path) : item.path
     }
   })
-)
+})
 
 const getSurroundDescription = (item: unknown) =>
   (item as { description?: string }).description
@@ -106,6 +118,23 @@ const projectMedia = computed<ProjectMediaItem[]>(() => {
     : []
 })
 
+const selectedMediaIndex = ref(0)
+
+watch(
+  projectMedia,
+  (items) => {
+    if (!items.length || selectedMediaIndex.value < items.length) return
+
+    selectedMediaIndex.value = 0
+  },
+  { immediate: true }
+)
+
+const selectedMedia = computed(() => projectMedia.value[selectedMediaIndex.value])
+
+const getMediaIndex = (mediaItem: ProjectMediaItem) =>
+  projectMedia.value.findIndex(item => item.src === mediaItem.src)
+
 const detailItems = computed(() => {
   const details = [...(project.value?.details || [])]
   const existingLabels = new Set(details.map(item => item.label))
@@ -146,7 +175,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <UMain class="mt-20 px-2">
+  <UMain class="mt-14 px-2 sm:mt-16">
     <UContainer>
       <UPage v-if="project">
         <ULink
@@ -160,7 +189,85 @@ useSeoMeta({
           {{ labels.back }}
         </ULink>
 
-        <section class="pt-8 pb-10">
+        <section
+          v-if="projectMedia.length && selectedMedia"
+          class="pt-4 pb-10"
+          data-swipe-navigation-ignore
+        >
+          <UCard
+            variant="subtle"
+            :ui="{ body: 'p-0 sm:p-0' }"
+          >
+            <div class="overflow-hidden rounded-lg bg-muted">
+              <video
+                v-if="selectedMedia.type === 'video'"
+                :src="selectedMedia.src"
+                :poster="selectedMedia.poster"
+                class="aspect-video w-full bg-muted object-cover"
+                controls
+                playsinline
+                preload="metadata"
+              />
+
+              <NuxtImg
+                v-else
+                :src="selectedMedia.src"
+                :alt="selectedMedia.alt || project.title"
+                class="aspect-video w-full object-cover object-center"
+                sizes="100vw sm:100vw md:100vw lg:1200px"
+                loading="eager"
+              />
+            </div>
+
+            <div
+              v-if="selectedMedia.caption"
+              class="border-t border-default px-4 py-3 text-sm text-muted"
+            >
+              {{ selectedMedia.caption }}
+            </div>
+          </UCard>
+
+          <UCarousel
+            v-if="projectMedia.length > 1"
+            v-slot="{ item }"
+            :items="projectMedia"
+            class="mt-4"
+            :ui="{
+              container: 'gap-3',
+              item: 'basis-28 sm:basis-36'
+            }"
+          >
+            <UButton
+              color="neutral"
+              variant="ghost"
+              class="h-auto w-full rounded-lg p-1"
+              :class="getMediaIndex(item) === selectedMediaIndex ? 'ring-2 ring-primary' : 'opacity-70 hover:opacity-100'"
+              @click="selectedMediaIndex = getMediaIndex(item)"
+            >
+              <span class="block w-full overflow-hidden rounded-md bg-muted">
+                <NuxtImg
+                  v-if="item.type !== 'video' || item.poster"
+                  :src="item.poster || item.src"
+                  :alt="item.alt || project.title"
+                  class="aspect-video w-full object-cover"
+                  sizes="144px"
+                  loading="lazy"
+                />
+                <span
+                  v-else
+                  class="flex aspect-video w-full items-center justify-center"
+                >
+                  <UIcon
+                    name="i-lucide-play"
+                    class="size-5 text-muted"
+                  />
+                </span>
+              </span>
+            </UButton>
+          </UCarousel>
+        </section>
+
+        <section class="pb-10">
           <div class="grid gap-8 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-end">
             <div class="space-y-6">
               <div class="flex flex-wrap items-center gap-2">
@@ -226,76 +333,21 @@ useSeoMeta({
           </div>
         </section>
 
-        <section
-          v-if="projectMedia.length"
-          class="pb-12"
-          data-swipe-navigation-ignore
-        >
-          <div class="mb-4 flex items-center justify-between">
-            <p class="text-sm font-medium text-muted">
-              {{ labels.media }}
-            </p>
-            <span class="text-sm text-muted">
-              {{ projectMedia.length }}
-            </span>
-          </div>
-
-          <div class="grid gap-4 md:grid-cols-2">
-            <figure
-              v-for="(item, index) in projectMedia"
-              :key="`${item.src}-${index}`"
-              :class="[
-                'overflow-hidden rounded-lg border border-default bg-muted/40',
-                index === 0 ? 'md:col-span-2' : ''
-              ]"
-            >
-              <video
-                v-if="item.type === 'video'"
-                :src="item.src"
-                :poster="item.poster"
-                class="aspect-video h-full w-full bg-muted object-cover"
-                controls
-                playsinline
-                preload="metadata"
-              />
-
-              <NuxtImg
-                v-else
-                :src="item.src"
-                :alt="item.alt || project.title"
-                :class="[
-                  'w-full object-cover',
-                  index === 0 ? 'aspect-[16/9]' : 'aspect-[4/3]'
-                ]"
-                sizes="100vw sm:100vw md:50vw lg:1024px"
-                loading="lazy"
-              />
-
-              <figcaption
-                v-if="item.caption"
-                class="border-t border-default px-4 py-3 text-sm text-muted"
-              >
-                {{ item.caption }}
-              </figcaption>
-            </figure>
-          </div>
-        </section>
-
-        <section class="grid gap-10 pb-20 lg:grid-cols-[240px_minmax(0,1fr)]">
-          <aside class="hidden lg:block">
-            <div class="sticky top-24 space-y-3">
+        <section class="pb-20">
+          <UPageBody class="max-w-4xl text-start ltr:mr-auto rtl:ml-auto">
+            <div class="mb-6 space-y-3">
               <p class="text-sm font-medium text-highlighted">
                 {{ labels.overview }}
               </p>
               <div class="h-px bg-default" />
             </div>
-          </aside>
 
-          <UPageBody class="max-w-3xl">
-            <ContentRenderer
-              v-if="project.body"
-              :value="project"
-            />
+            <div class="project-content text-start">
+              <ContentRenderer
+                v-if="project.body"
+                :value="project"
+              />
+            </div>
 
             <div
               v-if="localizedSurround?.some(Boolean)"
@@ -347,3 +399,18 @@ useSeoMeta({
     </UContainer>
   </UMain>
 </template>
+
+<style scoped>
+.project-content :deep(h1),
+.project-content :deep(h2),
+.project-content :deep(h3),
+.project-content :deep(h4),
+.project-content :deep(h5),
+.project-content :deep(h6),
+.project-content :deep(p),
+.project-content :deep(ul),
+.project-content :deep(ol),
+.project-content :deep(blockquote) {
+  text-align: start;
+}
+</style>
