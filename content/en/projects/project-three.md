@@ -7,7 +7,7 @@ client: 'Education Product'
 role: 'UX strategy, interface design, Nuxt development'
 duration: '8 weeks'
 platform: 'Web platform'
-image: https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80
+image: /hero/5.avif
 url: '#'
 tags: ['Learning', 'Content', 'Bilingual']
 details:
@@ -17,11 +17,11 @@ details:
     value: 'Course structure and progress'
 media:
   - type: image
-    src: https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80
+    src: /hero/5.avif
     alt: 'Online learning platform'
     caption: 'Course overview and learning workspace direction.'
   - type: image
-    src: https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1532&q=80
+    src: /hero/6.avif
     alt: 'Students learning together'
 ---
 

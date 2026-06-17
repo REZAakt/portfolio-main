@@ -7,7 +7,7 @@ client: 'محصول داخلی'
 role: 'طراحی تجربه کاربری، طراحی رابط کاربری، معماری فرانت اند'
 duration: '۶ هفته'
 platform: 'وب اپلیکیشن'
-image: https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80
+image: /hero/1.avif
 url: '#'
 tags: ['داشبورد', 'Nuxt', 'طراحی UX']
 details:
@@ -17,11 +17,11 @@ details:
     value: 'شفافیت داده و جریان کار'
 media:
   - type: image
-    src: https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80
+    src: /hero/1.avif
     alt: 'نمای داشبورد تحلیلی'
     caption: 'نمای اصلی داشبورد با شاخص های عملیاتی.'
   - type: image
-    src: https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1415&q=80
+    src: /hero/2.avif
     alt: 'نمودارها و تحلیل کسب و کار'
     caption: 'نمای گزارش گیری برای مقایسه سریع.'
 ---

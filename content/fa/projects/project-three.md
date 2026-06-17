@@ -7,7 +7,7 @@ client: 'محصول آموزشی'
 role: 'استراتژی UX، طراحی رابط، توسعه Nuxt'
 duration: '۸ هفته'
 platform: 'پلتفرم وب'
-image: https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80
+image: /hero/5.avif
 url: '#'
 tags: ['آموزش', 'محتوا', 'دو زبانه']
 details:
@@ -17,11 +17,11 @@ details:
     value: 'ساختار دوره و پیشرفت کاربر'
 media:
   - type: image
-    src: https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80
+    src: /hero/5.avif
     alt: 'پلتفرم آموزش آنلاین'
     caption: 'جهت کلی نمای دوره و فضای یادگیری.'
   - type: image
-    src: https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1532&q=80
+    src: /hero/6.avif
     alt: 'دانش آموزان در حال یادگیری'
 ---
 

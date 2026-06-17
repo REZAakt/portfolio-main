@@ -7,7 +7,7 @@ client: 'Internal Product'
 role: 'UX design, UI design, front-end architecture'
 duration: '6 weeks'
 platform: 'Web application'
-image: https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80
+image: /hero/1.avif
 url: '#'
 tags: ['Dashboard', 'Nuxt', 'UX Design']
 details:
@@ -17,11 +17,11 @@ details:
     value: 'Data clarity and task flow'
 media:
   - type: image
-    src: https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80
+    src: /hero/1.avif
     alt: 'Analytics dashboard screen'
     caption: 'Main dashboard overview with operational metrics.'
   - type: image
-    src: https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1415&q=80
+    src: /hero/2.avif
     alt: 'Charts and business analytics'
     caption: 'Reporting view designed for quick comparison.'
 ---

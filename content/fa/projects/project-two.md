@@ -7,7 +7,7 @@ client: 'برند فروشگاهی نمونه'
 role: 'طراحی محصول و پیاده سازی فرانت اند'
 duration: '۴ هفته'
 platform: 'وب سایت و فروشگاه'
-image: https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80
+image: /hero/3.avif
 url: '#'
 tags: ['فروشگاه', 'طراحی UI', 'ریسپانسیو']
 details:
@@ -17,11 +17,11 @@ details:
     value: 'کشف محصول و فرایند خرید'
 media:
   - type: image
-    src: https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80
+    src: /hero/3.avif
     alt: 'تجربه خرید آنلاین'
     caption: 'جریان فروشگاهی با تمرکز روی تصمیم گیری شفاف.'
   - type: image
-    src: https://images.unsplash.com/photo-1607082349566-187342175e2f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80
+    src: /hero/4.avif
     alt: 'بسته های خرید و لپ تاپ'
 ---
 

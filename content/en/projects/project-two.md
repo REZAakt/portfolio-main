@@ -7,7 +7,7 @@ client: 'Sample Commerce Brand'
 role: 'Product design and front-end implementation'
 duration: '4 weeks'
 platform: 'Website and shop'
-image: https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80
+image: /hero/3.avif
 url: '#'
 tags: ['E-commerce', 'UI Design', 'Responsive']
 details:
@@ -17,11 +17,11 @@ details:
     value: 'Product discovery and checkout'
 media:
   - type: image
-    src: https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80
+    src: /hero/3.avif
     alt: 'Online shopping experience'
     caption: 'Commerce flow focused on clear product decisions.'
   - type: image
-    src: https://images.unsplash.com/photo-1607082349566-187342175e2f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80
+    src: /hero/4.avif
     alt: 'Shopping packages and laptop'
 ---
 
