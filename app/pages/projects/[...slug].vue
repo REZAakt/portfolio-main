@@ -209,12 +209,11 @@ useSeoMeta({
                 preload="metadata"
               />
 
-              <NuxtImg
+              <img
                 v-else
                 :src="selectedMedia.src"
                 :alt="selectedMedia.alt || project.title"
                 class="aspect-video w-full object-cover object-center"
-                sizes="100vw sm:100vw md:100vw lg:1200px"
                 loading="eager"
               />
             </div>
@@ -240,17 +239,16 @@ useSeoMeta({
             <UButton
               color="neutral"
               variant="ghost"
-              class="h-auto w-full rounded-lg p-1"
-              :class="getMediaIndex(item) === selectedMediaIndex ? 'ring-2 ring-primary' : 'opacity-70 hover:opacity-100'"
+              class="h-auto w-full rounded-lg border p-1.5 transition"
+              :class="getMediaIndex(item) === selectedMediaIndex ? 'border-primary bg-primary/10 opacity-100' : 'border-transparent opacity-70 hover:opacity-100'"
               @click="selectedMediaIndex = getMediaIndex(item)"
             >
               <span class="block w-full overflow-hidden rounded-md bg-muted">
-                <NuxtImg
+                <img
                   v-if="item.type !== 'video' || item.poster"
                   :src="item.poster || item.src"
                   :alt="item.alt || project.title"
                   class="aspect-video w-full object-cover"
-                  sizes="144px"
                   loading="lazy"
                 />
                 <span
