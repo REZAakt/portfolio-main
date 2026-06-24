@@ -17,7 +17,7 @@ const { t } = useI18n()
           :text="link.tooltipKey ? t(link.tooltipKey) : link['aria-label']"
           :delay-duration="100"
           arrow
-          :content="{ side: 'top', sideOffset: 8, disabled: false }"
+          :content="{ side: 'top', sideOffset: 8 }"
         >
           <UButton
             size="xs"
