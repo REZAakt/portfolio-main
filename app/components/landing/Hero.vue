@@ -183,7 +183,7 @@ defineProps<{
         orientation="vertical"
         :overlay="false"
         :ui="{
-          root: '[--duration:42s] absolute w-[220px] -left-[190px] -top-[260px] h-[1050px] transform-3d rotate-x-55 rotate-y-0 rotate-z-30'
+          root: '[--duration:42s] absolute w-[230px] -left-[190px] -top-[360px] h-[1250px] transform-3d rotate-x-55 rotate-y-0 rotate-z-30'
         }"
       >
         <img
