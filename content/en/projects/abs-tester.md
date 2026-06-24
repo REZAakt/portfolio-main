@@ -20,8 +20,16 @@ media:
     src: /hero/1.avif
     alt: 'Analytics dashboard screen'
     caption: 'Main dashboard overview with operational metrics.'
+  - type: video
+    src: /hero/1.mp4
+    alt: 'Analytics dashboard screen'
+    caption: 'Main dashboard overview with operational metrics.'
   - type: image
     src: /hero/2.avif
+    alt: 'Charts and business analytics'
+    caption: 'Reporting view designed for quick comparison.'
+  - type: gif
+    src: /hero/1.gif
     alt: 'Charts and business analytics'
     caption: 'Reporting view designed for quick comparison.'
 ---
