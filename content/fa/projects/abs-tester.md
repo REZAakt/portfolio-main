@@ -1,5 +1,5 @@
 ---
-title: 'پروژه ۱: داشبورد عملیاتی'
+title: 'ABS tester'
 description: 'یک نمونه داشبورد واکنش گرا برای تیم هایی که باید سفارش ها، وظایف و وضعیت های مهم کاری را در یک محیط متمرکز ببینند.'
 date: 2025-03-10
 year: '۱۴۰۴'
@@ -18,12 +18,20 @@ details:
 media:
   - type: image
     src: /hero/1.avif
-    alt: 'نمای داشبورد تحلیلی'
-    caption: 'نمای اصلی داشبورد با شاخص های عملیاتی.'
+    alt: 'Analytics dashboard screen'
+    caption: 'Main dashboard overview with operational metrics.'
+  - type: video
+    src: /hero/1.mp4
+    alt: 'Analytics dashboard screen'
+    caption: 'Main dashboard overview with operational metrics.'
   - type: image
     src: /hero/2.avif
-    alt: 'نمودارها و تحلیل کسب و کار'
-    caption: 'نمای گزارش گیری برای مقایسه سریع.'
+    alt: 'Charts and business analytics'
+    caption: 'Reporting view designed for quick comparison.'
+  - type: gif
+    src: /hero/1.gif
+    alt: 'Charts and business analytics'
+    caption: 'Reporting view designed for quick comparison.'
 ---
 
 ## چالش

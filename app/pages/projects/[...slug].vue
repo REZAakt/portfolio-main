@@ -266,7 +266,7 @@ useSeoMeta({
         </section>
 
         <section class="pb-10">
-          <div class="grid gap-8 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-end">
+          <div class="grid gap-8 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-start">
             <div class="space-y-6">
               <div class="flex flex-wrap items-center gap-2">
                 <UBadge
