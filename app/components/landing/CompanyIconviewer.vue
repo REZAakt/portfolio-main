@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const companyIcons = [
   { src: '/Icons/companyicons/Aran.ico', alt: 'Aran' },
-  { src: '/Icons/companyicons/Group%2069.ico', alt: 'Group 69' },
+  { src: '/Icons/companyicons/Rayan.ico', alt: 'Rayan' },
   { src: '/Icons/companyicons/Logo.ico', alt: 'Company logo' },
   { src: '/Icons/companyicons/DarTheme.ico', alt: 'DarTheme' },
   { src: '/Icons/companyicons/aran%20logo%20-%20Copy.ico', alt: 'Aran' },
