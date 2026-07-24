@@ -1,5 +1,5 @@
 ---
-title: 'School'
+title: 'Poyandegan Platform'
 description: 'A school management platform for bringing classes, schedules, learning activity, and communication into one clear digital space.'
 date: 2025-02-10
 year: '2025'
