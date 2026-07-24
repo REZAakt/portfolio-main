@@ -1,5 +1,5 @@
 ---
-title: 'Project One: Operations Dashboard'
+title: 'ABS tester'
 description: 'Software for testing automotive ABS units during the production process. This application is part of a larger system and communicates with a dedicated testing device to validate the target component throughout the testing procedure, then generates detailed test reports.'
 date: 2025-03-10
 year: '2022'
@@ -31,7 +31,7 @@ media:
   - type: gif
     src: /hero/1.gif
     alt: 'Charts and business analytics'
-    caption: 'Reporting view designed for quick comparison.'
+    caption: 'Reporting view designed for quick comparis  on.'
 ---
 
 ## Challenge
