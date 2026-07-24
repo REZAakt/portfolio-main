@@ -52,7 +52,8 @@ useSeoMeta({
     </UPageSection>
 
     <LandingBlog :page="page" />
-    <LandingTestimonials :page="page" />
+    <LandingCompanyIconviewer :page="page" />
+    <!-- <LandingTestimonials :page="page" /> -->
     <LandingFAQ :page="page" />
   </UPage>
 </template>
