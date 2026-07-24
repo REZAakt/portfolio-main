@@ -1,8 +1,8 @@
 ---
 title: 'Project One: Operations Dashboard'
-description: 'A responsive dashboard concept for teams that need to monitor orders, tasks, and live operational signals in one focused workspace.'
+description: 'Software for testing automotive ABS units during the production process. This application is part of a larger system and communicates with a dedicated testing device to validate the target component throughout the testing procedure, then generates detailed test reports.'
 date: 2025-03-10
-year: '2025'
+year: '2022'
 client: 'Internal Product'
 role: 'UX design, UI design, front-end architecture'
 duration: '6 weeks'
