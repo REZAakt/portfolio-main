@@ -1,7 +1,6 @@
 ---
-title: The Psychology of Color in UI Design
-description: Exploring how strategic color choices can influence user behavior,
-  evoke emotions, and enhance the overall user experience of digital products.
+title: روان‌شناسی رنگ در طراحی رابط کاربری
+description: بررسی اینکه انتخاب راهبردی رنگ چگونه می‌تواند بر رفتار کاربر اثر بگذارد، احساسات را برانگیزد و تجربهٔ کلی محصولات دیجیتال را ارتقا دهد.
 date: 2025-03-15
 image: https://images.pexels.com/photos/40799/paper-colorful-color-loose-40799.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1
 minRead: 5
@@ -9,25 +8,25 @@ author:
   name: Reza Akbarpour
   avatar:
     src: /images/me_dark.avif
-    alt: Reza Akbarpour
+    alt: رضا اکبرپور
 ---
 
-Color is one of the most powerful tools in my design arsenal, yet I find it's often reduced to mere aesthetics or brand guidelines. After conducting a series of A/B tests for the Wavelength music app redesign, I've gathered some fascinating insights about how color psychology directly impacts user behavior.
+رنگ یکی از قدرتمندترین ابزارهای من در طراحی است، اما اغلب آن را صرفاً به زیبایی‌شناسی یا دستورالعمل‌های برند تقلیل می‌دهیم. پس از انجام مجموعه‌ای از آزمون‌های A/B برای بازطراحی اپلیکیشن موسیقی ویولِنگث، به بینش‌های جالبی دربارهٔ تأثیر مستقیم روان‌شناسی رنگ بر رفتار کاربر رسیدم.
 
-When we initially launched the app, we used a vibrant purple as our primary action color. The color looked great with our brand palette, but our conversion metrics were underwhelming. On a hunch, I proposed testing different primary colors while keeping all other elements identical.
+در نسخهٔ اولیهٔ اپلیکیشن، بنفشِ پررنگ را به‌عنوان رنگ اصلیِ اقدام انتخاب کرده بودیم. این رنگ با پالت برندمان هماهنگ بود، اما شاخص‌های تبدیل رضایت‌بخشی نداشتیم. بر اساس یک فرض اولیه، پیشنهاد دادم رنگ‌های اصلی متفاوتی را آزمایش کنیم و همهٔ عناصر دیگر را بدون تغییر نگه داریم.
 
-The results were striking: switching to a specific shade of blue increased our call-to-action conversion by 34%. Even more interesting was how different user segments responded to color variations—younger users engaged more with vibrant tones, while our 35+ demographic showed stronger preference for more subdued colors.
+نتیجه چشمگیر بود: تغییر به طیف مشخصی از آبی، نرخ تبدیل فراخوان به اقدام ما را ۳۴٪ افزایش داد. جالب‌تر از آن، واکنش گروه‌های مختلف کاربران به تنوع رنگ بود؛ کاربران جوان‌تر با رنگ‌های زنده بیشتر تعامل می‌کردند، در حالی که گروه سنی بالای ۳۵ سال، رنگ‌های ملایم‌تر را ترجیح می‌دادند.
 
-Beyond conversion metrics, I discovered that color significantly affected how users perceived waiting times. By implementing a softer color progression in our loading animations, users reported that the app felt faster, even though the actual loading times remained unchanged.
+فراتر از شاخص‌های تبدیل، متوجه شدم رنگ بر برداشت کاربران از زمان انتظار نیز اثر چشمگیری دارد. با استفاده از گذارهای رنگی ملایم‌تر در انیمیشن‌های بارگذاری، کاربران اعلام کردند اپلیکیشن سریع‌تر به نظر می‌رسد؛ در حالی که زمان واقعی بارگذاری تغییری نکرده بود.
 
-I've since developed a framework for color decision-making that goes beyond aesthetics:
+از آن زمان، چارچوبی برای تصمیم‌گیری دربارهٔ رنگ تدوین کرده‌ام که فراتر از زیبایی‌شناسی است:
 
-1. Consider the emotional response you want to evoke
-2. Test color choices with your specific user demographics
-3. Use color to create visual hierarchies that guide users naturally
-4. Consider cultural associations of colors for international audiences
-5. Ensure sufficient contrast for readability and accessibility
+1. واکنش احساسیِ موردنظر خود را مشخص کنید.
+2. انتخاب‌های رنگی را با گروه‌های جمعیتیِ واقعی کاربران خود آزمایش کنید.
+3. از رنگ برای ساخت سلسله‌مراتب بصری استفاده کنید تا کاربر به‌طور طبیعی هدایت شود.
+4. تداعی‌های فرهنگی رنگ‌ها را برای مخاطبان بین‌المللی در نظر بگیرید.
+5. از کنتراست کافی برای خوانایی و دسترس‌پذیری مطمئن شوید.
 
-The most valuable lesson I've learned is that there are no universal "right" colors—only colors that effectively communicate your message and guide users toward their goals within your specific context.
+مهم‌ترین درسی که آموخته‌ام این است که هیچ رنگ «درست» و جهان‌شمولی وجود ندارد؛ فقط رنگ‌هایی وجود دارند که در بستر مشخص شما، پیام را مؤثر منتقل می‌کنند و کاربران را به سمت هدفشان راهنمایی می‌کنند.
 
-Next time you're selecting a color palette, think beyond what looks good and consider what your colors are actually saying to your users.
+دفعهٔ بعد که پالت رنگی انتخاب می‌کنید، فراتر از زیبایی ظاهری فکر کنید و ببینید رنگ‌هایتان واقعاً چه پیامی به کاربران منتقل می‌کنند.

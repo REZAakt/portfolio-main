@@ -1,8 +1,6 @@
 ---
-title: The Case for Slow Design in a Fast-Paced Digital World
-description: Why designing digital experiences that encourage users to slow down
-  and engage deeply can lead to more meaningful interactions and better
-  outcomes.
+title: چرا در دنیای دیجیتال پرشتاب به طراحی آهسته نیاز داریم؟
+description: طراحی تجربه‌های دیجیتالی که کاربران را به مکث و درگیری عمیق‌تر با محتوا دعوت می‌کنند، می‌تواند به تعاملات معنادارتر و نتایج بهتر منجر شود.
 date: 2025-01-28
 image: https://images.pexels.com/photos/4050314/pexels-photo-4050314.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1
 minRead: 7
@@ -10,17 +8,17 @@ author:
   name: Reza Akbarpour
   avatar:
     src: /images/me_dark.avif
-    alt: Reza Akbarpour
+    alt: رضا اکبرپور
 ---
 
-I recently took on a project that challenged everything about my usual design process. A small literary journal wanted a digital platform that encouraged readers to slow down and engage deeply with content—the exact opposite of most websites optimized for quick consumption.
+به‌تازگی پروژه‌ای را پذیرفتم که تمام عادت‌های معمولم در فرایند طراحی را به چالش کشید. یک نشریهٔ ادبی کوچک، پلتفرمی دیجیتال می‌خواست که خوانندگان را به آهسته‌تر خواندن و درگیر شدن عمیق با محتوا ترغیب کند؛ دقیقاً برخلاف اغلب وب‌سایت‌هایی که برای مصرف سریع بهینه شده‌اند.
 
-This got me thinking about what I'm calling "slow design"—an approach that intentionally creates space for contemplation rather than rapid interaction.
+این تجربه مرا به مفهوم «طراحی آهسته» رساند: رویکردی که به‌جای تعامل‌های شتاب‌زده، آگاهانه فضایی برای تأمل ایجاد می‌کند.
 
-For the Wordsmith Journal, I experimented with subtle animations that respond to reading pace, typography that encourages focus, and navigation that reveals content gradually rather than all at once. The result feels more like turning pages in a physical book than scrolling through a typical website.
+برای نشریهٔ ورداسمیت، انیمیشن‌های ظریفی را آزمودم که با ریتم مطالعه همراه می‌شدند، تایپوگرافی‌ای که تمرکز را تقویت می‌کرد و ناوبری‌ای که محتوا را به‌تدریج، نه یک‌باره، آشکار می‌ساخت. نتیجه بیشتر به ورق‌زدن صفحات یک کتاب فیزیکی شبیه است تا اسکرول در یک وب‌سایت معمولی.
 
-User testing revealed something fascinating: readers spent 3x longer with articles and reported higher satisfaction and better recall of content compared to the journal's previous site. By designing for attention rather than distraction, we created a digital experience that honors the thoughtful nature of the content itself.
+آزمون با کاربران نکته‌ای جذاب را آشکار کرد: خوانندگان سه برابر زمان بیشتری را صرف مقاله‌ها کردند و در مقایسه با وب‌سایت قبلی نشریه، رضایت بالاتر و یادآوری بهتری از محتوا داشتند. با طراحی برای جلب توجه، نه ایجاد حواس‌پرتی، تجربه‌ای دیجیتال ساختیم که به ماهیت تأمل‌برانگیز محتوا احترام می‌گذارد.
 
-I'm now incorporating elements of slow design into all my projects, asking: "Where can we create moments of pause? How can we reward attention rather than just capturing it?"
+حالا عناصر طراحی آهسته را در همهٔ پروژه‌هایم به کار می‌گیرم و از خودم می‌پرسم: «کجا می‌توانیم لحظه‌ای برای مکث بسازیم؟ چگونه می‌توانیم به توجه کاربر پاداش بدهیم، نه اینکه فقط آن را تصاحب کنیم؟»
 
-In our rush to optimize for engagement metrics, I think we've forgotten that sometimes the most meaningful digital experiences are the ones that don't demand immediate action but instead create space for thought.
+فکر می‌کنم در شتاب‌مان برای بهینه‌سازی شاخص‌های تعامل، فراموش کرده‌ایم که گاهی معنادارترین تجربه‌های دیجیتال آن‌هایی هستند که اقدام فوری نمی‌خواهند و در عوض، جایی برای فکر کردن فراهم می‌کنند.

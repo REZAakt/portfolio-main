@@ -1,8 +1,6 @@
 ---
-title: 'سلام جیگر من چطوری؟: My End-to-End Product Design Process'
-description: A detailed breakdown of my iterative design methodology, from
-  initial research to final handoff, with practical tips for designers at every
-  stage.
+title: فرایند طراحی محصول من، از ابتدا تا انتها
+description: بررسی دقیق روش طراحی تکرارشوندهٔ من؛ از پژوهش اولیه تا تحویل نهایی، همراه با نکته‌های کاربردی برای طراحان در هر مرحله.
 date: 2025-04-23
 image: https://images.pexels.com/photos/1050312/pexels-photo-1050312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1
 minRead: 8
@@ -10,151 +8,151 @@ author:
   name: Reza Akbarpour
   avatar:
     src: /images/me_dark.avif
-    alt: Reza Akbarpour
+    alt: رضا اکبرپور
 ---
 
-Creating successful digital products isn't about following a rigid formula—it's about developing a flexible framework that adapts to the unique challenges of each project. After refining my approach across dozens of products, I've developed a process that consistently delivers results while leaving room for creativity and iteration.
+ساخت محصولات دیجیتال موفق به پیروی از یک فرمول خشک وابسته نیست؛ به چارچوبی منعطف نیاز دارد که با چالش‌های منحصربه‌فرد هر پروژه سازگار شود. پس از بهبود رویکردم در ده‌ها محصول، فرایندی ساخته‌ام که ضمن حفظ فضا برای خلاقیت و تکرار، پیوسته نتیجه می‌دهد.
 
-In this article, I'll walk through my end-to-end design process, from initial discovery to developer handoff, using my recent work on the EcoTrack application as a case study.
+در این مقاله، با استفاده از کار اخیرم روی اپلیکیشن اکوترک به‌عنوان مطالعهٔ موردی، فرایند طراحی محصولم را از کشف اولیه تا تحویل به تیم توسعه مرور می‌کنم.
 
-## Phase 1: Discovery & Research
+## مرحلهٔ اول: کشف و پژوهش
 
-Every great product starts with understanding the problem it's trying to solve. For EcoTrack, our challenge was creating an engaging way for users to track their environmental impact without feeling overwhelmed by guilt or complex data.
+هر محصول خوب با درک مسئله‌ای که قرار است حل کند آغاز می‌شود. در اکوترک، چالش ما ایجاد روشی جذاب برای پیگیری اثرات زیست‌محیطی کاربران بود؛ بدون اینکه احساس گناه یا پیچیدگی داده‌ها آن‌ها را سردرگم کند.
 
-### User Interviews
+### مصاحبه با کاربران
 
-I began by conducting interviews with 12 potential users across different demographics, focusing on their current habits and attitudes toward sustainability. These conversations revealed a crucial insight: most people wanted to make environmentally friendly choices but felt paralyzed by the complexity of calculating their impact.
+با ۱۲ کاربر بالقوه از گروه‌های جمعیتی مختلف مصاحبه کردم و بر عادت‌های فعلی و نگرش آن‌ها نسبت به پایداری تمرکز داشتم. این گفت‌وگوها به یک بینش کلیدی رسیدند: بیشتر افراد می‌خواهند انتخاب‌های سازگار با محیط‌زیست داشته باشند، اما پیچیدگی محاسبهٔ اثر خود آن‌ها را فلج می‌کند.
 
-> "I care about the environment, but I have no idea if using a paper bag is actually better than plastic, or if my reusable water bottle makes any difference." — Interview participant
+> «برای محیط‌زیست اهمیت قائلم، اما واقعاً نمی‌دانم استفاده از کیسهٔ کاغذی از پلاستیک بهتر است یا نه، یا بطری آب چندبارمصرفم اصلاً تفاوتی ایجاد می‌کند یا خیر.» — یکی از شرکت‌کنندگان در مصاحبه
 
-### Competitive Analysis
+### تحلیل رقبا
 
-Next, I analyzed existing sustainability apps, creating a feature comparison matrix to identify gaps and opportunities. Most competitors focused on carbon footprint calculations but failed to provide actionable guidance or positive reinforcement.
+در گام بعد، اپلیکیشن‌های موجود در حوزهٔ پایداری را تحلیل کردم و برای شناسایی شکاف‌ها و فرصت‌ها، ماتریس مقایسهٔ ویژگی‌ها ساختم. بیشتر رقبا بر محاسبهٔ ردپای کربن متمرکز بودند، اما در ارائهٔ راهنمایی عملی یا تقویت مثبت عملکرد خوبی نداشتند.
 
-### Defining Success
+### تعریف موفقیت
 
-Before opening Figma, I collaborated with stakeholders to define clear success metrics:
+پیش از بازکردن فیگما، با ذی‌نفعان همکاری کردم تا شاخص‌های روشنی برای موفقیت تعیین کنیم:
 
-- Increase daily active usage by 40%
-- Improve user-reported understanding of environmental impact
-- Drive measurable behavior changes in at least two sustainability categories
+- افزایش ۴۰٪ی استفادهٔ روزانهٔ فعال
+- بهبود درک گزارش‌شدهٔ کاربران از اثرات زیست‌محیطی
+- ایجاد تغییر رفتاری قابل‌اندازه‌گیری در دست‌کم دو حوزهٔ پایداری
 
-## Phase 2: Ideation & Conceptualization
+## مرحلهٔ دوم: ایده‌پردازی و مفهوم‌سازی
 
-With a solid understanding of the problem space, I moved into the creative phase of the process.
+پس از درک دقیق فضای مسئله، وارد بخش خلاقانهٔ فرایند شدم.
 
-### Sketching
+### اسکچ‌زدن
 
-I always start with pen and paper, rapidly exploring different approaches without the constraints of digital tools. For EcoTrack, I filled three sketchbooks with concepts ranging from gamified experiences to data-heavy dashboards.
+همیشه کار را با قلم و کاغذ شروع می‌کنم تا بدون محدودیت ابزارهای دیجیتال، سریع رویکردهای مختلف را بررسی کنم. برای اکوترک، سه دفتر اسکچ را با ایده‌هایی از تجربه‌های بازی‌گونه تا داشبوردهای پر از داده پُر کردم.
 
-### Information Architecture
+### معماری اطلاعات
 
-Based on research insights, I developed a user-centered information architecture that prioritized simplicity and actionable information:
+بر پایهٔ یافته‌های پژوهش، معماری اطلاعاتی کاربرمحور طراحی کردم که سادگی و اطلاعات کاربردی را در اولویت می‌گذاشت:
 
-1. **Dashboard** — Personalized overview with immediate impact insights
-2. **Daily Tracker** — Simple logging of activities with immediate feedback
-3. **Impact Journey** — Visualization of progress over time
-4. **Action Center** — Customized recommendations based on user behavior
+1. **داشبورد** — نمایی شخصی‌سازی‌شده با بینش‌های فوری دربارهٔ اثرگذاری
+2. **ثبت‌کنندهٔ روزانه** — ثبت سادهٔ فعالیت‌ها با بازخورد آنی
+3. **مسیر اثرگذاری** — نمایش پیشرفت در گذر زمان
+4. **مرکز اقدام** — پیشنهادهای شخصی‌سازی‌شده بر اساس رفتار کاربر
 
-### Design Principles
+### اصول طراحی
 
-I established four core design principles to guide all decisions:
+چهار اصل کلیدی برای هدایت تمام تصمیم‌ها تعیین کردم:
 
-- **Simplify complexity** — Translate environmental impact into understandable units
-- **Celebrate progress** — Focus on positive reinforcement rather than guilt
-- **Enable informed choices** — Provide context for decision-making
-- **Design for habit formation** — Create satisfying interaction loops
+- **ساده‌سازی پیچیدگی** — تبدیل اثرات زیست‌محیطی به واحدهای قابل‌درک
+- **جشن‌گرفتن پیشرفت** — تمرکز بر تقویت مثبت به‌جای احساس گناه
+- **توانمندسازی برای انتخاب آگاهانه** — ارائهٔ زمینه برای تصمیم‌گیری
+- **طراحی برای شکل‌گیری عادت** — ایجاد چرخه‌های تعاملی رضایت‌بخش
 
-## Phase 3: Prototyping & Testing
+## مرحلهٔ سوم: نمونه‌سازی و آزمون
 
-With the conceptual framework in place, I moved into the iterative cycle of prototyping and testing.
+با مشخص‌شدن چارچوب مفهومی، وارد چرخهٔ تکرارشوندهٔ نمونه‌سازی و آزمون شدم.
 
-### Low-Fidelity Wireframes
+### وایرفریم‌های کم‌جزئیات
 
-I created wireframes focusing on user flows and information hierarchy, deliberately keeping the visual design minimal to focus feedback on functionality and structure.
+وایرفریم‌هایی با تمرکز بر جریان‌های کاربر و سلسله‌مراتب اطلاعات ساختم و عمداً طراحی بصری را حداقلی نگه داشتم تا بازخوردها روی عملکرد و ساختار متمرکز بمانند.
 
-### User Testing (Round 1)
+### آزمون کاربر؛ دور اول
 
-Testing wireframes with 8 participants revealed several key insights:
+آزمون وایرفریم‌ها با ۸ شرکت‌کننده چند نکتهٔ کلیدی را نشان داد:
 
-- Users wanted more immediate feedback when logging activities
-- The impact visualization wasn't intuitive for most users
-- People were confused by technical environmental terminology
+- کاربران هنگام ثبت فعالیت‌ها بازخورد فوری‌تری می‌خواستند.
+- نمایش اثرگذاری برای بیشتر افراد شهودی نبود.
+- اصطلاحات فنی زیست‌محیطی کاربران را سردرگم می‌کرد.
 
-### Mid-Fidelity Prototypes
+### نمونه‌های میان‌جزئیات
 
-Based on testing feedback, I refined the concept and developed interactive prototypes with more visual detail, focusing on:
+بر اساس بازخورد آزمون، مفهوم را اصلاح کردم و نمونه‌های تعاملی با جزئیات بصری بیشتر ساختم؛ با تمرکز بر موارد زیر:
 
-- Simplified data visualization using familiar metaphors
-- Immediate positive reinforcement for logged activities
-- Progressive disclosure of more complex environmental information
+- ساده‌سازی نمایش داده با استفاده از استعاره‌های آشنا
+- تقویت مثبت و فوری برای فعالیت‌های ثبت‌شده
+- آشکارسازی تدریجی اطلاعات زیست‌محیطی پیچیده‌تر
 
-### User Testing (Round 2)
+### آزمون کاربر؛ دور دوم
 
-A second round of testing showed significant improvements in usability, but highlighted new challenges:
+دور دوم آزمون بهبود چشمگیری در کارپذیری نشان داد، اما چالش‌های تازه‌ای را نیز آشکار کرد:
 
-- Users wanted to compare their impact with friends or community averages
-- Weekly summaries were more motivating than daily statistics
-- The onboarding process felt too lengthy
+- کاربران می‌خواستند اثر خود را با دوستان یا میانگین جامعه مقایسه کنند.
+- خلاصه‌های هفتگی از آمار روزانه انگیزه‌بخش‌تر بودند.
+- فرایند ورود و آشنایی اولیه بیش از حد طولانی به نظر می‌رسید.
 
-## Phase 4: Visual Design & Refinement
+## مرحلهٔ چهارم: طراحی بصری و بهینه‌سازی
 
-With the core experience validated, I moved into high-fidelity visual design.
+پس از اعتبارسنجی تجربهٔ اصلی، به سراغ طراحی بصری با جزئیات بالا رفتم.
 
-### Visual Language
+### زبان بصری
 
-I developed a visual language that balanced approachability with credibility:
+زبانی بصری توسعه دادم که صمیمیت و اعتبار را متعادل می‌کرد:
 
-- A nature-inspired color palette with clear functional color coding
-- Custom iconography that simplified complex concepts
-- Typography that prioritized readability across devices
-- Micro-interactions that provided satisfaction and reinforcement
+- پالت رنگی الهام‌گرفته از طبیعت با کدگذاری رنگیِ کاربردی و روشن
+- آیکون‌نگاری اختصاصی برای ساده‌سازی مفاهیم پیچیده
+- تایپوگرافی با اولویت خوانایی در دستگاه‌های مختلف
+- ریزتعامل‌هایی برای ایجاد حس رضایت و تقویت رفتار
 
-### Design System
+### سیستم طراحی
 
-To ensure consistency and facilitate development, I created a comprehensive design system including:
+برای حفظ یکپارچگی و تسهیل توسعه، سیستم طراحی جامعی ایجاد کردم که شامل این موارد بود:
 
-- Component library with documented states and behaviors
-- Responsive layout guidelines
-- Animation specifications
-- Accessibility standards
+- کتابخانهٔ کامپوننت‌ها با وضعیت‌ها و رفتارهای مستند
+- راهنمای چیدمان واکنش‌گرا
+- مشخصات انیمیشن‌ها
+- استانداردهای دسترس‌پذیری
 
-### Final Prototype
+### نمونهٔ نهایی
 
-The final prototype brought together all elements into a cohesive experience, which we tested with a broader user group before moving to development.
+نمونهٔ نهایی همهٔ اجزا را در تجربه‌ای یکپارچه کنار هم آورد؛ پیش از ورود به توسعه، آن را با گروه بزرگ‌تری از کاربران آزمودیم.
 
-## Phase 5: Implementation & Iteration
+## مرحلهٔ پنجم: اجرا و تکرار
 
-The design process doesn't end when development begins—it evolves.
+فرایند طراحی با شروع توسعه پایان نمی‌یابد؛ بلکه تکامل پیدا می‌کند.
 
-### Developer Collaboration
+### همکاری با توسعه‌دهندگان
 
-I worked closely with developers throughout implementation, participating in code reviews and adjusting designs to address technical constraints while preserving the core experience.
+در تمام طول اجرا، با توسعه‌دهندگان همکاری نزدیک داشتم، در بازبینی کد شرکت می‌کردم و طرح‌ها را برای پاسخ‌دادن به محدودیت‌های فنی، بدون از دست‌دادن تجربهٔ اصلی، اصلاح می‌کردم.
 
-### Analytics Implementation
+### پیاده‌سازی تحلیل داده
 
-We integrated analytics to track our success metrics, setting up dashboards to monitor key interactions and user journeys.
+برای پایش شاخص‌های موفقیت، ابزارهای تحلیل داده را یکپارچه کردیم و داشبوردهایی برای رصد تعامل‌های کلیدی و سفرهای کاربر ساختیم.
 
-### Post-Launch Iteration
+### تکرار پس از انتشار
 
-After launch, we established a regular cycle of analysis and iteration:
+پس از انتشار، چرخه‌ای منظم برای تحلیل و تکرار برقرار کردیم:
 
-- Weekly reviews of user feedback and behavior data
-- Bi-weekly design sprints to address emerging issues
-- Monthly feature planning based on usage patterns
+- بررسی هفتگی بازخورد کاربران و داده‌های رفتاری
+- اسپرینت‌های طراحی دو‌هفته‌یک‌بار برای رسیدگی به مسائل نوظهور
+- برنامه‌ریزی ماهانهٔ قابلیت‌ها بر اساس الگوهای استفاده
 
-## Results & Learnings
+## نتایج و آموخته‌ها
 
-Six months after launch, EcoTrack has exceeded our initial success metrics:
+شش ماه پس از انتشار، اکوترک از شاخص‌های اولیهٔ موفقیت فراتر رفته است:
 
-- 52% increase in daily active usage
-- 78% of users report better understanding of their environmental impact
-- Average user has adopted 3.4 new sustainable habits
+- افزایش ۵۲٪ی استفادهٔ روزانهٔ فعال
+- ۷۸٪ کاربران درک بهتری از اثرات زیست‌محیطی خود گزارش کرده‌اند.
+- هر کاربر به‌طور میانگین ۳٫۴ عادت پایدار جدید را پذیرفته است.
 
-The most valuable lesson from this project was the importance of making abstract concepts tangible. By translating complex environmental data into personal, actionable insights, we created an experience that not only educated users but empowered them to make meaningful changes.
+ارزشمندترین درس این پروژه، اهمیت ملموس‌کردن مفاهیم انتزاعی بود. با تبدیل داده‌های پیچیدهٔ زیست‌محیطی به بینش‌های شخصی و عملی، تجربه‌ای ساختیم که نه‌تنها کاربران را آگاه می‌کرد، بلکه به آن‌ها توان ایجاد تغییرهای معنادار می‌داد.
 
-## Conclusion
+## جمع‌بندی
 
-Effective product design is never a linear journey—it's a continuous cycle of learning and refinement. By staying focused on user needs while maintaining a flexible approach to problem-solving, we can create products that not only meet business objectives but genuinely improve people's lives.
+طراحی مؤثر محصول هرگز مسیری خطی نیست؛ چرخه‌ای پیوسته از یادگیری و بهبود است. با تمرکز بر نیازهای کاربر و حفظ رویکردی منعطف در حل مسئله، می‌توانیم محصولاتی بسازیم که هم اهداف کسب‌وکار را محقق کنند و هم واقعاً زندگی مردم را بهتر کنند.
 
-I'd love to hear about your own design process and how you approach similar challenges. Feel free to reach out with questions or share your experiences in the comments below.
+خوشحال می‌شوم دربارهٔ فرایند طراحی شما و رویکردتان به چالش‌های مشابه بشنوم. اگر پرسشی دارید یا می‌خواهید تجربه‌تان را به اشتراک بگذارید، در بخش دیدگاه‌ها با من در ارتباط باشید.

@@ -1,5 +1,5 @@
 ---
-title: 'FrYasdlkahsdlklnto Market: My End-to-End Product Design Process'
+title: 'My designs: My End-to-End Product Design Process'
 description: A detailed breakdown of my iterative design methodology, from
   initial research to final handoff, with practical tips for designers at every
   stage.
