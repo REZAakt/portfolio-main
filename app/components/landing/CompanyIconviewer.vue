@@ -6,6 +6,7 @@ const companyIcons = [
   { src: '/Icons/companyicons/DarTheme.ico', alt: 'DarTheme' },
   { src: '/Icons/companyicons/aran%20logo%20-%20Copy.ico', alt: 'Aran' },
   { src: '/Icons/companyicons/AMA.ico', alt: 'AMA' },
+  { src: '/Icons/companyicons/Poyandegan.ico', alt: 'Poyandehgan school' },
   { src: '/Icons/companyicons/karizlab.ico', alt: 'karizlab' }
 ]
 </script>

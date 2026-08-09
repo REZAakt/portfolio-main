@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const { footer } = useAppConfig()
 const { t } = useI18n()
+const { openSmartContactLink } = useSmartContactLink()
 </script>
 
 <template>
@@ -27,6 +28,7 @@ const { t } = useI18n()
             :to="link.to"
             :target="link.target"
             :aria-label="link['aria-label']"
+            @click="openSmartContactLink($event, link)"
           >
             <template v-if="link.image" #leading>
               <img

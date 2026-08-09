@@ -2,8 +2,8 @@
 export default defineAppConfig({
   global: {
     picture: {
-      dark: '/images/me_dark.avif',
-      light: '/images/me.png',
+      dark: '/images/23.png',
+      light: '/images/me_dark.avif',
       alt: 'My profile picture'
     },
     meetingLink: 'https://cal.com/',
@@ -34,6 +34,8 @@ export default defineAppConfig({
       {
         icon: 'i-simple-icons-telegram',
         to: 'https://t.me/REZA_akT',
+        appTo: 'tg://resolve?domain=REZA_akT',
+        fallbackTo: 'https://t.me/REZA_akT',
         target: '_blank',
         'aria-label': 'Me on Telegram',
         tooltipKey: 'social.telegram'
@@ -47,7 +49,10 @@ export default defineAppConfig({
       },
       {
         icon: 'i-simple-icons-gmail',
-        to: 'mailto:rreza.aak@gmail.com',
+        to: 'https://mail.google.com/mail/?view=cm&fs=1&to=rreza.aak%40gmail.com',
+        appTo: 'googlegmail://co?to=rreza.aak%40gmail.com',
+        fallbackTo: 'mailto:rreza.aak@gmail.com',
+        target: '_blank',
         'aria-label': 'Me on Gmail',
         tooltipKey: 'social.gmail'
       },

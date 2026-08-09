@@ -7,6 +7,7 @@ const globalConfig = appConfig.global as typeof appConfig.global & {
   linkedin?: string
   instagram?: string
 }
+const { openSmartContactLink } = useSmartContactLink()
 
 const { data: page } = await useAsyncData(
   () => `contact-${contentPath.value}`,
@@ -32,6 +33,14 @@ const mailTo = computed(() => {
   const body = encodeURIComponent(page.value?.emailBody || '')
 
   return `mailto:${globalConfig.email}?subject=${subject}&body=${body}`
+})
+
+const gmailTo = computed(() => {
+  const subject = encodeURIComponent(page.value?.emailSubject || 'Project inquiry')
+  const body = encodeURIComponent(page.value?.emailBody || '')
+  const email = encodeURIComponent(globalConfig.email)
+
+  return `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${subject}&body=${body}`
 })
 
 const telTo = computed(() => (globalConfig.phone ? `tel:${globalConfig.phone}` : undefined))
@@ -64,26 +73,48 @@ const contactCards = computed(() =>
 
 function resolveContactLink(to: string) {
   if (to === 'email') {
-    return mailTo.value
+    return {
+      to: gmailTo.value,
+      appTo: mailTo.value,
+      fallbackTo: mailTo.value,
+      target: '_blank' as const
+    }
   }
 
   if (to === 'phone') {
-    return telTo.value
+    return {
+      to: telTo.value
+    }
   }
 
   if (to === 'telegram') {
-    return globalConfig.telegram
+    return {
+      to: globalConfig.telegram,
+      appTo: 'tg://resolve?domain=REZA_akT',
+      fallbackTo: globalConfig.telegram,
+      target: '_blank' as const
+    }
   }
 
   if (to === 'linkedin') {
-    return globalConfig.linkedin
+    return {
+      to: globalConfig.linkedin,
+      target: '_blank' as const
+    }
   }
 
   if (to === 'instagram') {
-    return globalConfig.instagram
+    return {
+      to: globalConfig.instagram,
+      appTo: 'instagram://user?username=reza.akbarpourr',
+      fallbackTo: globalConfig.instagram,
+      target: '_blank' as const
+    }
   }
 
-  return to
+  return {
+    to
+  }
 }
 
 useSeoMeta({
@@ -108,7 +139,8 @@ defineOgImage('Portfolio', {
         {
           label: page.primaryAction,
           icon: 'i-lucide-mail',
-          to: mailTo,
+          to: gmailTo,
+          target: '_blank',
           color: 'primary',
           size: 'lg'
         }
@@ -208,14 +240,15 @@ defineOgImage('Portfolio', {
             </div>
 
             <UButton
-              :to="resolveContactLink(item.to)"
+              :to="resolveContactLink(item.to).to"
               :label="item.label"
               :icon="item.buttonIcon"
-              :target="item.target"
+              :target="resolveContactLink(item.to).target || item.target"
               color="neutral"
               variant="subtle"
               class="mt-auto"
               block
+              @click="openSmartContactLink($event, resolveContactLink(item.to))"
             />
           </div>
         </UCard>

@@ -3,6 +3,7 @@ import type { IndexCollectionItem } from '@nuxt/content'
 
 const { footer, global } = useAppConfig()
 const { t } = useI18n()
+const { openSmartContactLink } = useSmartContactLink()
 
 defineProps<{
   page: IndexCollectionItem
@@ -160,6 +161,7 @@ defineProps<{
               :to="link.to"
               :target="link.target"
               :aria-label="link['aria-label']"
+              @click="openSmartContactLink($event, link)"
             >
               <template v-if="link.image" #leading>
                 <img

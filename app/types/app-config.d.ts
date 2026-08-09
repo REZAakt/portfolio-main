@@ -2,6 +2,8 @@ type AppConfigLink = {
   'icon'?: string
   'image'?: string
   'to'?: string
+  'appTo'?: string
+  'fallbackTo'?: string
   'target'?: '_blank' | '_self'
   'aria-label'?: string
   'tooltipKey'?: string
