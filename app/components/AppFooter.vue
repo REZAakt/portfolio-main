@@ -5,7 +5,11 @@ const { openSmartContactLink } = useSmartContactLink()
 </script>
 
 <template>
-  <UFooter class="z-10 bg-default" :ui="{ left: 'text-muted text-xs' }" style="margin-bottom: 4rem">
+  <UFooter
+    class="z-10 bg-default"
+    :ui="{ left: 'text-muted text-xs' }"
+    style="margin-bottom: 4rem"
+  >
     <template #left>
       {{ t(footer.creditsKey, { year: new Date().getFullYear() }) }}
     </template>
@@ -30,7 +34,10 @@ const { openSmartContactLink } = useSmartContactLink()
             :aria-label="link['aria-label']"
             @click="openSmartContactLink($event, link)"
           >
-            <template v-if="link.image" #leading>
+            <template
+              v-if="link.image"
+              #leading
+            >
               <img
                 :src="link.image"
                 :alt="link['aria-label']"

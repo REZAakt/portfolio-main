@@ -103,7 +103,10 @@ defineProps<{
           delay: 0.5
         }"
       >
-        <div v-if="page.hero.links" class="flex items-center gap-2">
+        <div
+          v-if="page.hero.links"
+          class="flex items-center gap-2"
+        >
           <UButton v-bind="page.hero.links[0]" />
           <UButton
             :color="global.available ? 'success' : 'error'"
@@ -163,12 +166,15 @@ defineProps<{
               :aria-label="link['aria-label']"
               @click="openSmartContactLink($event, link)"
             >
-              <template v-if="link.image" #leading>
+              <template
+                v-if="link.image"
+                #leading
+              >
                 <img
                   :src="link.image"
                   :alt="link['aria-label']"
                   class="size-5 object-contain dark:invert"
-                />
+                >
               </template>
             </UButton>
           </UTooltip>
@@ -197,7 +203,7 @@ defineProps<{
           :alt="image.alt"
           loading="lazy"
           class="aspect-video border border-default rounded-lg bg-white object-cover"
-        />
+        >
       </UMarquee>
 
       <!-- ستون 2 -->
@@ -217,7 +223,7 @@ defineProps<{
           :alt="image.alt"
           loading="lazy"
           class="aspect-video border border-default rounded-lg bg-white object-cover"
-        />
+        >
       </UMarquee>
 
       <!-- ستون 3 -->
@@ -238,7 +244,7 @@ defineProps<{
           :alt="image.alt"
           loading="lazy"
           class="aspect-video border border-default rounded-lg bg-white object-cover"
-        />
+        >
       </UMarquee>
 
       <!-- ستون 4 -->
@@ -258,7 +264,7 @@ defineProps<{
           :alt="image.alt"
           loading="lazy"
           class="aspect-video border border-default rounded-lg bg-white object-cover"
-        />
+        >
       </UMarquee>
     </div>
     <!-- <UMarquee pause-on-hover class="py-2 -mx-8 sm:-mx-12 lg:-mx-16 [--duration:40s]">

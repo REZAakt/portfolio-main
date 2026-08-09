@@ -19,6 +19,6 @@ const companyIcons = [
       :src="icon.src"
       :alt="icon.alt"
       class="size-12 shrink-0 object-contain"
-    />
+    >
   </UMarquee>
 </template>

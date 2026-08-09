@@ -19,7 +19,7 @@ const { data: project } = await useAsyncData(
   async () => {
     const projects = await queryCollection('projects').all()
 
-    return projects.find((item) => item.stem === projectStem.value)
+    return projects.find(item => item.stem === projectStem.value)
   },
   {
     watch: [projectStem]
@@ -39,7 +39,7 @@ const { data: localeProjects } = await useAsyncData(
   async () => {
     const projects = await queryCollection('projects').order('date', 'DESC').all()
 
-    return projects.filter((item) => item.stem.startsWith(projectLocalePrefix.value))
+    return projects.filter(item => item.stem.startsWith(projectLocalePrefix.value))
   },
   {
     watch: [projectLocalePrefix]
@@ -48,7 +48,7 @@ const { data: localeProjects } = await useAsyncData(
 
 const localizedSurround = computed(() => {
   const projects = localeProjects.value || []
-  const currentIndex = projects.findIndex((item) => item.stem === project.value?.stem)
+  const currentIndex = projects.findIndex(item => item.stem === project.value?.stem)
 
   if (currentIndex === -1) return []
 
@@ -130,11 +130,11 @@ watch(
 const selectedMedia = computed(() => projectMedia.value[selectedMediaIndex.value])
 
 const getMediaIndex = (mediaItem: ProjectMediaItem) =>
-  projectMedia.value.findIndex((item) => item.src === mediaItem.src)
+  projectMedia.value.findIndex(item => item.src === mediaItem.src)
 
 const detailItems = computed(() => {
   const details = [...(project.value?.details || [])]
-  const existingLabels = new Set(details.map((item) => item.label))
+  const existingLabels = new Set(details.map(item => item.label))
 
   const fallbackDetails = [
     {
@@ -182,7 +182,10 @@ useSeoMeta({
           :to="backLink"
           class="inline-flex items-center gap-1 text-sm text-muted hover:text-highlighted"
         >
-          <UIcon name="i-lucide-chevron-left" class="rtl:rotate-180" />
+          <UIcon
+            name="i-lucide-chevron-left"
+            class="rtl:rotate-180"
+          />
           {{ labels.back }}
         </ULink>
 
@@ -191,7 +194,10 @@ useSeoMeta({
           class="pt-4 pb-10"
           data-swipe-navigation-ignore
         >
-          <UCard variant="subtle" :ui="{ body: 'p-0 sm:p-0' }">
+          <UCard
+            variant="subtle"
+            :ui="{ body: 'p-0 sm:p-0' }"
+          >
             <div class="overflow-hidden rounded-lg bg-muted">
               <video
                 v-if="selectedMedia.type === 'video'"
@@ -209,7 +215,7 @@ useSeoMeta({
                 :alt="selectedMedia.alt || project.title"
                 class="aspect-video w-full object-cover object-center"
                 loading="eager"
-              />
+              >
             </div>
 
             <div
@@ -248,9 +254,15 @@ useSeoMeta({
                   :alt="item.alt || project.title"
                   class="aspect-video w-full object-cover"
                   loading="lazy"
-                />
-                <span v-else class="flex aspect-video w-full items-center justify-center">
-                  <UIcon name="i-lucide-play" class="size-5 text-muted" />
+                >
+                <span
+                  v-else
+                  class="flex aspect-video w-full items-center justify-center"
+                >
+                  <UIcon
+                    name="i-lucide-play"
+                    class="size-5 text-muted"
+                  />
                 </span>
               </span>
             </UButton>
@@ -291,11 +303,18 @@ useSeoMeta({
                 <p class="font-medium text-highlighted">
                   {{ labels.details }}
                 </p>
-                <UIcon name="i-lucide-folder-kanban" class="size-5 text-primary" />
+                <UIcon
+                  name="i-lucide-folder-kanban"
+                  class="size-5 text-primary"
+                />
               </div>
 
               <dl class="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
-                <div v-for="item in detailItems" :key="item.label" class="space-y-1">
+                <div
+                  v-for="item in detailItems"
+                  :key="item.label"
+                  class="space-y-1"
+                >
                   <dt class="text-xs uppercase text-muted">
                     {{ item.label }}
                   </dt>
@@ -328,12 +347,25 @@ useSeoMeta({
             </div>
 
             <div class="project-content text-start">
-              <ContentRenderer v-if="project.body" :value="project" />
+              <ContentRenderer
+                v-if="project.body"
+                :value="project"
+              />
             </div>
 
-            <div v-if="localizedSurround?.some(Boolean)" class="mt-10 grid gap-4 sm:grid-cols-2">
-              <div v-for="(item, index) in localizedSurround" :key="item?.path || index">
-                <ULink v-if="item" :to="item.path" class="group block h-full">
+            <div
+              v-if="localizedSurround?.some(Boolean)"
+              class="mt-10 grid gap-4 sm:grid-cols-2"
+            >
+              <div
+                v-for="(item, index) in localizedSurround"
+                :key="item?.path || index"
+              >
+                <ULink
+                  v-if="item"
+                  :to="item.path"
+                  class="group block h-full"
+                >
                   <UCard
                     class="h-full transition-colors hover:border-primary/50"
                     :ui="{ body: 'h-full' }"
