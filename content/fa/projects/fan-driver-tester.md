@@ -3,16 +3,37 @@ title: 'فن درایور تستر'
 description: 'رابط تست برای اعتبارسنجی عملکرد فن درایور، ثبت اندازه‌گیری‌ها و گزارش‌گیری از نتایج خط تولید.'
 date: 2023-011-10
 year: '1402'
-client: 'محصول صنعتی'
+client: 'AMA Tech'
 role: 'برنامه نویس کل پروژه نرم افزار (فرانت اند و بک اند ) ، طراح ui ux '
 duration: '5 هفته'
 platform: 'ویندوز'
-image: /hero/3.avif
+image: /images/projects/fandrivertester/p3.webp
 url: '#'
-tags: ['نرم افزار ویندوزی', 'تستر', 'صنعتی', 'گزارش گیری']
+tags: ['نرم افزار ویندوزی', 'مانیتورینگ', 'تستر', 'صنعتی', 'گزارش گیری']
 details:
   - label: 'تمرکز'
     value: 'تست و اندازه گیری دیتا در هر ماژول با دقت بالای 95 %'
+media:
+  - type: image
+    src: /images/projects/fandrivertester/p3.webp
+    alt: 'Charts and business analytics'
+    caption: 'Reporting view designed for quick comparison.'
+  - type: video
+    src: /images/projects/fandrivertester/v1.webm
+    alt: 'Analytics dashboard screen'
+    caption: 'Main dashboard overview with operational metrics.'
+  - type: video
+    src: /images/projects/fandrivertester/v2.webm
+    alt: 'Analytics dashboard screen'
+    caption: 'Main dashboard overview with operational metrics.'
+  - type: image
+    src: /images/projects/fandrivertester/p1.webp
+    alt: 'Charts and business analytics'
+    caption: 'Reporting view designed for quick comparison.'
+  - type: image
+    src: /images/projects/fandrivertester/p2.webp
+    alt: 'Charts and business analytics'
+    caption: 'Reporting view designed for quick comparison.'
 ---
 
 ##

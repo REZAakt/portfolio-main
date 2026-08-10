@@ -1,28 +1,53 @@
 ---
 title: 'Fan Driver Tester'
-description: 'A testing interface for validating fan driver performance, recording measurements, and reporting production-line results.'
-date: 2025-05-10
-year: '2025'
-client: 'Industrial Product'
-role: 'UX design, UI design, and front-end architecture'
-duration: '6 weeks'
-platform: 'Web application'
-image: /hero/3.avif
+description: 'A testing interface for validating fan driver performance, recording measurements, and reporting production line results.'
+date: 2023-011-10
+year: '2023'
+client: 'AMA Tech'
+role: 'Full-stack Software Developer (Frontend & Backend), UI/UX Designer'
+duration: '5 weeks'
+platform: 'Windows'
+image: /images/projects/fandrivertester/p3.webp
 url: '#'
-tags: ['Testing', 'Industrial', 'Dashboard']
+tags: ['Windows Software', 'Monitoring', 'Tester', 'Industrial', 'Reporting']
 details:
   - label: 'Focus'
-    value: 'Reliable test execution and reporting'
+    value: 'Testing and measuring data from each module with over 95% accuracy'
+media:
+  - type: image
+    src: /images/projects/fandrivertester/p3.webp
+    alt: 'Charts and business analytics'
+    caption: 'Reporting view designed for quick comparison.'
+  - type: video
+    src: /images/projects/fandrivertester/v1.webm
+    alt: 'Analytics dashboard screen'
+    caption: 'Main dashboard overview with operational metrics.'
+  - type: video
+    src: /images/projects/fandrivertester/v2.webm
+    alt: 'Analytics dashboard screen'
+    caption: 'Main dashboard overview with operational metrics.'
+  - type: image
+    src: /images/projects/fandrivertester/p1.webp
+    alt: 'Charts and business analytics'
+    caption: 'Reporting view designed for quick comparison.'
+  - type: image
+    src: /images/projects/fandrivertester/p2.webp
+    alt: 'Charts and business analytics'
+    caption: 'Reporting view designed for quick comparison.'
 ---
 
-## Challenge
+##
 
-Operators needed a dependable way to run tests and spot failures without reading raw technical data.
+A private project developed for several companies, enabling the testing process of components through dedicated software. The software features monitoring, testing, and reporting capabilities both within the application and through Excel exports. It also includes user management with different access levels, as well as device configuration and setup.
 
 ## Approach
 
-I designed a guided test flow with visible device states, measurements, and clear pass or fail feedback.
+A step-by-step workflow was designed around device status, measurements, and pass/fail feedback, with a complete test report generated automatically after each test. The software was optimized for extended periods of continuous operation.
 
-## Result
+The UI/UX design was also entirely handled by me, with a focus on making the software simple and easy to use for operators. The color contrast was carefully designed to reduce eye strain during long working hours.
 
-The result is a focused interface for repeatable testing and traceable records.
+## Challenge
+
+In tester projects, especially FDT, one of the biggest challenges is eliminating hardware noise and ensuring reliable synchronization between the device and the software. After extensive testing across different scenarios, the final result achieved 100% reliable and error-free data reading and writing on the device.
+
+Personally, I found working directly with the device and troubleshooting the challenges caused by hardware errors or the device's microcontroller particularly engaging and rewarding. It was one of the most interesting and challenging parts of the project.
