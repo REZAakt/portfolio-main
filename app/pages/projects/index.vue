@@ -38,10 +38,42 @@ const { data: projects } = await useAsyncData(
 )
 
 const { global } = useAppConfig()
+const { openSmartContactLink } = useSmartContactLink()
 
 const isEnglish = computed(() => contentPath.value.startsWith('/en'))
 
 const projectLinkLabel = computed(() => (isEnglish.value ? 'View Project' : 'مشاهده پروژه'))
+const emailSubject = computed(() => (isEnglish.value ? 'Project inquiry' : 'درخواست همکاری یا پروژه'))
+const emailBody = computed(() =>
+  isEnglish.value
+    ? 'Hi Reza,\n\nI want to talk about a project.\n\nProject type:\nTimeline:\nBudget range:\nShort description:'
+    : 'سلام رضا،\n\nمی‌خواهم درباره یک پروژه صحبت کنم.\n\nنوع پروژه:\nزمان‌بندی:\nحدود بودجه:\nتوضیح کوتاه:'
+)
+const mailTo = computed(() => {
+  const subject = encodeURIComponent(emailSubject.value)
+  const body = encodeURIComponent(emailBody.value)
+
+  return `mailto:${global.email}?subject=${subject}&body=${body}`
+})
+const gmailTo = computed(() => {
+  const email = encodeURIComponent(global.email)
+  const subject = encodeURIComponent(emailSubject.value)
+  const body = encodeURIComponent(emailBody.value)
+
+  return `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${subject}&body=${body}`
+})
+const telegramLink = computed(() => ({
+  to: global.telegram,
+  appTo: 'tg://resolve?domain=REZA_akT',
+  fallbackTo: global.telegram,
+  target: '_blank' as const
+}))
+const emailLink = computed(() => ({
+  to: gmailTo.value,
+  appTo: mailTo.value,
+  fallbackTo: mailTo.value,
+  target: '_blank' as const
+}))
 
 const title = computed(() => page.value?.seo?.title || page.value?.title)
 const description = computed(() => page.value?.seo?.description || page.value?.description)
@@ -78,12 +110,16 @@ defineOgImage('Portfolio', {
         >
           <UButton
             :label="page.links[0]?.label"
-            :to="global.meetingLink"
+            :to="telegramLink.to"
+            :target="telegramLink.target"
             v-bind="page.links[0]"
+            @click="openSmartContactLink($event, telegramLink)"
           />
           <UButton
-            :to="`mailto:${global.email}`"
+            :to="emailLink.to"
+            :target="emailLink.target"
             v-bind="page.links[1]"
+            @click="openSmartContactLink($event, emailLink)"
           />
         </div>
       </template>

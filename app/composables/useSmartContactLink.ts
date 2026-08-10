@@ -26,6 +26,11 @@ export function useSmartContactLink() {
 
     event.preventDefault()
 
+    if (link.appTo === fallbackTo) {
+      window.location.href = link.appTo
+      return
+    }
+
     let pageWasHidden = false
 
     const markHidden = () => {

@@ -50,7 +50,7 @@ export default defineAppConfig({
       {
         icon: 'i-simple-icons-gmail',
         to: 'https://mail.google.com/mail/?view=cm&fs=1&to=rreza.aak%40gmail.com',
-        appTo: 'googlegmail://co?to=rreza.aak%40gmail.com',
+        appTo: 'mailto:rreza.aak@gmail.com',
         fallbackTo: 'mailto:rreza.aak@gmail.com',
         target: '_blank',
         'aria-label': 'Me on Gmail',
