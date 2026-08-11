@@ -133,6 +133,24 @@ const selectedMedia = computed(() => projectMedia.value[selectedMediaIndex.value
 const getMediaIndex = (mediaItem: ProjectMediaItem) =>
   projectMedia.value.findIndex((item) => item.src === mediaItem.src)
 
+const mediaScroller = ref<HTMLElement>()
+
+const onMediaWheel = (event: WheelEvent) => {
+  const scroller = mediaScroller.value
+  if (!scroller || !event.deltaY || scroller.scrollWidth <= scroller.clientWidth) return
+
+  const maxScrollLeft = scroller.scrollWidth - scroller.clientWidth
+  const nextScrollLeft = Math.min(
+    maxScrollLeft,
+    Math.max(0, scroller.scrollLeft + event.deltaY)
+  )
+
+  if (nextScrollLeft === scroller.scrollLeft) return
+
+  event.preventDefault()
+  scroller.scrollLeft = nextScrollLeft
+}
+
 const detailItems = computed(() => {
   const details = [...(project.value?.details || [])]
   const existingLabels = new Set(details.map((item) => item.label))
@@ -221,42 +239,54 @@ useSeoMeta({
             </div>
           </UCard>
 
-          <UCarousel
+          <div
             v-if="projectMedia.length > 1"
-            v-slot="{ item }"
-            :items="projectMedia"
             class="mt-4"
-            :opts="{ direction: isEnglish ? 'ltr' : 'rtl' }"
-            :ui="{
-              container: 'gap-3',
-              item: 'basis-28 sm:basis-36'
-            }"
+            dir="ltr"
+            role="region"
+            aria-roledescription="carousel"
           >
-            <UButton
-              color="neutral"
-              variant="ghost"
-              class="h-auto w-full rounded-lg border p-1.5 transition"
-              :class="
-                getMediaIndex(item) === selectedMediaIndex
-                  ? 'border-primary bg-primary/10 opacity-100'
-                  : 'border-transparent opacity-70 hover:opacity-100'
-              "
-              @click="selectedMediaIndex = getMediaIndex(item)"
+            <div
+              ref="mediaScroller"
+              class="media-scroller snap-x snap-mandatory overflow-x-auto overscroll-x-contain pb-2"
+              @wheel="onMediaWheel"
             >
-              <span class="block w-full overflow-hidden rounded-md bg-muted">
-                <img
-                  v-if="item.type !== 'video' || item.poster"
-                  :src="item.poster || item.src"
-                  :alt="item.alt || project.title"
-                  class="aspect-video w-full object-cover"
-                  loading="lazy"
-                />
-                <span v-else class="flex aspect-video w-full items-center justify-center">
-                  <UIcon name="i-lucide-play" class="size-5 text-muted" />
-                </span>
-              </span>
-            </UButton>
-          </UCarousel>
+              <div class="flex min-w-full w-max gap-3">
+                <div
+                  v-for="item in projectMedia"
+                  :key="item.src"
+                  class="basis-28 shrink-0 snap-start sm:basis-36"
+                  role="group"
+                  aria-roledescription="slide"
+                >
+                  <UButton
+                    color="neutral"
+                    variant="ghost"
+                    class="h-auto w-full rounded-lg border p-1.5 transition"
+                    :class="
+                      getMediaIndex(item) === selectedMediaIndex
+                        ? 'border-primary bg-primary/10 opacity-100 shadow-sm'
+                        : 'border-transparent opacity-70 hover:opacity-100'
+                    "
+                    @click="selectedMediaIndex = getMediaIndex(item)"
+                  >
+                    <span class="block w-full overflow-hidden rounded-md bg-muted">
+                      <img
+                        v-if="item.type !== 'video' || item.poster"
+                        :src="item.poster || item.src"
+                        :alt="item.alt || project.title"
+                        class="aspect-video w-full object-cover"
+                        loading="lazy"
+                      />
+                      <span v-else class="flex aspect-video w-full items-center justify-center">
+                        <UIcon name="i-lucide-play" class="size-5 text-muted" />
+                      </span>
+                    </span>
+                  </UButton>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
 
         <section class="pb-10">
@@ -377,6 +407,30 @@ useSeoMeta({
 </template>
 
 <style scoped>
+.media-scroller {
+  scrollbar-color: color-mix(in srgb, var(--ui-text-muted) 45%, transparent) transparent;
+  scrollbar-width: thin;
+}
+
+.media-scroller::-webkit-scrollbar {
+  height: 10px;
+}
+
+.media-scroller::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.media-scroller::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--ui-text-muted) 45%, transparent);
+  background-clip: padding-box;
+  border: 3px solid transparent;
+  border-radius: 999px;
+}
+
+.media-scroller:hover::-webkit-scrollbar-thumb {
+  background-color: color-mix(in srgb, var(--ui-text-muted) 65%, transparent);
+}
+
 .project-content :deep(h1),
 .project-content :deep(h2),
 .project-content :deep(h3),
