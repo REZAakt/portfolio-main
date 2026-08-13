@@ -1,11 +1,11 @@
 ---
 title: 'Fan Driver Tester'
 description: 'A testing interface for validating fan driver performance, recording measurements, and reporting production line results.'
-date: 2023-011-10
-year: '2023'
+date: 2021-011-10
+year: '2021'
 client: 'AMA Tech'
 role: 'Full-stack Software Developer (Frontend & Backend), UI/UX Designer'
-duration: '5 weeks'
+duration: '6 weeks'
 platform: 'Windows'
 image: /images/projects/fandrivertester/p3.webp
 url: '#'
@@ -38,7 +38,9 @@ media:
 
 ##
 
-A private project developed for several companies, enabling the testing process of components through dedicated software. The software features monitoring, testing, and reporting capabilities both within the application and through Excel exports. It also includes user management with different access levels, as well as device configuration and setup.
+This project holds a special place for me because it was the first project I was officially entrusted with. As my first professional project, it came with many challenges and learning experiences. Although I went on to work on a considerable number of tester projects afterward, I have never forgotten where it all started. Your first project always stays with you.
+
+A private project developed for the mentioned company, enabling the component testing process through dedicated software. The software features monitoring, testing, and reporting capabilities both within the application and through Excel exports. It also includes user management with different access levels, as well as device configuration and setup.
 
 ## Approach
 
