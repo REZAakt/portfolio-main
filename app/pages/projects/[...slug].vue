@@ -1,3 +1,4 @@
+<!-- eslint-disable @stylistic/operator-linebreak -->
 <!-- eslint-disable @stylistic/arrow-parens -->
 <!-- eslint-disable vue/max-attributes-per-line -->
 <script setup lang="ts">
@@ -133,6 +134,15 @@ const selectedMedia = computed(() => projectMedia.value[selectedMediaIndex.value
 const getMediaIndex = (mediaItem: ProjectMediaItem) =>
   projectMedia.value.findIndex((item) => item.src === mediaItem.src)
 
+const goToPreviousMedia = () => {
+  selectedMediaIndex.value =
+    (selectedMediaIndex.value - 1 + projectMedia.value.length) % projectMedia.value.length
+}
+
+const goToNextMedia = () => {
+  selectedMediaIndex.value = (selectedMediaIndex.value + 1) % projectMedia.value.length
+}
+
 const mediaScroller = ref<HTMLElement>()
 
 const onMediaWheel = (event: WheelEvent) => {
@@ -140,10 +150,7 @@ const onMediaWheel = (event: WheelEvent) => {
   if (!scroller || !event.deltaY || scroller.scrollWidth <= scroller.clientWidth) return
 
   const maxScrollLeft = scroller.scrollWidth - scroller.clientWidth
-  const nextScrollLeft = Math.min(
-    maxScrollLeft,
-    Math.max(0, scroller.scrollLeft + event.deltaY)
-  )
+  const nextScrollLeft = Math.min(maxScrollLeft, Math.max(0, scroller.scrollLeft + event.deltaY))
 
   if (nextScrollLeft === scroller.scrollLeft) return
 
@@ -211,12 +218,12 @@ useSeoMeta({
           data-swipe-navigation-ignore
         >
           <UCard variant="subtle" :ui="{ body: 'p-0 sm:p-0' }">
-            <div class="overflow-hidden rounded-lg bg-muted">
+            <div class="relative overflow-hidden rounded-lg bg-muted">
               <video
                 v-if="selectedMedia.type === 'video'"
                 :src="selectedMedia.src"
                 :poster="selectedMedia.poster"
-                class="aspect-video w-full bg-muted object-cover"
+                class="aspect-video w-full bg-muted object-contain"
                 controls
                 playsinline
                 preload="metadata"
@@ -226,9 +233,33 @@ useSeoMeta({
                 v-else
                 :src="selectedMedia.src"
                 :alt="selectedMedia.alt || project.title"
-                class="aspect-video w-full object-cover object-center"
+                class="aspect-video w-full object-contain object-center"
                 loading="eager"
               />
+
+              <div
+                v-if="projectMedia.length > 1"
+                class="pointer-events-none absolute inset-x-3 top-1/2 flex -translate-y-1/2 items-center justify-between sm:inset-x-4"
+              >
+                <UButton
+                  icon="i-lucide-chevron-left"
+                  color="neutral"
+                  variant="solid"
+                  size="lg"
+                  class="pointer-events-auto rtl:rotate-180"
+                  :aria-label="isEnglish ? 'Previous image' : 'تصویر قبلی'"
+                  @click="goToPreviousMedia"
+                />
+                <UButton
+                  icon="i-lucide-chevron-right"
+                  color="neutral"
+                  variant="solid"
+                  size="lg"
+                  class="pointer-events-auto rtl:rotate-180"
+                  :aria-label="isEnglish ? 'Next image' : 'تصویر بعدی'"
+                  @click="goToNextMedia"
+                />
+              </div>
             </div>
 
             <div
