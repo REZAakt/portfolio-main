@@ -51,7 +51,7 @@ onBeforeUnmount(() => {
         @click="scrollToTop"
       >
         <span class="scroll-top-icon">
-          <UIcon name="typcn:arrow-sorted-up" class="size-7" />
+          <UIcon name="i-lucide-chevron-up" class="size-7" />
         </span>
       </UButton>
     </Transition>
