@@ -7,8 +7,8 @@ client: 'Vira Sanaat'
 role: 'Product design and front-end development'
 duration: '8 weeks'
 platform: 'Web application'
-image: /hero/2.avif
-url: 'private'
+image: /images/projects/virasanaat/1.webp
+url: 'working'
 tags: ['Industrial', 'Operations', 'Dashboard']
 details:
   - label: 'Focus'
@@ -16,43 +16,30 @@ details:
 media:
   - type: image
     src: /images/projects/virasanaat/1.webp
-    caption: 'Reporting view designed for quick comparison.'
   - type: image
     src: /images/projects/virasanaat/2.webp
-    caption: 'Main dashboard overview with operational metrics.'
   - type: image
     src: /images/projects/virasanaat/3.webp
-    caption: 'Main dashboard overview with operational metrics.'
   - type: image
     src: /images/projects/virasanaat/4.webp
-    caption: 'Reporting view designed for quick comparison.'
   - type: image
     src: /images/projects/virasanaat/5.webp
-    caption: 'Reporting view designed for quick comparison.'
   - type: image
     src: /images/projects/virasanaat/6.webp
-    caption: 'Reporting view designed for quick comparison.'
   - type: image
     src: /images/projects/virasanaat/7.webp
-    caption: 'Reporting view designed for quick comparison.'
   - type: image
     src: /images/projects/virasanaat/8.webp
-    caption: 'Main dashboard overview with operational metrics.'
   - type: image
     src: /images/projects/virasanaat/9.webp
-    caption: 'Main dashboard overview with operational metrics.'
   - type: image
     src: /images/projects/virasanaat/10.webp
-    caption: 'Reporting view designed for quick comparison.'
   - type: image
     src: /images/projects/virasanaat/11.webp
-    caption: 'Reporting view designed for quick comparison.'
   - type: image
     src: /images/projects/virasanaat/12.webp
-    caption: 'Reporting view designed for quick comparison.'
   - type: image
     src: /images/projects/virasanaat/13.webp
-    caption: 'Reporting view designed for quick comparison.'
 ---
 
 ## Challenge

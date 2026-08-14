@@ -133,6 +133,44 @@ watch(
 
 const selectedMedia = computed(() => projectMedia.value[selectedMediaIndex.value])
 
+const isFullscreenOpen = ref(false)
+const fullscreenImageOffset = ref(0)
+const fullscreenTouchStartY = ref<number | null>(null)
+
+const openFullscreen = () => {
+  if (selectedMedia.value?.type !== 'video') {
+    isFullscreenOpen.value = true
+  }
+}
+
+const onFullscreenTouchStart = (event: TouchEvent) => {
+  fullscreenTouchStartY.value = event.touches[0]?.clientY ?? null
+}
+
+const onFullscreenTouchMove = (event: TouchEvent) => {
+  if (fullscreenTouchStartY.value === null) return
+
+  const offset =
+    (event.touches[0]?.clientY ?? fullscreenTouchStartY.value) - fullscreenTouchStartY.value
+  fullscreenImageOffset.value = Math.max(0, offset)
+}
+
+const onFullscreenTouchEnd = () => {
+  if (fullscreenImageOffset.value > 100) {
+    isFullscreenOpen.value = false
+  }
+
+  fullscreenImageOffset.value = 0
+  fullscreenTouchStartY.value = null
+}
+
+watch(isFullscreenOpen, (isOpen) => {
+  if (!isOpen) {
+    fullscreenImageOffset.value = 0
+    fullscreenTouchStartY.value = null
+  }
+})
+
 const getMediaIndex = (mediaItem: ProjectMediaItem) =>
   projectMedia.value.findIndex((item) => item.src === mediaItem.src)
 
@@ -254,8 +292,9 @@ useSeoMeta({
                 v-else
                 :src="selectedMedia.src"
                 :alt="selectedMedia.alt || project.title"
-                class="aspect-video w-full object-contain object-center"
+                class="aspect-video w-full cursor-pointer object-contain object-center"
                 loading="eager"
+                @click="openFullscreen"
               />
 
               <div
@@ -339,6 +378,33 @@ useSeoMeta({
               </div>
             </div>
           </div>
+
+          <UModal v-model:open="isFullscreenOpen" fullscreen :ui="{ content: 'bg-black/95' }">
+            <template #content>
+              <div
+                class="relative flex h-full w-full items-center justify-center overflow-hidden bg-black/95 p-4 sm:p-8"
+              >
+                <UButton
+                  icon="i-lucide-x"
+                  color="neutral"
+                  variant="solid"
+                  class="absolute end-4 top-4 z-10"
+                  :aria-label="isEnglish ? 'Close fullscreen image' : 'بستن تصویر تمام صفحه'"
+                  @click="isFullscreenOpen = false"
+                />
+                <img
+                  :src="selectedMedia.src"
+                  :alt="selectedMedia.alt || project.title"
+                  class="max-h-full max-w-full select-none object-contain transition-transform duration-150"
+                  :style="{ transform: `translateY(${fullscreenImageOffset}px)` }"
+                  draggable="false"
+                  @touchstart="onFullscreenTouchStart"
+                  @touchmove="onFullscreenTouchMove"
+                  @touchend="onFullscreenTouchEnd"
+                />
+              </div>
+            </template>
+          </UModal>
         </section>
 
         <section class="pb-10">

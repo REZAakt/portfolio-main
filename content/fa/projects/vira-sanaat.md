@@ -5,54 +5,41 @@ date: 2025-07-24
 year: '1404'
 client: 'Vira Sannat'
 role: 'برنامه نویس کل پروژه نرم افزار (فرانت اند و بک اند ) ، طراح ui ux '
-duration: '6 هفته'
+duration: '4 هفته'
 platform: 'وب اپ'
 image: /images/projects/virasanaat/1.webp
 url: 'working'
-tags: ['نرم افزار ویندوزی', 'مانیتورینگ', 'تستر', 'صنعتی', 'گزارش گیری']
+tags: ['وب اپلیکیشن', 'مدیریت کاربران', 'مانیتورینگ', 'صنعتی', 'گزارش گیری']
 details:
   - label: 'تمرکز'
-    value: 'تست و اندازه گیری دیتا در هر ماژول با دقت بالای 95 %'
+    value: 'خواندن لایو دیتا از دستگاه به سرور ، و نمایش ( ماینتور ) در سایت به صورت زنده و اعمال کانفیگ ها و گزارش گیری دقیق و حتی ثانیه ای'
 media:
   - type: image
     src: /images/projects/virasanaat/1.webp
-    caption: 'Reporting view designed for quick comparison.'
   - type: image
     src: /images/projects/virasanaat/2.webp
-    caption: 'Main dashboard overview with operational metrics.'
   - type: image
     src: /images/projects/virasanaat/3.webp
-    caption: 'Main dashboard overview with operational metrics.'
   - type: image
     src: /images/projects/virasanaat/4.webp
-    caption: 'Reporting view designed for quick comparison.'
   - type: image
     src: /images/projects/virasanaat/5.webp
-    caption: 'Reporting view designed for quick comparison.'
   - type: image
     src: /images/projects/virasanaat/6.webp
-    caption: 'Reporting view designed for quick comparison.'
   - type: image
     src: /images/projects/virasanaat/7.webp
-    caption: 'Reporting view designed for quick comparison.'
   - type: image
     src: /images/projects/virasanaat/8.webp
-    caption: 'Main dashboard overview with operational metrics.'
   - type: image
     src: /images/projects/virasanaat/9.webp
-    caption: 'Main dashboard overview with operational metrics.'
   - type: image
     src: /images/projects/virasanaat/10.webp
-    caption: 'Reporting view designed for quick comparison.'
   - type: image
     src: /images/projects/virasanaat/11.webp
-    caption: 'Reporting view designed for quick comparison.'
   - type: image
     src: /images/projects/virasanaat/12.webp
-    caption: 'Reporting view designed for quick comparison.'
   - type: image
     src: /images/projects/virasanaat/13.webp
-    caption: 'Reporting view designed for quick comparison.'
 ---
 
 ##
