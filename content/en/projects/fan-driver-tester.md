@@ -8,7 +8,7 @@ role: 'Full-stack Software Developer (Frontend & Backend), UI/UX Designer'
 duration: '6 weeks'
 platform: 'Windows'
 image: /images/projects/fandrivertester/p3.webp
-url: '#'
+url: 'private'
 tags: ['Windows Software', 'Monitoring', 'Tester', 'Industrial', 'Reporting']
 details:
   - label: 'Focus'

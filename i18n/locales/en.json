@@ -14,5 +14,17 @@
   },
   "footer": {
     "credits": "Developed by Reza Akbarpour • © {year}"
+  },
+  "projectStatus": {
+    "private": {
+      "label": "This project is private",
+      "message": "Sorry, this project is private.",
+      "description": "An online version of this project is not available."
+    },
+    "working": {
+      "label": "This project is under development",
+      "message": "This project is under development.",
+      "description": "The online version will be available after completion."
+    }
   }
 }

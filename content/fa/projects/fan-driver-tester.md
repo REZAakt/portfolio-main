@@ -8,7 +8,7 @@ role: 'برنامه نویس کل پروژه نرم افزار (فرانت ان�
 duration: '6 هفته'
 platform: 'ویندوز'
 image: /images/projects/fandrivertester/p3.webp
-url: '#'
+url: 'private'
 tags: ['نرم افزار ویندوزی', 'مانیتورینگ', 'تستر', 'صنعتی', 'گزارش گیری']
 details:
   - label: 'تمرکز'

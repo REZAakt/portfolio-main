@@ -70,6 +70,8 @@ const localizedSurround = computed(() => {
 const getSurroundDescription = (item: unknown) => (item as { description?: string }).description
 
 const isEnglish = computed(() => route.path.startsWith('/en'))
+const { t } = useI18n()
+const toast = useToast()
 
 const labels = computed(() => {
   if (isEnglish.value) {
@@ -182,10 +184,29 @@ const detailItems = computed(() => {
   return details
 })
 
-const externalUrl = computed(() => {
-  if (!project.value?.url || project.value.url === '#') return undefined
+const projectStatus = computed<'private' | 'working' | undefined>(() => {
+  const url = project.value?.url
 
-  return project.value.url
+  return url === 'private' || url === 'working' ? url : undefined
+})
+
+const showProjectStatus = () => {
+  if (!projectStatus.value) return
+
+  const status = projectStatus.value
+  toast.add({
+    title: t(`projectStatus.${status}.message`),
+    description: t(`projectStatus.${status}.description`),
+    color: status === 'private' ? 'error' : 'success',
+    icon: status === 'private' ? 'i-lucide-lock-keyhole' : 'i-lucide-hammer'
+  })
+}
+
+const externalUrl = computed(() => {
+  const url = project.value?.url
+  if (!url || url === '#' || projectStatus.value) return undefined
+
+  return url
 })
 
 const title = project.value?.seo?.title || project.value?.title
@@ -346,7 +367,7 @@ useSeoMeta({
             </div>
 
             <UCard
-              v-if="detailItems.length || externalUrl"
+              v-if="detailItems.length || externalUrl || projectStatus"
               variant="subtle"
               :ui="{ body: 'space-y-5' }"
             >
@@ -376,6 +397,14 @@ useSeoMeta({
                 target="_blank"
                 color="primary"
                 block
+              />
+              <UButton
+                v-else-if="projectStatus"
+                :label="t(`projectStatus.${projectStatus}.label`)"
+                :icon="projectStatus === 'private' ? 'i-lucide-lock-keyhole' : 'i-lucide-hammer'"
+                :color="projectStatus === 'private' ? 'error' : 'success'"
+                block
+                @click="showProjectStatus"
               />
             </UCard>
           </div>

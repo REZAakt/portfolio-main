@@ -1,14 +1,14 @@
 ---
 title: 'ویرا صنعت'
-description: 'رابط تست برای اعتبارسنجی عملکرد فن درایور، ثبت اندازه‌گیری‌ها و گزارش‌گیری از نتایج خط تولید.'
+description: 'وب اپلیکیشن خصوصی ، که با اتصال با دستگاه طراحی شده توسط شرکت رایان الگریتم به برد یخچال های امروزی دیتا های موجود را مانیتور می کند ،و میتوان کانفیگ ست کرد گزارش تهیه کرد وبه صورت دقیق نمودار و لیست های مختلف با فیلتر های مختلف مشاهده  کرد .'
 date: 2025-07-24
 year: '1404'
-client: 'AMA Tech'
+client: 'Vira Sannat'
 role: 'برنامه نویس کل پروژه نرم افزار (فرانت اند و بک اند ) ، طراح ui ux '
 duration: '6 هفته'
-platform: 'ویندوز'
+platform: 'وب اپ'
 image: /images/projects/virasanaat/1.webp
-url: '#'
+url: 'working'
 tags: ['نرم افزار ویندوزی', 'مانیتورینگ', 'تستر', 'صنعتی', 'گزارش گیری']
 details:
   - label: 'تمرکز'
@@ -16,55 +16,42 @@ details:
 media:
   - type: image
     src: /images/projects/virasanaat/1.webp
-    alt: 'Charts and business analytics'
     caption: 'Reporting view designed for quick comparison.'
   - type: image
     src: /images/projects/virasanaat/2.webp
-    alt: 'Analytics dashboard screen'
     caption: 'Main dashboard overview with operational metrics.'
   - type: image
     src: /images/projects/virasanaat/3.webp
-    alt: 'Analytics dashboard screen'
     caption: 'Main dashboard overview with operational metrics.'
   - type: image
     src: /images/projects/virasanaat/4.webp
-    alt: 'Charts and business analytics'
     caption: 'Reporting view designed for quick comparison.'
   - type: image
     src: /images/projects/virasanaat/5.webp
-    alt: 'Charts and business analytics'
     caption: 'Reporting view designed for quick comparison.'
   - type: image
     src: /images/projects/virasanaat/6.webp
-    alt: 'Charts and business analytics'
     caption: 'Reporting view designed for quick comparison.'
   - type: image
     src: /images/projects/virasanaat/7.webp
-    alt: 'Charts and business analytics'
     caption: 'Reporting view designed for quick comparison.'
   - type: image
     src: /images/projects/virasanaat/8.webp
-    alt: 'Analytics dashboard screen'
     caption: 'Main dashboard overview with operational metrics.'
   - type: image
     src: /images/projects/virasanaat/9.webp
-    alt: 'Analytics dashboard screen'
     caption: 'Main dashboard overview with operational metrics.'
   - type: image
     src: /images/projects/virasanaat/10.webp
-    alt: 'Charts and business analytics'
     caption: 'Reporting view designed for quick comparison.'
   - type: image
     src: /images/projects/virasanaat/11.webp
-    alt: 'Charts and business analytics'
     caption: 'Reporting view designed for quick comparison.'
   - type: image
     src: /images/projects/virasanaat/12.webp
-    alt: 'Charts and business analytics'
     caption: 'Reporting view designed for quick comparison.'
   - type: image
     src: /images/projects/virasanaat/13.webp
-    alt: 'Charts and business analytics'
     caption: 'Reporting view designed for quick comparison.'
 ---
 
