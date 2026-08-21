@@ -77,7 +77,6 @@ const labels = computed(() => {
   if (isEnglish.value) {
     return {
       back: 'Projects',
-      overview: 'Project Overview',
       details: 'Project Details',
       visit: 'Visit Project',
       media: 'Media'
@@ -86,7 +85,6 @@ const labels = computed(() => {
 
   return {
     back: 'پروژه ها',
-    overview: 'نمای کلی پروژه',
     details: 'جزئیات پروژه',
     visit: 'مشاهده پروژه',
     media: 'رسانه ها'
