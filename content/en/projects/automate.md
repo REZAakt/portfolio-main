@@ -3,7 +3,7 @@ title: 'Automate'
 
 description: 'Automate is a software application for (Tire Pressure Monitoring System) TPMS that receives and decodes RF frames from sensors. Each vehicle tire can be monitored and reported separately, with the data presented in a graphical and user-friendly interface.'
 
-date: 2026-8-01
+date: 2026-02-01
 
 year: '2026'
 

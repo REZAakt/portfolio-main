@@ -3,7 +3,7 @@ title: 'Vira Sanaat'
 
 description: 'A private web application that connects to devices designed by Rayan Algorithm and modern refrigerator control boards to monitor live data, configure devices, generate reports, and analyze data through detailed charts and filtered lists.'
 
-date: 2025-07-24
+date: 2026-04-01
 
 year: '2025'
 
