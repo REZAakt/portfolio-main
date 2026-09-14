@@ -12,7 +12,7 @@ export default defineAppConfig({
     telegram: 'https://t.me/REZA_akT',
     linkedin: 'https://www.linkedin.com/in/reza-akbarpour-64ab3b217/',
     instagram: 'https://www.instagram.com/reza.akbarpourr/',
-    available: false
+    available: true
   },
   ui: {
     colors: {
