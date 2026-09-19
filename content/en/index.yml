@@ -11,6 +11,7 @@ hero:
       external: true
       download: 'reza-akbarpour-resume-en.pdf'
       color: 'neutral'
+      icon: 'i-lucide-download'
   images:
     - src: /hero/1.avif
       alt: Software project screenshot
