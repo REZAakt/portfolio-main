@@ -6,7 +6,7 @@ export default defineAppConfig({
       light: '/images/me_dark.avif',
       alt: 'My profile picture'
     },
-    meetingLink: 'https://cal.com/',
+    meetingLink: '/contact',
     email: 'rreza.aak@gmail.com',
     phone: '+989114461400',
     telegram: 'https://t.me/REZA_akT',
