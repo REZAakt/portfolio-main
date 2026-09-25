@@ -1,6 +1,6 @@
 ---
-title: فرایند ساخت یک پیام‌رسان بدون سرور، از ایده تا اجرا
-description: بررسی دقیق فرایندی که برای طراحی و ساخت یک پیام‌رسان بدون سرور مرکزی طی می‌شود؛ از تعریف مسئله تا تصمیم‌های معماری، همراه با نکته‌های کاربردی برای هر مرحله.
+title: The Process of Building a Serverless Messenger, From Idea to Implementation
+description: A close look at the process behind designing and building a messenger with no central server — from defining the problem to the architectural decisions, with practical notes for each stage.
 date: 2026-09-25
 image: /images/blog/serverless/serverless.svg
 minRead: 10
@@ -8,114 +8,114 @@ author:
   name: Reza Akbarpour
   avatar:
     src: /images/23.png
-    alt: رضا اکبرپور
+    alt: Reza Akbarpour
 ---
 
-ساخت یک پیام‌رسان به یک فرمول ثابت وابسته نیست؛ به‌خصوص وقتی هدف، حذف کامل سرور مرکزی باشد. در این حالت، هر تصمیم معماری تبعات مستقیمی روی امنیت، در‌دسترس‌بودن و تجربهٔ کاربر می‌گذارد. پس از طی‌کردن این مسیر در عمل، فرایندی ساخته‌ام که ضمن حفظ فضا برای تصمیم‌های سخت‌گیرانه، پیوسته به نتیجه‌ای قابل‌اتکا می‌رسد.
+Building a messenger doesn't follow a fixed formula — especially when the goal is to remove the central server entirely. In that case, every architectural decision has direct consequences for security, availability, and user experience. Having gone through this path in practice, I've arrived at a process that, while leaving room for hard trade-offs, consistently reaches a reliable result.
 
-در این مقاله، با استفاده از پروژهٔ اخیرم **تلپاتی** به‌عنوان مطالعهٔ موردی، فرایند ساخت یک پیام‌رسان بدون سرور را از تعریف مسئله تا تصمیم‌های نهایی معماری مرور می‌کنم.
+In this article, using my recent project **Telepatty** as a case study, I'll walk through the process of building a serverless messenger — from defining the problem to the final architectural decisions.
 
-## مرحلهٔ اول: تعریف دقیق مسئله
+## Step One: Precisely Defining the Problem
 
-هر پروژهٔ خوب با درک دقیق مسئله‌ای که قرار است حل شود آغاز می‌شود. «بدون سرور بودن» به‌تنهایی یک هدف مبهم است؛ باید مشخص شود دقیقاً کدام ضعف‌های مدل سنتی پیام‌رسانی قرار است حذف شوند.
+Every good project starts with a precise understanding of the problem it's meant to solve. "Being serverless" on its own is a vague goal — you need to pin down exactly which weaknesses of the traditional messaging model are supposed to disappear.
 
-### تحلیل مدل رایج
+### Analyzing the Common Model
 
-پیام‌رسان‌های معمولی یک مفروض مشترک دارند: یک سرور مرکزی که حساب کاربران و محتوای گفتگو را نگه می‌دارد. این مدل سه ضعف ساختاری دارد:
+Ordinary messengers share one assumption: a central server that holds user accounts and conversation content. This model has three structural weaknesses:
 
-- محتوای گفتگو در دسترس مالک سرور قرار می‌گیرد، صرف‌نظر از هر تعهدنامهٔ حریم خصوصی.
-- حساب کاربر عملاً گروگان همان سرور است؛ اگر سرور بسته یا مسدود شود، کاربر بدون گفتگو و بدون راه بازیابی می‌ماند.
-- نگه‌داشتن سرور به‌صورت شبانه‌روزی، خودش یک پروژهٔ جداگانه با هزینه و دردسر دائمی است.
+- Conversation content is accessible to whoever owns the server, regardless of any privacy policy.
+- The user account is effectively hostage to that server; if it's shut down or blocked, the user is left without their conversations and with no way to recover them.
+- Keeping a server running around the clock is itself a separate project, with its own ongoing cost and hassle.
 
-### تعریف معیار موفقیت
+### Defining Success Criteria
 
-پیش از هر تصمیم فنی، باید معیارهای روشنی برای موفقیت تعیین شوند. برای این نوع پروژه، سه شرط اصلی معمولاً مطرح می‌شوند:
+Before any technical decision, you need clear criteria for success. For this kind of project, three main conditions usually come up:
 
-- محتوای گفتگو فقط برای فرستنده و گیرنده قابل خواندن باشد.
-- هیچ سرور اختصاصی‌ای برای نگه‌داری حساب یا داده وجود نداشته باشد.
-- پیام حتی در حالت آفلاین بودن طرف مقابل هم گم نشود.
+- Conversation content should be readable only by sender and receiver.
+- No dedicated server should exist to hold accounts or data.
+- A message shouldn't get lost even while the other party is offline.
 
-نکتهٔ مهم این‌جاست که این سه شرط در نگاه اول با هم در تعارضند؛ معمولاً «بدون سرور» به قیمت از‌دست‌رفتن قابلیت تحویل آفلاین تمام می‌شود. حل همین تعارض، هستهٔ اصلی فرایند طراحی است.
+The important point here is that at first glance these three conditions conflict with each other; "serverless" usually comes at the cost of losing offline delivery. Resolving exactly this tension is the core of the design process.
 
-## مرحلهٔ دوم: انتخاب معماری
+## Step Two: Choosing the Architecture
 
-بعد از تعریف مسئله، مهم‌ترین تصمیم معماری این است: **آیا یک فناوری واحد می‌تواند هم ارتباط زنده و هم تحویل آفلاین را پوشش دهد؟** تجربه نشان می‌دهد جواب معمولاً نه است.
+After defining the problem, the most important architectural decision is this: **can a single technology cover both live communication and offline delivery?** Experience shows the answer is usually no.
 
-### جدا کردن دو نوع نیاز
+### Separating the Two Kinds of Needs
 
-دو نیاز باید از هم تفکیک شوند:
+Two needs have to be separated:
 
-1. **تحویل در حالت آفلاین:** نیازمند یک واسطهٔ نگه‌دارنده است؛ چیزی شبیه صندوق پستی که پیام را تا آنلاین‌شدن گیرنده نگه دارد.
-2. **ارتباط زنده و انتقال فایل:** اینجا واسطه فقط سربار و تأخیر اضافه می‌کند؛ اتصال مستقیم بین دو طرف منطقی‌تر است.
+1. **Offline delivery:** requires a holding intermediary — something like a mailbox that keeps the message until the recipient comes online.
+2. **Live communication and file transfer:** here an intermediary only adds overhead and latency; a direct connection between the two parties makes more sense.
 
-### انتخاب واسطهٔ غیرمتمرکز
+### Choosing a Decentralized Intermediary
 
-برای این‌که خودِ پروژه هم به زیرساخت اختصاصی نیاز نداشته باشد، به‌جای ساختن سرور صندوق پستی، می‌توان از شبکه‌ای از رله‌های عمومی و باز استفاده کرد که از قبل توسط جامعه‌ای مستقل نگه‌داری می‌شود. مزیت این انتخاب این است که حتی همان «صندوق پستی» هم در کنترل مالک پروژه نیست و بستنش ممکن نیست — یعنی پروژه واقعاً بدون سرور باقی می‌ماند.
+So that the project itself doesn't need dedicated infrastructure either, instead of building a mailbox server you can use a network of open, public relays already maintained by an independent community. The advantage of this choice is that even that "mailbox" isn't under the project owner's control and can't be shut down — meaning the project truly stays serverless.
 
-من همین رویکرد را در تلپاتی پیاده کردم: تحویل آفلاین از مسیر رله‌های عمومی، و گفت‌وگوی زنده و فایل از مسیر اتصال مستقیم بین دو مرورگر.
+I took exactly this approach in Telepatty: offline delivery goes through public relays, while live conversation and files go through a direct connection between the two browsers.
 
-## مرحلهٔ سوم: طراحی لایهٔ امنیت
+## Step Three: Designing the Security Layer
 
-سخت‌ترین بخش کار، طراحی مدلی است که تضمین کند واسطهٔ نگه‌دارنده (که یک سرویس عمومی و خارج از کنترل سازنده است) هیچ‌وقت به محتوای واقعی دسترسی نداشته باشد.
+The hardest part of the work is designing a model that guarantees the holding intermediary (a public service outside the builder's control) never has access to the actual content.
 
-اصل کلیدی این است: **پیام باید پیش از خروج از دستگاه، کاملاً بسته‌بندی و قفل شده باشد** — نه این‌که در مسیر انتقال رمزنگاری شود. این یعنی چند لایهٔ پیاپی امضا و رمزنگاری، به‌گونه‌ای که واسطه فقط بداند «این بسته باید به فلان مقصد برسد»، بدون این‌که بفهمد محتوا چیست، فرستنده کیست یا نوع پیام چیست.
+The key principle is: **the message must be fully packaged and locked before it ever leaves the device** — not encrypted somewhere along the transit path. This means several successive layers of signing and encryption, arranged so the intermediary only knows "this packet needs to reach such-and-such destination," without knowing what the content is, who the sender is, or what type of message it is.
 
-نکته‌ای که در این مرحله اهمیت زیادی دارد، صداقت در حد ادعاست: این مدل پیام را **خصوصی** می‌کند، نه لزوماً **گمنام**. واسطه همچنان می‌تواند ببیند چه حجمی از داده، در چه زمانی، به کدام مقصد رسیده — و بهتر است این محدودیت به‌جای پنهان‌شدن، صریح مستند شود.
+An important point at this stage is being honest about the actual scope of the claim: this model makes the message **private**, not necessarily **anonymous**. The intermediary can still see how much data arrived, when, and to which destination — and it's better to document that limitation openly rather than hide it.
 
-## مرحلهٔ چهارم: طراحی هویت بدون حساب کاربری
+## Step Four: Designing Identity Without a User Account
 
-اگر سرور مرکزی وجود نداشته باشد، «ثبت‌نام» هم معنایی ندارد — چون کسی نیست که آن را نگه دارد. راه‌حل رایج این است که هویت هر کاربر یک جفت‌کلید رمزنگاری باشد که مستقیماً روی همان دستگاه ساخته می‌شود؛ نه چیزی که از یک سرور دریافت شود.
+If there's no central server, "registration" doesn't mean anything either — because there's no one to hold it. The common solution is for each user's identity to be a cryptographic key pair generated directly on their own device, rather than something issued by a server.
 
-این تصمیم یک بهای مشخص دارد: اگر کاربر از هویتش پشتیبان نگیرد و دستگاهش را از دست بدهد، آن هویت برای همیشه از دست می‌رود. هیچ «فراموشی رمز عبور»ی در کار نیست، چون هیچ سرویس مرکزی‌ای برای بازیابی وجود ندارد. این دقیقاً قیمتی است که «بدون سرور بودن واقعی» می‌گیرد، و به نظرم صادقانه‌تر است این مصالحه را آشکار اعلام کرد تا این‌که وانمود شود مشکلی وجود ندارد. برای کاهش ریسک، معمولاً چند لایهٔ محافظتی اضافه می‌شود: قفل‌شدن کلید خصوصی پشت یک عبارت عبور، قفل خودکار برنامه بعد از بی‌کاری، و پشتیبان‌گیری رمزگذاری‌شده.
+This decision has a clear cost: if a user doesn't back up their identity and loses their device, that identity is gone for good. There's no "forgot password" option, because there's no central service to recover it. This is exactly the price that "true serverlessness" demands, and I think it's more honest to state this trade-off openly than to pretend the problem doesn't exist. To reduce the risk, several protective layers are usually added: locking the private key behind a passphrase, automatic app lock after inactivity, and encrypted backups.
 
-## مرحلهٔ پنجم: مسیریابی هوشمند پیام
+## Step Five: Smart Message Routing
 
-با معماری و امنیت مشخص، سؤال بعدی این است: هر پیام دقیقاً باید از کدام مسیر برود؟ یک لایهٔ مسیریابی مرکزی می‌تواند برای هر پیام تصمیم بگیرد:
+With the architecture and security settled, the next question is: exactly which path should each message take? A central routing layer can decide, per message:
 
-- اگر کانال مستقیم با گیرنده برقرار است، پیام از همان‌جا و بدون تأخیرِ واسطه می‌رود.
-- اگر گیرنده آفلاین است، پیام از مسیر واسطهٔ عمومی می‌رود و تا آنلاین‌شدن او نگه داشته می‌شود.
-- اگر هیچ مسیری در دسترس نیست، پیام در صف خروجی می‌ماند و با تلاش پله‌ای دوباره ارسال می‌شود.
+- If a direct channel to the recipient is already established, the message goes straight through it with no intermediary delay.
+- If the recipient is offline, the message goes through the public intermediary and is held until they come online.
+- If no path is available at all, the message stays in an outbound queue and is retried with backoff.
 
-یک نکتهٔ فنی ظریف اینجا این است که حتی هماهنگی برای برقراری همان اتصال مستقیم هم باید از مسیر امن انجام شود، بدون نیاز به یک سرور واسط برای رد و بدل آدرس‌های شبکه.
+A subtle technical point here is that even coordinating to establish that direct connection has to happen over a secure channel, without needing an intermediary server to exchange network addresses.
 
-## مرحلهٔ ششم: حل مشکل ترتیب پیام‌ها
+## Step Six: Solving the Message-Ordering Problem
 
-یکی از دردهای پنهانِ سیستم‌های غیرمتمرکز، مسئلهٔ زمان است. وقتی هیچ سرور مرجعی برای نگه‌داشتن «ساعت درست» وجود ندارد، هر دستگاه فقط به ساعت داخلی خودش متکی است — و ساعت دستگاه‌ها همیشه قابل اعتماد نیست.
+One of the hidden pains of decentralized systems is time. When there's no reference server to keep "the correct clock," each device relies only on its own internal clock — and device clocks aren't always trustworthy.
 
-اگر ترتیب پیام‌ها صرفاً بر اساس زمان ثبت‌شده مرتب شود، یک دستگاه با ساعت اشتباه می‌تواند کل تاریخچهٔ گفتگو را به‌هم بریزد. راه‌حل رایج برای این مشکل، استفاده از یک شمارندهٔ منطقی برای هر گفتگو است؛ عددی که با هر پیام جدید افزایش می‌یابد و از پیام‌های دریافتی هم به‌روزرسانی می‌شود. زمان واقعی دستگاه فقط برای مرتب‌کردن حالت‌های مساوی به کار می‌رود، نه به‌عنوان مرجع اصلی ترتیب.
+If message order is based purely on recorded timestamps, one device with a wrong clock can scramble the entire conversation history. The common solution to this is a logical counter per conversation: a number that increases with every new message and is also updated from incoming messages. The device's real clock is only used to break ties, not as the primary reference for ordering.
 
-## مرحلهٔ هفتم: انتقال فایل بدون افشای محتوا
+## Step Seven: File Transfer Without Exposing Content
 
-فایل و عکس، جایی است که خیلی از پیام‌رسان‌های «امن» عملاً لو می‌روند؛ چون در نهایت فایل باید یک‌جا ذخیره شود. مرز روشنی که معمولاً کشیده می‌شود، جدا‌کردن «فراداده» از «محتوای واقعی فایل» است:
+Files and photos are where a lot of "secure" messengers actually fall apart, because in the end the file has to be stored somewhere. The clear boundary usually drawn is separating "metadata" from "the actual file content":
 
-- هدر فایل (نام، نوع، اندازه، و هشی برای بررسی صحت) از همان مسیر رمزنگاری‌شدهٔ معمولی پیام‌ها فرستاده می‌شود.
-- خودِ محتوای فایل هرگز از واسطهٔ عمومی عبور نمی‌کند؛ فقط از کانال مستقیم بین دو دستگاه، به‌صورت تکه‌تکه، منتقل می‌شود.
+- The file header (name, type, size, and a hash for integrity checking) is sent through the same encrypted path as ordinary messages.
+- The file content itself never passes through the public intermediary; it's transferred only over the direct connection between the two devices, in chunks.
 
-قیمت این تصمیم این است که برای انتقال فایل، هر دو طرف باید هم‌زمان آنلاین باشند. این را باید یک مصالحهٔ طبیعی دید، نه یک محدودیت شرم‌آور — چون تنها راه جایگزین، ذخیرهٔ فایل روی یک سرور واسط است؛ یعنی دقیقاً همان چیزی که کل پروژه از اول قرار بوده از آن دوری کند.
+The cost of this decision is that both parties need to be online at the same time for a file transfer. This should be seen as a natural trade-off, not an embarrassing limitation — because the only alternative is storing the file on an intermediary server, which is exactly what the whole project set out to avoid in the first place.
 
-## چالش‌های اصلی این مسیر
+## The Main Challenges Along the Way
 
-سه چالش معمولاً بیش از بقیه وقت می‌گیرند:
+Three challenges usually take up more time than the rest:
 
-- **تعادل بین سه هدف متناقض:** امنیت، آفلاین‌پذیری و بدون‌سرور بودن، معمولاً یکدیگر را نقض می‌کنند. رسیدن به نقطه‌ای که هر سه هم‌زمان برقرار باشند، نیازمند طراحی چندلایه است، نه یک راه‌حل ساده.
-- **ترتیب پیام بدون منبع زمان مرکزی:** بدون شمارندهٔ منطقی، حفظ ترتیب صحیح گفتگو عملاً ممکن نیست.
-- **اطمینان از درستی منطق رمزنگاری و مسیریابی:** چون سروری برای دیباگ مرکزی وجود ندارد، هستهٔ اصلی برنامه باید کاملاً مستقل از رابط کاربری و به‌شدت تست‌شده باشد.
+- **Balancing three conflicting goals:** security, offline capability, and being serverless usually work against each other. Reaching a point where all three hold at once requires layered design, not a single simple solution.
+- **Message ordering without a central time source:** without a logical counter, keeping conversation order correct is practically impossible.
+- **Making sure the encryption and routing logic is actually correct:** since there's no central server to debug against, the app's core logic has to be fully independent of the UI and heavily tested.
 
-در تلپاتی، برای پوشش همین ریسک آخر، هستهٔ اصلی برنامه کاملاً جدا از لایهٔ ظاهری نوشته شد و بیش از ۳۴۰ تست واحد در ۴۲ فایل برایش نوشتم؛ از رمزگشایی پاکت تا محدودیت‌های ضد سوءاستفاده.
+In Telepatty, to cover that last risk, the core logic was written completely separate from the UI layer, and I wrote over 340 unit tests across 42 files for it — from packet decryption to abuse-prevention limits.
 
-## آنچه معمولاً حل‌نشده باقی می‌ماند
+## What Usually Stays Unsolved
 
-هیچ پیام‌رسان بدون‌سروری «کامل» نیست؛ صداقت دربارهٔ محدودیت‌ها بخش مهمی از فرایند طراحی است:
+No serverless messenger is ever "complete"; being honest about the limitations is an important part of the design process:
 
-- گمنامی مطلق معمولاً به‌دست نمی‌آید؛ واسطهٔ عمومی همچنان می‌تواند ببیند چه حجمی از داده، در چه زمانی، به کدام مقصد رسیده. «خصوصی‌بودن» و «گمنام‌بودن» دو ادعای متفاوتند.
-- محرمانگی پیش‌رو (forward secrecy) کامل برای پیام‌های ذخیره‌شدهٔ آفلاین، نیازمند ساختاری پیچیده‌تر است که پیاده‌سازی پایدار و استانداردی روی مرورگر برایش هنوز وجود ندارد.
-- پنهان‌کردن آدرس شبکهٔ کاربر از طرف مقابل، معمولاً به یک سرور کمکی نیاز دارد — که خودش، هرچند کوچک، بازگشتی به مفهوم «سرور» است.
-- هیچ رمزنگاری‌ای نمی‌تواند جلوی خطرِ دستگاه آلوده یا در دسترس‌بودن فیزیکی گوشی برای شخص دیگر را بگیرد.
+- Absolute anonymity is usually not achievable; the public intermediary can still see how much data arrived, when, and to which destination. "Being private" and "being anonymous" are two different claims.
+- Full forward secrecy for offline-stored messages requires a more complex structure, for which a stable, standard browser implementation doesn't really exist yet.
+- Hiding a user's network address from the other party usually requires a helper server — which, however small, is itself a return to the concept of a "server."
+- No encryption can prevent the risk of a compromised device, or the phone being physically accessible to someone else.
 
-## نتیجه‌گیری
+## Conclusion
 
-ساخت یک پیام‌رسان بدون سرور، نیازمند اختراع الگوریتم تازه نیست؛ چالش اصلی این است که چند قطعهٔ شناخته‌شده (رمزنگاری کلید عمومی، واسط‌های عمومی غیرمتمرکز، اتصال مستقیم بین دو دستگاه) طوری کنار هم چیده شوند که یک شرط سخت نقض نشود: بدون سرور اختصاصی بودن، بدون این‌که امنیت، آفلاین‌پذیری یا تاریخچهٔ گفتگو قربانی شود.
+Building a serverless messenger doesn't require inventing a new algorithm; the real challenge is arranging a few well-known pieces (public-key cryptography, decentralized public relays, direct device-to-device connections) so that one hard constraint is never violated: no dedicated server, without sacrificing security, offline capability, or conversation history.
 
-بزرگ‌ترین درس این فرایند این است که «بدون سرور بودن» یک تصمیم رایگان نیست؛ هر بخشی که از دوش یک سرور مرکزی برداشته می‌شود، جایی دیگر — در لایهٔ رمزنگاری، در مدیریت هویت، یا در مسیریابی پیام — باید با طراحی دقیق‌تر جبران شود. تلپاتی یکی از نمونه‌های عملی این رویکرد است که می‌توانید کدش را ببینید یا خودتان امتحان کنید: [telepatty.ir](https://telepatty.ir)
+The biggest lesson from this process is that "being serverless" isn't a free decision; whatever weight is lifted off a central server has to be compensated for elsewhere — in the encryption layer, in identity management, or in message routing — through more careful design. Telepatty is one practical example of this approach; you can see the code or try it yourself: [telepatty.ir](https://telepatty.ir)
 
-خوشحال می‌شوم دربارهٔ تجربهٔ خودتان در ساخت سیستم‌های غیرمتمرکز یا سؤالاتی که دربارهٔ این فرایند دارید بشنوم. در بخش دیدگاه‌ها با من در ارتباط باشید.
+I'd love to hear about your own experience building decentralized systems, or any questions you have about this process. Reach out in the comments.

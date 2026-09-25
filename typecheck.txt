@@ -1,0 +1,10 @@
+$ nuxt typecheck
+
+[90m[[90m@nuxtjs/og-image[90m][39m [43m[30m WARN [39m[49m Unknown Nitro preset "static" — falling back to node-server compatibility. Set ogImage.compatibility.runtime to override.
+
+
+[90m[[90m@nuxtjs/og-image[90m][39m [43m[30m WARN [39m[49m Unknown Nitro preset "static" — falling back to node-server compatibility. Set ogImage.compatibility.runtime to override.
+
+[32m✔[39m Nuxt Icon discovered local-installed 2 collections: lucide, simple-icons
+[36mℹ[39m Nuxt Icon client bundle consist of [36m34[39m icons with [36m13.04KB[39m(uncompressed) in size
+[90m[[90mnuxt[90m][39m [36mℹ[39m Compiled [36mnuxt-icon-client-bundle.mjs[39m in 1538.33ms

@@ -3,7 +3,18 @@ import type { IndexCollectionItem } from '@nuxt/content'
 
 const { footer, global } = useAppConfig()
 const { t } = useI18n()
+const localePath = useLocalePath()
 const { openSmartContactLink } = useSmartContactLink()
+
+// مسیر تماس باید با زبان فعلی هم‌خوان باشد، وگرنه از صفحات انگلیسی
+// کاربر به نسخه فارسی (/contact) می‌رود و زبان عوض می‌شود.
+const meetingLink = computed(() => {
+  if (!global.meetingLink) {
+    return ''
+  }
+
+  return localePath(global.meetingLink)
+})
 
 defineProps<{
   page: IndexCollectionItem
@@ -112,7 +123,7 @@ defineProps<{
             :color="global.available ? 'success' : 'error'"
             variant="ghost"
             class="gap-2"
-            :to="global.available ? global.meetingLink : ''"
+            :to="global.available ? meetingLink : ''"
             :label="global.available ? t('availability.available') : t('availability.unavailable')"
           >
             <template #leading>

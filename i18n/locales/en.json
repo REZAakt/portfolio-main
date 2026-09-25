@@ -26,5 +26,11 @@
       "message": "This project is under development.",
       "description": "The online version will be available after completion."
     }
+  },
+  "blog": {
+    "title": "Blog",
+    "minRead": "min read",
+    "copyLink": "Copy link",
+    "linkCopied": "Article link copied to clipboard"
   }
 }

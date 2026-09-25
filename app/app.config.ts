@@ -6,6 +6,9 @@ export default defineAppConfig({
       light: '/images/me_dark.avif',
       alt: 'My profile picture'
     },
+    // مسیر پایه تماس (بدون پیشوند زبان)؛ در کامپوننت‌ها با localePath به مسیر
+    // همان زبان تبدیل می‌شود تا کاربر انگلیسی به /en/contact و کاربر فارسی
+    // به /contact برود و زبان صفحه عوض نشود.
     meetingLink: '/contact',
     email: 'rreza.aak@gmail.com',
     phone: '+989114461400',

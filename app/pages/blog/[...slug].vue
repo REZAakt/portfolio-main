@@ -2,6 +2,9 @@
 <script setup lang="ts">
 const route = useRoute()
 const { contentPath, toRoutePath } = useContentPath()
+const { t, locale } = useI18n()
+
+const isPersian = computed(() => locale.value === 'fa')
 
 // console.group('🔥 BLOG POST DEBUG')
 // console.log('route.path:', route.path)
@@ -61,7 +64,7 @@ if (page.value.image) {
   defineOgImage('Portfolio', {
     title,
     description,
-    headline: 'Blog'
+    headline: t('blog.title')
   })
 }
 
@@ -77,13 +80,25 @@ const backLink = computed(() => {
   return route.path.startsWith('/en') ? '/en/blog' : '/blog'
 })
 
+// تاریخ و شماره‌ها باید با زبان صفحه هم‌خوان باشند؛ در حالت فارسی از تقویم و
+// ارقام فارسی استفاده می‌شود تا متنِ صفحه بلاگ یکدست فارسی بماند.
 const formatDate = (dateString: string) => {
-  return new Date(dateString).toLocaleDateString('en-US', {
+  return new Date(dateString).toLocaleDateString(isPersian.value ? 'fa-IR' : 'en-US', {
     year: 'numeric',
-    month: 'short',
+    month: isPersian.value ? 'long' : 'short',
     day: 'numeric'
   })
 }
+
+const minRead = computed(() => {
+  if (!page.value?.minRead) {
+    return ''
+  }
+
+  return isPersian.value
+    ? page.value.minRead.toLocaleString('fa-IR')
+    : String(page.value.minRead)
+})
 </script>
 
 <template>
@@ -98,7 +113,7 @@ const formatDate = (dateString: string) => {
             name="i-lucide-chevron-left"
             class="rtl:rotate-180"
           />
-          Blog
+          {{ t('blog.title') }}
         </ULink>
 
         <div class="flex flex-col gap-3 mt-8">
@@ -107,7 +122,7 @@ const formatDate = (dateString: string) => {
               {{ formatDate(page.date) }}
             </span>
             <span v-if="page.date && page.minRead"> - </span>
-            <span v-if="page.minRead"> {{ page.minRead }} MIN READ </span>
+            <span v-if="minRead"> {{ minRead }} {{ t('blog.minRead') }} </span>
           </div>
 
           <NuxtImg
@@ -147,8 +162,8 @@ const formatDate = (dateString: string) => {
               size="sm"
               variant="link"
               color="neutral"
-              label="Copy link"
-              @click="copyToClipboard(articleLink, 'Article link copied to clipboard')"
+              :label="t('blog.copyLink')"
+              @click="copyToClipboard(articleLink, t('blog.linkCopied'))"
             />
           </div>
 

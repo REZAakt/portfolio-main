@@ -1,6 +1,18 @@
 <!-- eslint-disable @stylistic/arrow-parens -->
 <script setup lang="ts">
 const { contentPath, toRoutePath } = useContentPath()
+const { locale } = useI18n()
+
+const isPersian = computed(() => locale.value === 'fa')
+
+// تاریخ کارت‌های بلاگ هم باید با زبان صفحه هم‌خوان باشد.
+const formatDate = (date: string | Date) => {
+  return new Date(date).toLocaleDateString(isPersian.value ? 'fa-IR' : 'en-US', {
+    year: 'numeric',
+    month: isPersian.value ? 'long' : 'short',
+    day: 'numeric'
+  })
+}
 
 const { data: page } = await useAsyncData(
   () => `blog-page-${contentPath.value}`,
@@ -102,7 +114,11 @@ defineOgImage('Portfolio', {
               header:
                 index % 2 === 0 ? 'sm:-rotate-1 overflow-visible' : 'sm:rotate-1 overflow-visible'
             }"
-          />
+          >
+            <template #date>
+              {{ formatDate(post.date) }}
+            </template>
+          </UBlogPost>
         </Motion>
       </UBlogPosts>
     </UPageSection>
