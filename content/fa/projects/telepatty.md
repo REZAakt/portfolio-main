@@ -29,7 +29,7 @@ details:
 media:
   - type: video
 
-    src: /images/projects/telepatty/v1.webm
+    src: /images/projects/telepatty/1v.webm
 
   - type: image
 
